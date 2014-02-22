@@ -1,0 +1,13 @@
+<tool id="mutationassesor_web" name="MutationAssesor">
+    <description>MutationAssesor web service</description>
+    <command interpreter="python">
+        mutation_assesor.py $input $output
+    </command>
+    <inputs>
+        <param name="input" format="txt" type="data" label="Input variants" />
+    </inputs>
+    <outputs>
+        <data name="output" format="tabular"/>
+    </outputs>
+</tool>
+
