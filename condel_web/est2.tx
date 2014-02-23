@@ -1,0 +1,6 @@
+#id	hgnc	hgncdesc	transcript	ensp	sw	protein_position	amino_acids	sift	polyphen	mass	siftTransfic	siftTransficLabel	pph2Transfic	pph2TransficLabel	maTransfic	maTransficLabel
+3	MTMR3	myotubularin related protein 3	ENST00000323630	ENSP00000318070	NA	1062	N/Y	0	0.979	NA	2.251	high_impact	1.348	medium_impact	NA	NA
+2	MTMR3	myotubularin related protein 3	ENST00000406629	ENSP00000384077	NA	1170	N/Y	0	0.948	NA	2.251	high_impact	1.101	medium_impact	NA	NA
+1	MTMR3	myotubularin related protein 3	ENST00000333027	ENSP00000331649	NA	1170	N/Y	0	0.948	NA	2.251	high_impact	1.101	medium_impact	NA	NA
+0	MTMR3	myotubularin related protein 3	ENST00000351488	ENSP00000307271	NA	1161	N/Y	0	0.948	NA	2.251	high_impact	1.101	medium_impact	NA	NA
+4	MTMR3	myotubularin related protein 3	ENST00000401950	ENSP00000384651	MTMR3_HUMAN	1198	N/Y	0	0.979	1.61	2.251	high_impact	1.348	medium_impact	0.648	low_impact

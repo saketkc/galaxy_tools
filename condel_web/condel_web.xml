@@ -1,0 +1,13 @@
+<tool id="condel_web" name="condel">
+    <description>Condel web service</description>
+    <command interpreter="python">
+        condel_web.py --input $input --output $output
+    </command>
+    <inputs>
+        <param name="input" format="text" type="data" label="Input Variants" />
+    </inputs>
+    <outputs>
+        <data name="output" format="tabular"/>
+    </outputs>
+</tool>
+
