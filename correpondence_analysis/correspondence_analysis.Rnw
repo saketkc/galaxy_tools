@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage[margin=0.0in]{geometry}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+<<results=tex, echo=FALSE>>=
+library("made4")
+distEisen <- function(x, use = "pairwise.complete.obs") {
+co.x <- cor(x, use = use)
+dist.co.x <- 1 - co.x
+return(as.dist(dist.co.x))
+}
+annotations<-read.csv(annotation_classes_file, header=TRUE, row.names=1, sep="\t", quote="\'")
+data.raw <- read.csv(input_file, row.names=1, na.strings="#NUM!", check.names=TRUE, sep="\t", quote="\'")
+data.raw[data.raw<=0]<-1
+data.log<-log2(data.raw)
+data.log[data.log<0] <- 0
+data.log[is.na(data.log)] <- 0
+data.norm <-data.log/colMeans(data.log,na.rm=FALSE)
+data.norm$control_mean <- rowMeans(subset(data.norm,select=control_columns))
+data.norm$disease_mean <- rowMeans(subset(data.norm,select=disease_columns))
+data.norm$ratio=data.norm$control_mean/data.norm$disease_mean
+foldchanges<-seq(1,max(data.norm$ratio),0.1)
+@
+<<results=tex, echo=FALSE>>=
+listofall<-list()
+listToDF <- function(inputList, fill = NA){
+    # Use fill = NULL for regular recycling behavior
+    maxLen = max(sapply(inputList, length))
+    for(i in seq_along(inputList))
+        inputList[[i]] <- c(inputList[[i]], rep(fill, maxLen -
+length(inputList[[i]])))
+    return(as.data.frame(inputList))
+}
+for (i in foldchanges){
+  data.fold<-subset(data.norm,ratio>as.numeric(i) | ratio<1/as.numeric(i))
+  data.fold[is.na(data.fold)] <- 0
+  data.fold$control_mean<-NULL
+  data.fold$disease_mean<-NULL
+  data.fold$ratio<-NULL
+  data.coa<-ord(data.fold, type = "coa")
+  data.coa[is.na(data.coa)] <- 0
+  filename<-paste(overview_file,i,".pdf",sep="")
+  pdf(file=filename) 
+  dataset<-data.fold
+  if (!inherits(dataset, "matrix")) {
+            if (!inherits(dataset, "AffyBatch")) {
+                dataset <- array2ade4(dataset, trans = FALSE)
+            }
+            if (inherits(dataset, "AffyBatch")) {
+                dataset = exprs(dataset)
+            }
+  }
+  hc = hclust(distEisen(dataset), method = "complete")
+  labels = colnames(dataset)
+  plot(hc, hang = -1, labels = labels, main = paste("Complete likage clustering Foldchange", sep = " "), sub = "", xlab = "")
+  dev.off()
+  filename1<-paste(overview_file,i,sep="")
+  cat("\\centerline{\\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{", filename1, "}}\n\n", sep="")
+  ax1 <- topgenes(data.coa, axis = 1, n = 10)
+  nn<-paste("foldchange",i,sep="")
+  listofall[[nn]]=ax1
+  filename2<-paste(biplot_file, i, sep="")
+  pdf(file=paste(filename2,".pdf",sep=""),width=14,height=10,onefile=TRUE, family='Helvetica', paper='legal', pointsize=16)  
+  plot(data.coa, classvec=annotations$Category)
+  dev.off()
+  cat("\\centerline{\\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{", filename2, "}}\n\n", sep="")   
+  cat("\\clearpage")
+}
+write.csv(listToDF(listofall), genelist_file)
+@
+\end{document}

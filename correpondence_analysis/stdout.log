@@ -1,0 +1,180 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian)
+ restricted \write18 enabled.
+entering extended mode
+
+(/home/saket/GALAXY/DDP-galaxy/tools/correpondence_analysis/correspondence_anal
+ysis.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
+ czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
+n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
+reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
+ sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
+n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
+speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
+lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
+celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, th
+ai, loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty))))
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty))))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty))
+(/usr/share/texmf/tex/latex/R/tex/latex/Sweave.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def))
+(/usr/share/texlive/texmf-dist/tex/latex/ae/ae.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aer.fd))))
+(./correspondence_analysis.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(./correspondence_analysis-concordance.tex)
+</tmp/tmpO3aqfv/overview1.pdf, id=2, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.pdf>
+</tmp/tmpO3aqfv/biplot1.pdf, id=3, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.pdf> [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdft
+ex.map} </tmp/tmpO3aqfv/overview1.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[2 </tmp/tmpO3aqfv/biplot1.pdf>]
+</tmp/tmpO3aqfv/overview1.1.pdf, id=25, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.1.pdf>
+</tmp/tmpO3aqfv/biplot1.1.pdf, id=26, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.1.pdf> [3 </tmp/tmpO3aqfv/overview1.1.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[4 </tmp/tmpO3aqfv/biplot1.1.pdf>]
+</tmp/tmpO3aqfv/overview1.2.pdf, id=45, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.2.pdf>
+</tmp/tmpO3aqfv/biplot1.2.pdf, id=46, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.2.pdf> [5 </tmp/tmpO3aqfv/overview1.2.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[6 </tmp/tmpO3aqfv/biplot1.2.pdf>]
+</tmp/tmpO3aqfv/overview1.3.pdf, id=65, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.3.pdf>
+</tmp/tmpO3aqfv/biplot1.3.pdf, id=66, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.3.pdf> [7 </tmp/tmpO3aqfv/overview1.3.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[8 </tmp/tmpO3aqfv/biplot1.3.pdf>]
+</tmp/tmpO3aqfv/overview1.4.pdf, id=86, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.4.pdf>
+</tmp/tmpO3aqfv/biplot1.4.pdf, id=87, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.4.pdf> [9 </tmp/tmpO3aqfv/overview1.4.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[10 </tmp/tmpO3aqfv/biplot1.4.pdf>]
+</tmp/tmpO3aqfv/overview1.5.pdf, id=106, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.5.pdf>
+</tmp/tmpO3aqfv/biplot1.5.pdf, id=107, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.5.pdf> [11 </tmp/tmpO3aqfv/overview1.5.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[12 </tmp/tmpO3aqfv/biplot1.5.pdf>]
+</tmp/tmpO3aqfv/overview1.6.pdf, id=126, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.6.pdf>
+</tmp/tmpO3aqfv/biplot1.6.pdf, id=127, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.6.pdf> [13 </tmp/tmpO3aqfv/overview1.6.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[14 </tmp/tmpO3aqfv/biplot1.6.pdf>]
+</tmp/tmpO3aqfv/overview1.7.pdf, id=147, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.7.pdf>
+</tmp/tmpO3aqfv/biplot1.7.pdf, id=148, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.7.pdf> [15 </tmp/tmpO3aqfv/overview1.7.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[16 </tmp/tmpO3aqfv/biplot1.7.pdf>]
+</tmp/tmpO3aqfv/overview1.8.pdf, id=168, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.8.pdf>
+</tmp/tmpO3aqfv/biplot1.8.pdf, id=169, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.8.pdf> [17 </tmp/tmpO3aqfv/overview1.8.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[18 </tmp/tmpO3aqfv/biplot1.8.pdf>]
+</tmp/tmpO3aqfv/overview1.9.pdf, id=188, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview1.9.pdf>
+</tmp/tmpO3aqfv/biplot1.9.pdf, id=189, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot1.9.pdf> [19 </tmp/tmpO3aqfv/overview1.9.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[20 </tmp/tmpO3aqfv/biplot1.9.pdf>]
+</tmp/tmpO3aqfv/overview2.pdf, id=209, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview2.pdf>
+</tmp/tmpO3aqfv/biplot2.pdf, id=210, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot2.pdf> [21 </tmp/tmpO3aqfv/overview2.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[22 </tmp/tmpO3aqfv/biplot2.pdf>]
+</tmp/tmpO3aqfv/overview2.1.pdf, id=229, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview2.1.pdf>
+</tmp/tmpO3aqfv/biplot2.1.pdf, id=230, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot2.1.pdf> [23 </tmp/tmpO3aqfv/overview2.1.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[24 </tmp/tmpO3aqfv/biplot2.1.pdf>]
+</tmp/tmpO3aqfv/overview2.2.pdf, id=249, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview2.2.pdf>
+</tmp/tmpO3aqfv/biplot2.2.pdf, id=250, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot2.2.pdf> [25 </tmp/tmpO3aqfv/overview2.2.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[26 </tmp/tmpO3aqfv/biplot2.2.pdf>]
+</tmp/tmpO3aqfv/overview2.3.pdf, id=270, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview2.3.pdf>
+</tmp/tmpO3aqfv/biplot2.3.pdf, id=271, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot2.3.pdf> [27 </tmp/tmpO3aqfv/overview2.3.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[28 </tmp/tmpO3aqfv/biplot2.3.pdf>]
+</tmp/tmpO3aqfv/overview2.4.pdf, id=290, 505.89pt x 505.89pt>
+<use /tmp/tmpO3aqfv/overview2.4.pdf>
+</tmp/tmpO3aqfv/biplot2.4.pdf, id=291, 614.295pt x 1011.78pt>
+<use /tmp/tmpO3aqfv/biplot2.4.pdf> [29 </tmp/tmpO3aqfv/overview2.4.pdf>]
+Overfull \vbox (14.47055pt too high) has occurred while \output is active
+[30 </tmp/tmpO3aqfv/biplot2.4.pdf>] (./correspondence_analysis.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on correspondence_analysis.pdf (30 pages, 654718 bytes).
+Transcript written on correspondence_analysis.log.
+Writing to file correspondence_analysis.tex
+Processing code chunks with options ...
+ 1 : keep.source term tex (correspondence_analysis.Rnw:10)
+Loading required package: ade4
+Loading required package: RColorBrewer
+Loading required package: gplots
+KernSmooth 2.23 loaded
+Copyright M. P. Wand 1997-2009
+
+Attaching package: ‘gplots’
+
+The following object is masked from ‘package:stats’:
+
+    lowess
+
+Loading required package: scatterplot3d
+ 2 : keep.source term tex (correspondence_analysis.Rnw:29)
+
+You can now run (pdf)latex on ‘correspondence_analysis.tex’

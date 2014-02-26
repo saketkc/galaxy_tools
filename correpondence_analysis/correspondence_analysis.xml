@@ -1,0 +1,22 @@
+<tool id="correpondence_analysis" name="Correspondence Analysis using R">
+    <description>Correspondence Analysis using R</description>
+    <command interpreter="python">
+        correspondence_analysis.py
+        --raw_input_file=$input
+        --annotation_classes_file=$annotation_classes_file
+        --genelist_file=$genelist_file
+        --output=$output
+        1>stdout.log
+    </command>
+    <inputs>
+        <param name="input" format="tabular,csv" type="data" label="Input File" />
+        <param name="annotation_classes_file" format="tabular,csv" type="data" />
+
+    </inputs>
+    <outputs>
+        <data name="output" format="pdf"/>
+        <data name="genelist_file" format="tabular,csv"/>
+    </outputs>
+
+</tool>
+

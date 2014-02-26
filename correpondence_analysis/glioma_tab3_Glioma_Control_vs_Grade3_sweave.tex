@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage[margin=0.0in]{geometry}
+\graphicspath{ {/data1/Proteomics_Lab_Data/glioma/}}
+\usepackage{Sweave}
+\begin{document}
+\input{glioma_tab3_Glioma_Control_vs_Grade3_sweave-concordance}
+
+\begin{Schunk}
+\begin{Sinput}
+>   library("made4")
+> distEisen <- function(x, use = "pairwise.complete.obs") {
++   co.x <- cor(x, use = use)
++   dist.co.x <- 1 - co.x
++   return(as.dist(dist.co.x))
++ }
+> annotations<-read.csv("/data1/Proteomics_Lab_Data/glioma/annotation_classes_HC_vs_Glioma_Grade_III.csv",header=TRUE,row.names=1,sep=",",quote="\'")
+> data.raw <- read.csv("/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III.csv",row.names=1, na.strings="#NUM!", check.names=TRUE,sep=",",quote="\'")
+> data.raw[data.raw<=0]<-1
+> data.log<-log2(data.raw)
+> data.log[data.log<0] <- 0
+> data.log[is.na(data.log)] <- 0
+> data.norm <-data.log/colMeans(data.log,na.rm=FALSE)
+> data.norm$control_mean <- rowMeans(subset(data.norm,select=c("HC_01","HC_02","HC_03","HC_04","HC_05","HC_06","HC_07","HC_08","HC_09","HC_10")))
+> data.norm$disease_mean <- rowMeans(subset(data.norm,select=c("GL_Gr_III_01","GL_Gr_III_02","GL_Gr_III_03","GL_Gr_III_04","GL_Gr_III_05","GL_Gr_III_06","GL_Gr_III_07","GL_Gr_III_08","GL_Gr_III_09",
++ "GL_Gr_III_10","GL_Gr_III_11","GL_Gr_III_12","GL_Gr_III_13","GL_Gr_III_14","GL_Gr_III_15","GL_Gr_III_16","GL_Gr_III_17","GL_Gr_III_18","GL_Gr_III_19","GL_Gr_III_20")))
+> #,"MG_II_01","MG_II_02","MG_II_03","MG_II_04","MG_II_05"))
+> data.norm$ratio=data.norm$control_mean/data.norm$disease_mean
+> foldchanges<-seq(1,max(data.norm$ratio),0.1)
+\end{Sinput}
+\end{Schunk}
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.1}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.1}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.2}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.2}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.3}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.3}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.4}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.4}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.5}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.5}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.6}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.6}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.7}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.7}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.8}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.8}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange1.9}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange1.9}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange2}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange2}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange2.1}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange2.1}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange2.2}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange2.2}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange2.3}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange2.3}}
+
+\clearpage\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_overview_foldchange2.4}}
+
+\centerline{\includegraphics[ext=.pdf,type=pdf,read=*,scale=1,angle=0]{/data1/Proteomics_Lab_Data/glioma/HC_vs_Glioma_Grade_III_biplot_foldchange2.4}}
+
+\clearpage
+
+\end{document}

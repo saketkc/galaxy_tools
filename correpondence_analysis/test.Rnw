@@ -1,0 +1,22 @@
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage[margin=0.0in]{geometry}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+<<results=tex, echo=FALSE>>=
+library("made4")
+distEisen <- function(x, use = "pairwise.complete.obs") {
+co.x <- cor(x, use = use)
+dist.co.x <- 1 - co.x
+return(as.dist(dist.co.x))
+}
+annotations<-read.csv(annotation_classes, header=TRUE, row.names=1, sep="\t", quote="\'")
+print annotation_classes
+@
+\end{document}
+
