@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<script type="text/javascript" src="Biojs.js"></script>
+        <script type="text/javascript" src="Biojs.FastaReader.js"></script>        
+        <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript">
+			var instance;
+			var fasta = 
+			[
+			"# Fasta with comments",
+			">gi|test1|something1|something2",
+			"MENLNMDLLYMAAAVMMGLAAIGAAIGIGILGGKFLEGAARQPDLIPLLRTQFFIVMGLVDAIPMIAVGL",
+			"GLYVMFAVA",	
+			"# Comments out to be ignored",
+			"# Including this",
+			">gi|whatever|whatever",
+			"MENLNMDLLYMAAAVMMGLAAIGAAIGIGILGG",
+			"# Including this too",
+			"# And this too",
+
+			].join("\n");
+			var splitFasta = fasta.split("\n");
+			function test(){
+				readLines = [];
+					var currentLine = splitFasta.shift();
+					
+					while(currentLine!="" && currentLine!=null && currentLine!=undefined)
+					{
+						alert(currentLine.charAt(0));
+						if (currentLine.charAt(0)==">"){
+							identifier = currentLine.substring(1,currentLine.length-1);					
+							currentLine = splitFasta.shift();
+						}
+						
+						if (currentLine.charAt(0) != "#"){						
+						readLines.push(currentLine)						
+					}
+					currentLine = splitFasta.shift();
+						
+							
+					}
+					//var a = new Array();
+					//a["identifier"] = identifier;
+					//a["fasta"] = fasta
+					//yield;// a;
+					//{"identifier": identifer, "fasta": fasta}
+					console.log(readLines);
+				}
+				
+			
+			window.onload = function() {
+				
+				test();
+				
+				
+			};
+        </script>
+        <body><div id="test"></div></body>
+        
+</html>
