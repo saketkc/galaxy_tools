@@ -39,21 +39,41 @@
 						
 							
 					}
-					//var a = new Array();
-					//a["identifier"] = identifier;
-					//a["fasta"] = fasta
-					//yield;// a;
-					//{"identifier": identifer, "fasta": fasta}
+					
 					console.log(readLines);
 				}
 				
 			
 			window.onload = function() {
 				
-				test();
+			$.ajaxSetup({
+				url: "chr2.fa", type: "GET", async: true, dataType: "text"
 				
+			});
 				
-			};
+				$.ajax({
+					
+					url: "chr2.fa",
+					beforeSend : function(xhr) {
+					xhr.setRequestHeader("Range", "bytes=0-248063367" );
+				}
+					}).done(function() {
+						alert( "success" );
+					}).fail(function() {
+						alert( "error" );
+					}).success(function(data) {
+						alert( data );
+						$.ajax({
+							url: "chr2.fa",
+							beforeSend : function(xhr) {
+									xhr.setRequestHeader("Range", "bytes=32000-64000" );
+								}
+							}).success(function(data){
+								alert(data);
+								});
+			});
+
+		};
         </script>
         <body><div id="test"></div></body>
         

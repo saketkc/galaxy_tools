@@ -1,0 +1,10 @@
+# Fasta with comments
+>gi|test1|something1|something2
+MENLNMDLLYMAAAVMMGLAAIGAAIGIGILGGKFLEGAARQPDLIPLLRTQFFIVMGLVDAIPMIAVGL
+GLYVMFAVA
+# Comments out to be ignored
+# Including this
+>gi|whatever|whatever
+MENLNMDLLYMAAAVMMGLAAIGAAIGIGILGG
+# Including this too
+# And this too
