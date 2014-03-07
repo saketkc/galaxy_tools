@@ -3,10 +3,13 @@
 		<script type="text/javascript" src="Biojs.js"></script>
         <script type="text/javascript" src="Biojs.FastaReader.js"></script>        
         <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+        
         <script type="text/javascript">
+				
 			var instance;
 			var fastaSize;
 			var sizeRequest;
+			var currentIndex;
 			function fastaParser(fasta){
 				
 				readLines = [];
@@ -63,7 +66,7 @@
 						},
 						success: function(data){
 							//alert(data);
-							$("#fasta").append(data);
+							$("#fasta").append(data+"<button class='loadmore' id='"+startByte+"'>Load more</button>");
 							return data;
 						},
 						error: function(data){
@@ -84,26 +87,36 @@
 					var seq =  getSequence(0,fastaSize);
 					$("#fasta").append(seq);
 				}
-				var chunks = fastaSize/5000.0;
-				//alert(chunks);
-				for (var i=0;i<chunks; i++){
-					var start = i*5000;
-					var end = start+4999;
-					var seq = getSequence(start, end);
-					
-					
-				}
+				chunks = fastaSize/5000.0;		//alert(chunks);
 				
+				
+				
+					start = 0*5000;
+					end = start+4999;
+					seq = getSequence(start, end);
+					
+					
 				
 			}
 				
+			//$('#fasta').jscroll({autoTrigger:false    autoTrigger: false});
 			
+			$(document).ready(function (){
 			
-			window.onload = function (){
 				fastaSize = getFileSize();
-			}
+			});
 			
         </script>
-        <body><div id="fasta"></div></body>
+        <script></script>
+        <body><div id="fasta"></div>
+        <button>DSADADAS</button>
+        </body>
+        <script>$('body').on("click", 'button.loadmore',  function(){
+				var id = $(this).attr("id");
+				start = (id)*5000;
+				end = start+4999;
+				seq = getSequence(start, end);
+
+			});</script>
         
 </html>
