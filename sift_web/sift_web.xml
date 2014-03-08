@@ -1,0 +1,15 @@
+<tool id="sift_web" name="SIFTWeb">
+    <description>SIFT/Provean web service</description>
+    <command interpreter="python">
+        sift_web.py --input $input --output1 $output1 --output2 $output2 --output3 $output3
+    </command>
+    <inputs>
+        <param name="input" format="txt" type="data" label="Inout Variants"/>
+    </inputs>
+    <outputs>
+        <data name="output1" format="tabular"/>
+        <data name="output2" format="tabular"/>
+        <data name="output3" format="tabular"/>
+    </outputs>
+</tool>
+
