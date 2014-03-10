@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="d3.v2.min.js"></script>
+		<script type="text/javascript" src="underscore-min.js"></script>
+				
+        
+        <script type="text/javascript">
+				
+			function guessLengths(data){
+				
+				var splitQ = data.split("@");
+				var lengths = _.map(splitQ[1].split('\n'), function(s){return s.length+1})
+				alert(lengths)
+				var test= "^(?:([acgtATGC])(?!.*\1))$"
+				lengths[0]+=1;
+				lengths.pop();
+				var sum = _.reduce(lengths, function(memo, num){ return memo + num; }, 0);
+				
+				seq = getSequence(0,sum-1);
+				alert(lengths);
+				
+			}
+			
+			function readFastQ(fastQ){
+				var splitQ = fastQ.split('\n');
+				
+			}
+			
+			
+			function getSequence(startByte, endByte){
+			
+				if (endByte>startByte){
+					var request;
+					bytes = startByte + "-" + endByte;
+					request = $.ajax({
+						url: "test1.fastq",
+						async: false,
+						beforeSend : function(xhr) {
+							xhr.setRequestHeader("Range", "bytes=" + bytes );
+						},
+						success: function(data){
+							alert(data);
+							guessLengths(data);
+						},
+						error: function(data){
+							alert("Error fetching data");
+						},
+					});
+				}
+				else{
+					alert("Startbytes should not be > end");
+				}
+			}
+			
+			function main(){
+			
+				data = getSequence(0,2000);
+				
+				
+				
+					
+					
+				
+			}
+				
+			//$('#fasta').jscroll({autoTrigger:false    autoTrigger: false});
+			
+			$(document).ready(function (){
+			
+				fastaSize = main();
+			});
+			
+        </script>
+        <script></script>
+        <body><div id="fasta"></div>
+      
+        </body>
+        
+        
+</html>
