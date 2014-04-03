@@ -83,7 +83,9 @@ def retry(ExceptionToCheck, tries=4, delay=3, backoff=2, logger=None):
 
     return deco_retry
 CANCERTYPES =["Bladder","Blood-Lymphocyte","Blood-Myeloid","Brain-Cerebellum","Brain-Glioblastoma_Multiforme","Brain-Lower_Grade_Glioma","Breast","Cervix","Colon","Head_and_Neck","Kidney-Chromophobe","Kidney-Clear_Cell","Kidney-Papiallary_Cell","Liver-Nonviral","Liver-Viral","Lung-Adenocarcinoma","Lung-Squamous_Cell","Melanoma","Other","Ovary","Pancreas","Prostate-Adenocarcinoma","Rectum","Skin","Stomach","Thyroid","Uterus"]
-URL="http://www.cravat.us/ClassifierSelect1"
+#URL="http://www.cravat.us/ClassifierSelect1"
+
+URL="http://www.cravat.us/rest/service/submit"
 def stop_err( msg ):
     sys.stderr.write( '%s\n' % msg )
     sys.exit()
@@ -105,14 +107,14 @@ class CHASMWeb:
         self.mupit_input= mupit_out
     def make_request( self ):
         data = {
-                "mutationbox":self.mutationbox,
+                "mutations  ":self.mutationbox,
                 "hg18": self.is_hg_18,
                 "analysistype": self.analysis_type,
-                "chosendb": self.analysis_program,
-                "cancertype": self.cancer_type,
-                "geneannotcheckbox": self.annotate_genes,
-                "emailbox": self.email,
-                "tsvreport": self.text_reports,
+                "analysisitem": self.analysis_program,
+                "chasmclassifier": self.cancer_type,
+                "geneannotation": self.annotate_genes,
+                "email": self.email,
+                "tsvreport": "on",# self.text_reports,
                 "mupitinput": self.mupit_input,
                 }
         stripped_data = {}
@@ -122,13 +124,15 @@ class CHASMWeb:
                 value="on"
             if value!=None and value!=False:
                 stripped_data[key]=value
+
         #print stripped_data
         if not self.mutationbox:
             file_payload={"inputfile":open(self.filepath)}
             request = requests.post(URL, data=stripped_data, files=file_payload)
         else:
             request = requests.post(URL, data=stripped_data, files=dict(foo='bar'))
-        job_id = json.loads(request.text)["jobId"]
+        print request.text
+        job_id = json.loads(request.text)["jobid"]
         return job_id
     @retry(requests.exceptions.HTTPError)
     def zip_exists(self,job_id ):
@@ -209,10 +213,10 @@ def main(params):
                          text_reports=args.tsv_report,
                          mupit_out=args.mupit_out)
     job_id=chasm_web.make_request()
-    file_map = {"Amino_Acid_Level_Analysis.tsv":args.amino_acid_level_analysis_out,
+    file_map = {"Amino_Acid_Level_Analysis.Result.tsv":args.amino_acid_level_analysis_out,
                 "SNVBox.tsv":args.snv_box_out,
-                "Variant_Analysis.tsv":args.variant_analysis_out,
-                "Gene_Level_Analysis.tsv":args.gene_analysis_out,
+                "Variant_Analysis.Result.tsv":args.variant_analysis_out,
+                "Gene_Level_Analysis.Result.tsv":args.gene_analysis_out,
                 "SnvGet Feature Description.xls":args.snv_features_out,
                 "error.txt":args.error_file_out
                 }

@@ -69,7 +69,7 @@ class TransficUploader:
         self.c.setopt(pycurl.URL, __url__)
         self.c.setopt(pycurl.UPLOAD, 1)
         #c.setopt(pycurl.USERPWD, 'saket.kumar:whatsinaname.')
-        self.c.setopt(pycurl.PROXY, 'http://saket.kumar:whatsinaname.@netmon.iitb.ac.in:80/')
+        self.c.setopt(pycurl.PROXY, 'http://saket.kumar:uzfmTjX9839.1314@netmon.iitb.ac.in:80/')
         #c.setopt(pycurl.PROXYPORT, 80)
         #c.setopt(pycurl.PROXYTYPE_HTTP,1)
         #self.c.setopt(pycurl.VERBOSE, 1)
@@ -134,6 +134,7 @@ def main(params):
     uploader.upload_file(args.input)
     uploader.run()
     url = uploader.get_url()
+    #print url
     url = uploader.result_exists(url)
     download = uploader.download_result(url,args.output)
 if __name__=="__main__":

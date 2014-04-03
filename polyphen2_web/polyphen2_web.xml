@@ -1,0 +1,45 @@
+<tool id="polyphen2_web" name="PolyPhen-2 Webservice">
+    <description>Compute functional impact of SNVs </description>
+    <requirements>
+        <requirement type="package">requests</requirement>
+    </requirements>
+    <command interpreter="python">
+        polyphen2_web.py --ucscdb $ucscdb --model $model --filter $filter --function $function --input $input --log $log_file --full $full_file --short $short_file --snp $snp_file
+    </command>
+    <inputs>
+        <param format="txt" name="input" type="data" label="Variants File" />
+        <param name="ucscdb" type="select" label="Genome Assembly">
+            <option value="hg19">GRCh37/hg19</option>
+            <option value="hg18">NCBI36/hg18</option>
+        </param>
+        <param name="model" type="select" label="Classifier Model">
+            <option value="HumDiv">HumDiv</option>
+            <option value="HumVar">HumVar</option>
+        </param>
+        <param name="filter" type="select" label="Transcripts">
+            <option value="All">All</option>
+            <option value="Canonical">Canonical</option>
+            <option value="CCDS">CCDS</option>
+        </param>
+        <param name="function" type="select" label="Annotations">
+            <option value="c">Canonical</option>
+            <option value="m">CCDS</option>
+            <option value="All">All</option>
+        </param>
+    </inputs>
+    <outputs>
+
+        <data format="tabular" name="log_file" label="${tool.name} on ${on_string}: logfile" />
+        <data format="tabular" name="full_file" label="${tool.name} on ${on_string}: fullfile"/>
+        <data format="tabular" name="short_file" label="${tool.name} on ${on_string}: shortfile"/>
+        <data format="tabular" name="snp_file" label="${tool.name} on ${on_string}: snpfile"/>
+    </outputs>
+
+</tool>
+
+
+
+
+
+
+

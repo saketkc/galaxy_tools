@@ -29,32 +29,35 @@ var painter = new Biojs.HeatmapViewer({
         [{
             "col": 0,
             "row": 0,
-            "label": "M",
-            "score": 27,
+            "label": "CHASM",
+            "score": 1,
             "row_label": "A"
         }, {
             "col": 0,
             "row": 1,
-            "label": "M",
-            "score": 5,
+            "label": "SIFT",
+            "score": 0,
             "row_label": "C"
         }, {
             "col": 1,
             "row": 0,
-            "label": "M",
-            "score": 43,
+            "label": "CHASM",
+            "score": 0,
             "row_label": "D"
         }, {
             "col": 1,
             "row": 1,
-            "label": "M",
-            "score": 58,
+            "label": "SIFT",
+            "score": 0,
             "row_label": "E"
         }],
                         user_defined_config: {
                             colorLow: 'blue',
                             colorMed: 'white',
-                            colorHigh: 'red'
+                            colorHigh: 'red',
+                            scoreLow: -0,
+                            scoreMid: 0.5,
+                            scoreHigh: 1
                         },
                         target: 'test'
                 });
