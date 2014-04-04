@@ -8,7 +8,7 @@ from functools import wraps
 import tempfile, shutil,time
 import os,csv
 #__url__="http://mutationassessor.org/?cm=var&var=%s&frm=txt&fts=all"
-__url__="http://mutationassessor.org"
+__url__="http://mutationassessor.org/"
 def stop_err( msg ):
     sys.stderr.write( '%s\n' % msg )
     sys.exit()
@@ -83,9 +83,12 @@ def main_web(params):
     fh = open(path,"rb")
     readfile=fh.read()
     fh.close()
-    payload = {"vars":readfile,"tableQ":"","protres":""}
-    request = requests.post(__url__,data=payload)
+    print readfile
+    payload = {"vars":readfile,"beenQ":1}
+    files = {'file': open(path, 'rb')}
+    request = requests.post(__url__,data=payload, files=files)
     response = request.text
+    print response
     temp_file = os.path.join(tmp_dir,"int_file")
     with open(temp_file,"wb") as w:
         w.write(response)
