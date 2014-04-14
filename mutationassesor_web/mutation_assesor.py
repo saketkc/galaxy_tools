@@ -2,12 +2,13 @@
 import sys
 import requests
 from functools import wraps
-import tempfile
-import shutil
+#import tempfile
+#import shutil
 import time
 import os
-import csv
+#import csv
 import argparse
+import re
 #__url__='http://mutationassessor.org/?cm=var&var=%s&frm=txt&fts=all'
 __url__ = 'http://mutationassessor.org/'
 
@@ -82,7 +83,9 @@ def main(params):
     return True
 
 
-def main_web(params):
+def main_web(args):
+    ##Create a temp dir to
+    """
     tmp_dir = tempfile.mkdtemp()
     path = os.path.join(tmp_dir, 'csv_file')
     in_txt = csv.reader(open(params[0], 'rb'), delimiter='\t')
@@ -92,30 +95,56 @@ def main_web(params):
     fh = open(path, 'rb')
     readfile = fh.read()
     fh.close()
-    payload = {'vars': readfile, 'beenQ': 1}
-    files = {'file': open(path, 'rb')}
-    request = requests.post(__url__, data=payload, files=files)
+    """
+    assert os.path.exists(args.input)
+    with open(args.input) as f:
+        contents = f.read().strip()
+    if args.hg19 is True and args.protein is True:
+        stop_err('--hg19 option conflicts with --protein')
+    if args.protein is False:
+        ## Replace tabs/space with commas
+        re.sub('[\t\s]+', ',', contents)
+    if args.hg19:
+        ## Append hg19 to each line
+        lines = contents.split('\n')
+        contents = ('\n').join(
+            map((lambda x: 'hg19,' + x),
+                lines))
+
+    payload = {'vars': contents, 'beenQ': 1}
+    #files = {'file': open(path, 'rb')}
+    request = requests.post(__url__, data=payload)  # files=files)
     response = request.text
-    temp_file = os.path.join(tmp_dir, 'int_file')
-    with open(temp_file, 'wb') as w:
-        w.write(response)
-    in_txt = csv.reader(open(temp_file, 'rb'), delimiter=',')
-    with open(params[1], 'wb') as fp:
-        out_csv = csv.writer(fp, delimiter='\t')
-        out_csv.writerows(in_txt)
-    shutil.rmtree(tmp_dir)
+    #temp_file = os.path.join(tmp_dir, 'int_file')
+    #with open(temp_file, 'wb') as w:
+     #   w.write(response)
+    #in_txt = csv.reader(open(temp_file, 'rb'), delimiter=',')
+    with open(args.output, 'wb') as fp:
+        #out_csv = csv.writer(fp, delimiter='\t')
+        #out_csv.writerows(in_txt)
+        fp.write(response)
+    #shutil.rmtree(tmp_dir)
     return True
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Process input output paths")
-    parser.add_argument('--input', type=str, required=True)
-    parser.add_argument('--output', type=str, required=True)
-    parser.add_ardument('--log', type=str, required=False)
-
-
-
-
-
-
-
-    main_web(sys.argv[1:])
+    parser.add_argument('--input',
+                        type=str,
+                        required=True,
+                        help='Input file location')
+    parser.add_argument('--output',
+                        type=str,
+                        required=True,
+                        help='Output file locatio')
+    parser.add_ardument('--log',
+                        type=str,
+                        required=False)
+    parser.add_argument('--hg19',
+                        action='store_true',
+                        help="""Use hg19 build.
+                        Appends 'hg19' to each input line""")
+    parser.add_argument('--protein',
+                        action='store_true',
+                        help='Inputs are in protein space')
+    args = parser.parse_args()
+    main_web(args)
