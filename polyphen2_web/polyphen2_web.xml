@@ -1,10 +1,19 @@
 <tool id="polyphen2_web" name="PolyPhen-2 Webservice">
     <description>Compute functional impact of SNVs </description>
     <requirements>
-        <requirement type="package">requests</requirement>
+        <requirement type="package" version="4.1.0">beautifulsoup4</requirement>
+        <requirement type="python-module">bs4</requirement>
     </requirements>
     <command interpreter="python">
-        polyphen2_web.py --ucscdb $ucscdb --model $model --filter $filter --function $function --input $input --log $log_file --full $full_file --short $short_file --snp $snp_file
+        polyphen2_web.py --ucscdb $ucscdb
+                         --model $model
+                         --filter $filter
+                         --function $function
+                         --input $input
+                         --log $log_file
+                         --full $full_file
+                         --short $short_file
+                         --snp $snp_file
     </command>
     <inputs>
         <param format="txt" name="input" type="data" label="Variants File" />
@@ -28,13 +37,25 @@
         </param>
     </inputs>
     <outputs>
-
-        <data format="tabular" name="log_file" label="${tool.name} on ${on_string}: logfile" />
-        <data format="tabular" name="full_file" label="${tool.name} on ${on_string}: fullfile"/>
-        <data format="tabular" name="short_file" label="${tool.name} on ${on_string}: shortfile"/>
-        <data format="tabular" name="snp_file" label="${tool.name} on ${on_string}: snpfile"/>
+        <data format="tabular" name="log_file" label="${tool.name} on ${on_string}: log" />
+        <data format="tabular" name="full_file" label="${tool.name} on ${on_string}: full"/>
+        <data format="tabular" name="short_file" label="${tool.name} on ${on_string}: short"/>
+        <data format="tabular" name="snp_file" label="${tool.name} on ${on_string}: snp"/>
     </outputs>
 
+    <tests>
+        <test>
+            <param name="input" value="polyphen2_input.txt"/>
+            <param name="ucscdb" value="hg19"/>
+            <param name="model" value="HumDiv"/>
+            <param name="filter" value="All"/>
+            <param name="function" value="All"/>
+            <output name="log_file" file="polyphen2_log.txt"/>
+            <output name="full_file" file="polyphen2_full.txt"/>
+            <output name="short_file" file="polyphen2_short.txt"/>
+            <output name="snp_file" file="polyphen2_snp.txt"/>
+        </test>
+    </tests>
 </tool>
 
 
