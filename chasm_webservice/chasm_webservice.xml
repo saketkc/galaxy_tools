@@ -1,11 +1,18 @@
 <tool id="chasm_webservice" name="CHASM Webservice" version="1.0.0" hidden="false">
     <requirements>
+        <requirement type="package" version="2.2.1">requests</requirement>
         <requirement type="python-module">requests</requirement>
-        <requirement type="python-module">xlrd</requirement>
     </requirements>
     <description>CHASM score using CRAVAT webservice</description>
     <command interpreter="python">
-        chasm_webservice.py --path $input --analysis_type $analysis_type --cancertype $tissue_type --email $__user_email__ --gene_analysis_out $gene_analysis_out  --variant_analysis_out $variant_analysis_out --amino_acid_level_analysis_out $amino_acid_level_analysis_out  --error_file $error_file
+        chasm_webservice.py --path $input
+                            --analysis_type $analysis_type
+                            --cancertype $tissue_type
+                            --email $__user_email__
+                            --gene_analysis_out $gene_analysis_out
+                            --variant_analysis_out $variant_analysis_out
+                            --amino_acid_level_analysis_out $amino_acid_level_analysis_out
+                            --error_file $error_file
     </command>
     <inputs>
         <param format="txt" name="input" type="data" label="Variants File" />
@@ -64,4 +71,210 @@
         <data format="tabular" name="amino_acid_level_analysis_out" />
         <data format="tabular" name="error_file"/>
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="chasm_input.txt"/>
+            <param name="gene_annotation" value="yes"/>
+            <param name="analysis_type" value="driver"/>
+            <param name="tissue_type" value="Other"/>
+            <output name="gene_analysis_out" file="chasm2_gene.txt"/>
+        </test>
+    </tests>
+
+    <help>
+        **What it does**
+
+
+        CRAVAT: Cancer-Related Analysis of VAriants Toolkit is a web server with simple interface where cancer-related analysis of variants are performed. To cite CRAVAT, please use this article.
+
+        CRAVAT currently employs three analysis tools, CHASM, SNVGet, and VEST
+
+        **Input**
+
+        -Comment lines start with ">", "#", or "!".
+
+
+        -Data fields are separated by a tab or a space.
+
+
+        -The following two formats can be used for input data, but all the data rows should be in the same format:
+
+        .. class:: infomark
+
+        Genomic-coordinate format (separated by a tab or a space):
+
+
+        # UID / Chr. / Position / Strand / Ref. base / Alt. base / Sample ID (optional)
+        TR1	chr17	7577506	-	G	T	TCGA-02-0231
+
+
+        TR2	chr10	123279680	-	G	A	TCGA-02-3512
+
+
+        TR3	chr13	49033967	+	C	A	TCGA-02-3532
+
+
+        TR4	chr7	116417505	+	G	T	TCGA-02-1523
+
+
+        TR5	chr7	140453136	-	T	A	TCGA-02-0023
+
+
+        TR6	chr17	37880998	+	G	T	TCGA-02-0252
+
+
+        Ins1 chr17	37880998	+	G	GT	TCGA-02-0252
+
+
+        Del1 chr17	37880998	+	GA	G	TCGA-02-0252
+
+
+        CSub1 chr2	39871235	+	ATGCT	GA	TCGA-02-0252
+
+
+
+        Position is a 1-based open coordinate. For insertions and deletions, use the base before the insertion or the
+        first base of the deletion as the reference base. If you do not have strand information from your sequencing results,
+        it is likely that they are all reported on the + strand.
+        Make sure that your reported reference base matches the base in the reported position in the
+        hg19 reference sequence (or hg18 if you checked hg18 checkbox).
+
+        .. class:: infomark
+
+        Amino-acid residue substitution format (separated by a tab or a space):
+
+
+        # UID / Transcript / AA change / Sample ID (optional)
+
+
+        TR1	NM_001126116.1	D127Y	TCGA-02-0231
+
+
+        TR2	NM_001144919.1	R162Q	TCGA-02-3512
+
+
+        TR3	NM_000321.2	Q702K	TCGA-02-3532
+
+
+        TR4	NM_000245.2	A1108S	TCGA-02-1523
+
+
+        TR5	NM_004333.4	V600E	TCGA-02-0023
+
+
+        TR6	NM_001005862.1	G746V	TCGA-02-0252
+
+
+        trascript identifier can be from either NCBI Refseq, CCDS, or Ensembl.
+        Refseq and CCDS accessions can be specified without version numbers.
+        The format of "AA change" column is (reference AA)(AA position)(alternate AA), without "(" and ")".
+        Reference and alternate AAs should be from the 20 essential amino acids and each of them should be one amino acid-long.
+
+
+        **Analysis**
+
+
+        .. class:: infomark
+
+
+        Analysis Type:
+
+
+        -*Cancer driver analysis*: This analysis predicts whether the submitted variants are cancer drivers or not.
+
+
+        -*Functional effect analysis*: This analysis predicts whether the submitted variants will have any functional effect on their translated proteins or not.
+
+
+        -*Gene annotation only*: This analysis provides GeneCard and PubMed information on the genes containing the submitted variants.
+
+
+        Currently, the following tissue types can be chosen at CRAVAT.
+
+
+        Name	Full name	Source	Date
+
+
+        Bladder	Bladder Urothelial Carcinoma	BLCA (TCGA)	Jun 2013
+
+
+        Blood-Lymphocyte	Chronic Lymphocytic Leukemia	CLL (ICGC)	Mar 2013
+
+
+        Blood-Myeloid	Acute Myeloid Leukemia	LAML (TCGA)	Jun 2013
+
+
+        Brain-Cerebellum	Medulloblastoma	MB (mixed source)	Dec 2010
+
+
+        Brain-Glioblastoma-Multiforme	Glioblastoma Multiforme	GBM (TCGA)	Jun 2013
+
+
+        Brain-Lower-Grade-Glioma	Brain Lower Grade Glioma	LGG (TCGA)	Jun 2013
+
+
+        Breast	Breast Invasive Carcinoma	BRCA (TCGA)	Jun 12012
+
+
+        Cervix	Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma	CESC (TCGA)	Jun 2013
+
+
+        Colon	Colon Adenocarcinoma	COAD (TCGA)	Jun 2013
+
+
+        Head and Neck	Head and Neck Squamous Cell Carcinoma	HNSC (TCGA)	Jun 2013
+
+
+        Kidney-Chromophobe	Kidney Chromophobe	KICH (TCGA)	Jun 2013
+
+
+        Kidney-Clear-Cell	Kidney Renal Clear Cell Carcinoma	KIRC (TCGA)	Jun 2013
+
+
+        Kidney-Papillary-Cell	Kidney Renal Papillary Cell Carcinoma	KIRP (TCGA)	Jun 2013
+
+
+        Liver-Nonviral	Hepatocellular Carcinoma (Secondary to Alcohol and Adiposity)	HCCA (ICGC)	Mar 2013
+
+
+        Liver-Viral	Hepatocellular Carcinoma (Viral)	HCCV (ICGC)	Mar 2013
+
+
+        Lung-Adenocarcinoma	Lung Adenocarcinoma	LUAD (TCGA)	Jun 2013
+
+
+        Lung-Squamous Cell	Lung Squamous Cell Carcinoma	LUSC (TCGA)	Jun 2013
+
+
+        Melanoma	Melanoma	ML (Yardena Samuels lab)	Dec 2011
+
+
+        Other	General purpose	OV (TCGA)	Jun 2013
+
+
+        Ovary	Ovarian Serous Cystadenocarcinoma	OV (TCGA)	Jun 2013
+
+
+        Pancreas	Pancreatic Cancer	PNCC (ICGC))	Mar 2013
+
+
+        Prostate-Adenocarcinoma	Prostate Adenocarcinoma	PRAD (TCGA)	Jun 2013
+
+
+        Rectum	Rectum Adenocarcinoma	READ (TCGA)	Jun 2013
+
+
+        Skin	Skin Cutaneous Melanoma	SKCM (TCGA)	Jun 2013
+
+
+        Stomach	Stomach Adenocarcinoma	STAD (TCGA)	Jun 2013
+
+
+        Thyroid	Thyroid Carcinoma	THCA (TCGA)	Jun 2013
+
+
+        Uterus	Uterine Corpus Endometriod Carcinoma	UCEC (TCGA)	Jun 2013
+
+
+    </help>
 </tool>
