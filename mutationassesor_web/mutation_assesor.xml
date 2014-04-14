@@ -41,8 +41,6 @@
             <param name="protein" value="yes"/>
             <output name="output" value="ma_protein_output.csv"/>
         </test>
-
-
     </tests>
     <help>
 

@@ -38,9 +38,9 @@ SNPFILTER = {
 ## Functional SNP categories to include in genomic SNPs annotation report
 SNPFUNCTION = ["c","m",""]
 
-def stop_err( msg ):
-    sys.stderr.write( '%s\n' % msg )
-    sys.exit()
+def stop_err(msg, err=1):
+    sys.stderr.write('%s\n' % msg)
+    sys.exit(err)
 class Polyphen2Web:
     def __init__( self, ucscdb=None, model_name=None, snp_filter=None, snp_function=None, file_location=None, email=None ):
         self.ucscdb = ucscdb
