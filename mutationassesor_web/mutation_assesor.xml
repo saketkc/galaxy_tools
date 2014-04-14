@@ -1,13 +1,90 @@
 <tool id="mutationassesor_web" name="MutationAssesor">
     <description>MutationAssesor web service</description>
+    <requirements>
+        <requirement type="python-module">requests</requirement>
+    </requirements>
     <command interpreter="python">
-        mutation_assesor.py $input $output
+        #if $options.protein=="yes"
+            mutation_assesor.py --input $input --output $output --protein
+        #elif $options.hg19=="yes"
+            mutation_assesor.py --input $input --output $output --hg19
+        #else
+            mutation_assesor.py --input $input --output $output
+        #end if
     </command>
     <inputs>
         <param name="input" format="txt" type="data" label="Input variants" />
+        <conditional name="options">
+            <param name="protein" type="select" label="Protein Input?">
+                <option value="yes" selected="true">Yes</option>
+                <option value="no">No</option>
+            </param>
+            <when value="no">
+                <param name="hg19" type="select" label="hg19?">
+                    <option value="yes" selected="true">Yes</option>
+                    <option value="no">No</option>
+                </param>
+            </when>
+        </conditional>
     </inputs>
     <outputs>
-        <data name="output" format="tabular"/>
+        <data name="output" format="csv"/>
     </outputs>
+    <help>
+
+
+    **What it does**
+
+        This script calls MutationAssesor(http://mutationassessor.org/) Web API to fetch
+        Mutation Assesor scores and associated output.
+
+        Input is a tab separated or comma separated varaibles file. MutationAssesor
+        server accepts list of variants, one variant per line, plus optional text thrown in
+        which might be a description of the variants  in genomic coordinates. The
+        variants are assumed to be coming from '+' strand:
+        &lt;genome build&gt;,&lt;chromosome&gt;,&lt;position&gt;,&lt;reference allele&gt;,&lt;substituted allele&gt;
+
+
+        Genome build is optional. By default 'hg18' build is used.
+        Input needs to be formatted in the following format:
+
+        1. Nucleotide space:
+
+        13,32912555,G,T   BRCA2
+
+        7,55178574,G,A   GBM
+
+        7,55178574,G,A   GBM
+
+        Note that the tool takes care of prepending 'hg19' while running the tool, if you
+        select 'yes' under 'hg19' label
+
+        2. Protein Space
+            &lt;protein ID&gt; &lt;variant&gt; &lt;text&gt;, where &lt;protein ID&gt; can be :
+
+            1. Uniprot protein accession (i.e. EGFR_HUMAN)
+            2. NCBI Refseq protein ID (i.e. NP_005219)
+
+            EGFR_HUMAN R521K
+            EGFR_HUMAN R98Q Polymorphism
+            EGFR_HUMAN G719D disease
+            NP_000537 G356A
+            NP_000537 G360A dbSNP:rs35993958
+            NP_000537 S46A Abolishes phosphorylation
+
+
+
+    **Citations**
+
+        If you use this tool in Galaxy, please cite :
+            Reva B, Antipin Y, Sander C. Nucleic Acids Research (2011)
+            "Predicting the Functional Impact of Protein Mutations: Application to Cancer Genomics"
+
+            Reva, B.A., Antipin, Y.A. and Sander, C. (2007) Genome Biol, 8, R232.
+            "Determinants of protein    function revealed by combinatorial entropy optimization"
+
+
+
+    </help>
 </tool>
 
