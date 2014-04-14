@@ -278,6 +278,11 @@
 
         Uterus	Uterine Corpus Endometriod Carcinoma	UCEC (TCGA)	Jun 2013
 
+        **Citation**
+
+        If  you use this tool please cite:
+
+        Douville C, Carter H, Kim R, Niknafs N, Diekhans M, Stenson PD, Cooper DN, Ryan M, Karchin R (2013). CRAVAT: Cancer-Related Analysis of VAriants Toolkit Bioinformatics, 29(5):647-648.
 
     </help>
 </tool>
