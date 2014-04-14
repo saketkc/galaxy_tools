@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 import requests
 from functools import wraps
@@ -6,13 +7,14 @@ import shutil
 import time
 import os
 import csv
+import argparse
 #__url__='http://mutationassessor.org/?cm=var&var=%s&frm=txt&fts=all'
 __url__ = 'http://mutationassessor.org/'
 
 
-def stop_err(msg):
+def stop_err(msg, err=1):
     sys.stderr.write('%s\n' % msg)
-    sys.exit(1)
+    sys.exit(err)
 
 
 def retry(ExceptionToCheck,
@@ -105,4 +107,15 @@ def main_web(params):
     return True
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Process input output paths")
+    parser.add_argument('--input', type=str, required=True)
+    parser.add_argument('--output', type=str, required=True)
+    parser.add_ardument('--log', type=str, required=False)
+
+
+
+
+
+
+
     main_web(sys.argv[1:])

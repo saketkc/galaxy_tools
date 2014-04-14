@@ -3,6 +3,7 @@
 # C extensions
 *.so
 
+*.ropeproject
 # Packages
 *.egg
 *.egg-info
