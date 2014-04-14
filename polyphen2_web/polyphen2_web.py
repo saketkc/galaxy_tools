@@ -39,7 +39,8 @@ def stop_err(msg, err=1):
 
 class Polyphen2Web:
 
-    def __init__(self, ucscdb=None, model_name=None, snp_filter=None, snp_function=None, file_location=None, email=None):
+    def __init__(self, ucscdb=None, model_name=None, snp_filter=None,
+                 snp_function=None, file_location=None, email=None):
         self.ucscdb = ucscdb
         self.model_name = model_name
         self.snp_filter = snp_filter
@@ -54,14 +55,9 @@ class Polyphen2Web:
         in_txt = csv.reader(open(self.file_location, 'rb'), delimiter='\t')
         tmp_dir = tempfile.mkdtemp()
         path = os.path.join(tmp_dir, 'csv_file')
-
-        #out_csv = csv.writer(open(path,'wb'))
-        # out_csv.writerows(in_txt)
         with open(path, 'wb') as fh:
             a = csv.writer(fh)
             a.writerows(in_txt)
-        # out_csv.close()
-        files = {'_ggi_batch_file': open(self.file_location)}
         contents = open(self.file_location, 'r').read().replace(
             '\t', ' ').replace('::::::::::::::', '')
         if self.snp_function == 'All':
@@ -78,23 +74,23 @@ class Polyphen2Web:
             'NOTIFYME': '',
 
         }
-        # print payload
         if self.notify_me:
             payload['NOTIFYME'] = self.notify_me
         request = requests.post(submission_url, data=payload)
         content = request.content
-        # print content
         soup = self.soupify(content)
         sid_soup = soup.find('input', {'name': 'sid'})
         try:
             sid = sid_soup['value']
         except:
             sid = None
-        # print sid
         shutil.rmtree(tmp_dir)
         return sid
 
-    def poll_for_files(self, sid, max_tries=MAX_TRIES, time_delay=TIME_DELAY, timeout=TIMEOUT):
+    def poll_for_files(self, sid,
+                       max_tries=MAX_TRIES,
+                       time_delay=TIME_DELAY,
+                       timeout=TIMEOUT):
         payload = {
             '_ggi_project': 'PPHWeb2',
             '_ggi_origin': 'manage',
@@ -111,7 +107,6 @@ class Polyphen2Web:
             request = requests.post(submission_url, data=payload)
             content = request.content
             soup = self.soupify(content)
-            # print soup.prettify()
             all_tables = soup.findAll('table')
             if all_tables:
                 try:
@@ -160,31 +155,42 @@ class Polyphen2Web:
 
 def main(args):
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '-u', '--ucscdb', dest='ucscdb', choices=UCSCDB, required=True, type=str)
-    parser.add_argument(
-        '-m', '--model', dest='modelname', choices=MODELNAME, required=True, type=str)
-    parser.add_argument('-fl', '--filter', '--snpfilter',
-                        dest='snpfilter', choices=SNPFILTER.keys(), required=True, type=str)
-    parser.add_argument('-i', '--input', dest='input',
-                        nargs='?', required=True, type=str, default=sys.stdin)
-    parser.add_argument(
-        '-e', '--email', dest='email', required=False, default=None)
-
-    parser.add_argument(
-        '--log', dest='log_file', required=True, default=None, type=str)
-    parser.add_argument(
-        '--short', dest='short_file', required=True, default=None, type=str)
-    parser.add_argument(
-        '--full', dest='full_file', required=True, default=None, type=str)
-    parser.add_argument(
-        '--snp', dest='snps_file', required=True, default=None, type=str)
-    parser.add_argument(
-        '--function', dest='snpfunction', required=True, type=str)
+    parser.add_argument('-u',
+                        '--ucscdb',
+                        dest='ucscdb',
+                        choices=UCSCDB,
+                        required=True, type=str)
+    parser.add_argument('-m', '--model',
+                        dest='modelname', choices=MODELNAME,
+                        required=True, type=str)
+    parser.add_argument('-fl', '--filter',
+                        '--snpfilter', dest='snpfilter',
+                        choices=SNPFILTER.keys(),
+                        required=True, type=str)
+    parser.add_argument('-i', '--input',
+                        dest='input', nargs='?',
+                        required=True, type=str,
+                        default=sys.stdin)
+    parser.add_argument('-e', '--email',
+                        dest='email',
+                        required=False, default=None)
+    parser.add_argument('--log', dest='log_file',
+                        required=True, default=None, type=str)
+    parser.add_argument('--short', dest='short_file',
+                        required=True, default=None, type=str)
+    parser.add_argument('--full', dest='full_file',
+                        required=True, default=None, type=str)
+    parser.add_argument('--snp', dest='snps_file',
+                        required=True, default=None, type=str)
+    parser.add_argument('--function', dest='snpfunction',
+                        required=True, type=str)
     args_s = vars(parser.parse_args(args))
-    polyphen2_web = Polyphen2Web(ucscdb=args_s['ucscdb'], model_name=args_s['modelname'], snp_filter=args_s[
-                                 'snpfilter'], snp_function=args_s['snpfunction'], file_location=args_s['input'], email=args_s['email'])
-
+    polyphen2_web = Polyphen2Web(ucscdb=args_s['ucscdb'],
+                                 model_name=args_s['modelname'],
+                                 snp_filter=args_s['snpfilter'],
+                                 snp_function=args_s['snpfunction'],
+                                 file_location=args_s['input'],
+                                 email=args_s['email'])
     sid = polyphen2_web.make_request()
     if not sid:
         stop_err(
