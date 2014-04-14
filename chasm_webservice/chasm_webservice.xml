@@ -66,10 +66,10 @@
         </param>
     </inputs>
     <outputs>
-        <data format="tabular" name="gene_analysis_out"/>
-        <data format="tabular" name="variant_analysis_out" />
-        <data format="tabular" name="amino_acid_level_analysis_out" />
-        <data format="tabular" name="error_file"/>
+        <data format="tabular" name="gene_analysis_out" label="${tool.name} on ${on_string}: genes" />
+        <data format="tabular" name="variant_analysis_out" label="${tool.name} on ${on_string}: variant" />
+        <data format="tabular" name="amino_acid_level_analysis_out" label="${tool.name} on ${on_string}: aminoacid" />
+        <data format="tabular" name="error_file" label="${tool.name} on ${on_string}: error" />
     </outputs>
     <tests>
         <test>
