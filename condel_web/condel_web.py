@@ -38,7 +38,6 @@ def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
     :type logger: logging.Logger instance
     """
     def deco_retry(f):
-
         @wraps(f)
         def f_retry(*args, **kwargs):
             mtries, mdelay = tries, delay
