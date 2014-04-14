@@ -30,13 +30,13 @@ def main_web(args):
                 lines))
 
     payload = {'vars': contents, 'tableQ': 1}
-    request = requests.post(__url__, data=payload)  # files=files)
+    request = requests.post(__url__, data=payload)
     response = request.text
     if request.status_code != requests.codes.ok:
         stop_err("""Error retrieving response from server.
                  Server returned %s .
                  Output: %s
-                 """ % (response.status_code, response.text))
+                 """ % (request.status_code, response))
     with open(args.output, 'wb') as fp:
         fp.write(response)
 

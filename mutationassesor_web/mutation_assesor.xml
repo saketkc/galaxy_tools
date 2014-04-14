@@ -3,26 +3,24 @@
     <requirements>
         <requirement type="python-module">requests</requirement>
     </requirements>
-    <command interpreter="python">
-        #if $options.protein=="yes"
-            mutation_assesor.py --input $input --output $output --protein
-        #elif $options.hg19=="yes"
-            mutation_assesor.py --input $input --output $output --hg19
+    <command interpreter="python">mutation_assesor.py --input $input --output $output
+        #if $options.protein == "yes"
+            --protein
         #else
-            mutation_assesor.py --input $input --output $output
+            $options.hg19
         #end if
     </command>
     <inputs>
         <param name="input" format="txt" type="data" label="Input variants" />
         <conditional name="options">
-            <param name="protein" type="select" label="Protein Input?">
-                <option value="yes" selected="true">Yes</option>
+            <param name="protein" type="select" label="Protein Input">
+                <option value="yes">Yes</option>
                 <option value="no">No</option>
             </param>
             <when value="no">
-                <param name="hg19" type="select" label="hg19?">
-                    <option value="yes" selected="true">Yes</option>
-                    <option value="no">No</option>
+                <param name="hg19" type="select" label="hg19">
+                    <option value="--hg19">Yes</option>
+                    <option value="">No</option>
                 </param>
             </when>
         </conditional>
