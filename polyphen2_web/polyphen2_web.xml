@@ -65,16 +65,52 @@
 
             .. class:: infomark
 
-            * HumDiv model uses 5% / 10% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+            *Classifier model* used by the probabilistic predictor:
+
+            -HumDiv is preferred for evaluating rare alleles, dense mapping of regions identified by genome-wide association studies,
+            and analysis of natural selection. HumDiv model uses 5% / 10% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+
+
+            -HumVar is better suited for diagnostics of Mendelian diseases which requires distinguishing mutations with drastic effects
+            from all the remaining human variation, including abundant mildly deleterious alleles.
+            HumVar model uses 10% / 20% FPR thresholds for “probably damaging” / “possibly damaging” predictions
 
             .. class:: infomark
 
-            * HumVar model uses 10% / 20% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+            *Transcripts*  A set of Transcripts on which genomic SNPs  will be mapped:
+
+
+            -*All* includes all UCSC knownGene transcripts (highly redundant)
+
+            -*Canonical* includes UCSC knownCanonical subset
+
+            -*CCDS* further restricts knownCanonical subset to those transcripts which are also annotated as part of NCBI CCDS.
+
+
+            .. class:: infomark
+
+            *Annotations* for the following functional categories of genomic SNPs will be included in the output:
+
+
+            -*All*:  coding-synon, introns, nonsense missense utr-3, utr-5.
+
+
+            -*Coding*: coding-synon, nonsense. missense
+
+
+            -*Missense*: missense.
+
+
+
+            .. class:: warningmark
+
+            Note that PolyPhen-2 predictions are always produced for missense
+
 
             .. class:: infomark
 
 
-            '''Input format''':
+            Input format:
 
 
             chr22:30421786 A/T
@@ -84,6 +120,7 @@
             chr22:40814500 A/G
 
             chr22:40815256 C/T
+
 
 
             **Citations**
