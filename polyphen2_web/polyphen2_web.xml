@@ -56,6 +56,44 @@
             <output name="snp_file" file="polyphen2_snp.txt"/>
         </test>
     </tests>
+    <help>
+        **What it does**
+            This tool interacts with the Web Version of Polyphen2 hosted at  http://genetics.bwh.harvard.edu/pph2/
+
+            PolyPhen-2 (Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions
+            on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations.
+
+            .. class:: infomark
+
+            * HumDiv model uses 5% / 10% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+
+            .. class:: infomark
+
+            * HumVar model uses 10% / 20% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+
+            .. class:: infomark
+
+
+            '''Input format''':
+
+
+            chr22:30421786 A/T
+
+            chr22:29446079 A/G
+
+            chr22:40814500 A/G
+
+            chr22:40815256 C/T
+
+
+            **Citations**
+
+                If you use this tool please cite:
+
+                Adzhubei IA, Schmidt S, Peshkin L, Ramensky VE, Gerasimova A, Bork P, Kondrashov AS, Sunyaev SR. Nat Methods 7(4):248-249 (2010).
+                "A method and server for predicting damaging missense mutations."
+
+    </help>
 </tool>
 
 
