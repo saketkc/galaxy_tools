@@ -77,7 +77,10 @@
             <param name="gene_annotation" value="yes"/>
             <param name="analysis_type" value="driver"/>
             <param name="tissue_type" value="Other"/>
-            <output name="gene_analysis_out" file="chasm2_gene.txt"/>
+            <output name="gene_analysis_out" file="chasm_output_genes.txt"/>
+            <output name="variant_analysis_out" file="chasm_output_variants.txt"/>
+            <output name="amino_acid_level_analysis_out" file="chasm_output_aminoacid.txt"/>
+            <output name="error_file" file="chasm_output_error.txt"/>
         </test>
     </tests>
 
