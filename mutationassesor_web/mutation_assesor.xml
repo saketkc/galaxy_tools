@@ -1,7 +1,7 @@
 <tool id="mutationassesor_web" name="MutationAssesor">
     <description>MutationAssesor web service</description>
     <requirements>
-        <requirement type="python-module">requests</requirement>
+        <requirement type="package" versions="2.2.1">requests</requirement>
     </requirements>
     <command interpreter="python">mutation_assesor.py --input $input --output $output
         #if $options.protein == "yes"
