@@ -150,7 +150,6 @@ class CHASMWeb:
         else:
             request = requests.post(
                 __URL__, data=stripped_data, files=dict(foo='bar'))
-        print request.text
         job_id = json.loads(request.text)['jobid']
         return job_id
 
