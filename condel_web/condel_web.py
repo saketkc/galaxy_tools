@@ -1,22 +1,22 @@
 import sys
-sys.path.insert(0, '/home/saket/requests-new-urllib3-api/requests/packages/')
-sys.path.insert(0, '/home/saket/requests-new-urllib3-api')
-
-
 import requests
 import pycurl
 import os
 from os.path import getsize
 import argparse
-import sys
 import cStringIO
 from functools import wraps
-import tempfile, shutil,time
+import tempfile
+import shutil
+import time
 
-__url__="http://bg.upf.edu/condel/taskService"
-def stop_err( msg ):
-    sys.stderr.write( '%s\n' % msg )
+__url__ = "http://bg.upf.edu/condel/taskService"
+
+
+def stop_err(msg):
+    sys.stderr.write('%s\n' % msg)
     sys.exit()
+
 
 def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
     """Retry calling the decorated function using an exponential backoff.
@@ -47,11 +47,11 @@ def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
                     return f(*args, **kwargs)
                 except ExceptionToCheck, e:
                     #msg = "%s, Retrying in %d seconds..." % (str(e), mdelay)
-                    msg = "Retrying in %d seconds..." %  (mdelay)
+                    msg = "Retrying in %d seconds..." % (mdelay)
                     if logger:
                         logger.warning(msg)
                     else:
-                        #print msg
+                        # print msg
                         pass
                     time.sleep(mdelay)
                     mtries -= 1
@@ -62,35 +62,28 @@ def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
 
     return deco_retry
 
+
 class TransficUploader:
+
     def __init__(self):
 
         self.c = pycurl.Curl()
         self.c.setopt(pycurl.URL, __url__)
         self.c.setopt(pycurl.UPLOAD, 1)
-        #c.setopt(pycurl.USERPWD, 'saket.kumar:whatsinaname.')
-        self.c.setopt(pycurl.PROXY, 'http://saket.kumar:uzfmTjX9839.1314@netmon.iitb.ac.in:80/')
-        #c.setopt(pycurl.PROXYPORT, 80)
-        #c.setopt(pycurl.PROXYTYPE_HTTP,1)
-        #self.c.setopt(pycurl.VERBOSE, 1)
+        self.c.setopt(pycurl.PROXY,
+                      os.env['http_proxy'])
+        #'http://saket.kumar:uzfmTjX9839.1314@netmon.iitb.ac.in:80/')
         self.c.setopt(pycurl.HTTPHEADER, ['Expect:'])
-        #c.setopt(pycurl.HTTPPROXYTUNNEL, 1)
         self.c.setopt(pycurl.UPLOAD, 1)
-        #c.perform()
-        self.c.setopt(pycurl.NOPROGRESS, 1);
-        #curl_easy_setopt(hnd, CURLOPT_UPLOAD, 1L);
-        self.c.setopt(pycurl.USERAGENT, "curl/7.27.0");
-        #curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, slist1);
-        #curl_easy_setopt(hnd, CURLOPT_MAXREDIRS, 50L);
-        self.c.setopt(pycurl.SSL_VERIFYPEER, 1);
+        self.c.setopt(pycurl.NOPROGRESS, 1)
+        self.c.setopt(pycurl.USERAGENT, "curl/7.27.0")
+        self.c.setopt(pycurl.SSL_VERIFYPEER, 1)
         self.c.setopt(pycurl.CUSTOMREQUEST, "PUT")
-        #curl_easy_setopt(hnd, CURLOPT_VERBOSE, 1L);
-        self.c.setopt(pycurl.TCP_NODELAY, 1);
+        self.c.setopt(pycurl.TCP_NODELAY, 1)
         self.buf = cStringIO.StringIO()
         self.c.setopt(self.c.WRITEFUNCTION, self.buf.write)
 
-
-    def upload_file(self,filepath):
+    def upload_file(self, filepath):
         f = open(filepath)
         self.c.setopt(pycurl.INFILE, f)
         self.c.setopt(pycurl.INFILESIZE, getsize(filepath))
@@ -102,40 +95,41 @@ class TransficUploader:
         return self.buf.getvalue().strip()
 
     @retry(requests.exceptions.HTTPError)
-    def result_exists(self,url ):
+    def result_exists(self, url):
         #url="http://www.cravat.us/results/%s/%s.zip" %(job_id,job_id)
         download_request = requests.request("GET", url)
-        if download_request.status_code==404 or download_request==500:
+        if download_request.status_code == 404 or download_request == 500:
             raise requests.HTTPError()
         else:
             return url
+
     @retry(requests.exceptions.HTTPError)
-    def download_result(self, url,outpath):
+    def download_result(self, url, outpath):
         tmp_dir = tempfile.mkdtemp()
-        r = requests.get( url, stream=True )
+        r = requests.get(url, stream=True)
         if r.status_code == 500:
             raise requests.HTTPError()
         else:
-            path = os.path.join( tmp_dir,"results.csv")
+            path = os.path.join(tmp_dir, "results.csv")
             with open(path, 'wb') as f:
                 for chunk in r.iter_content(128):
                     f.write(chunk)
-        shutil.move(path,outpath)
+        shutil.move(path, outpath)
         shutil.rmtree(tmp_dir)
-
 
 
 def main(params):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input",type=str,required=True)
-    parser.add_argument("--output",type=str,required=True)
+    parser.add_argument("--input", type=str, required=True)
+    parser.add_argument("--output", type=str, required=True)
     args = parser.parse_args(params)
-    uploader = TransficUploader();
+    uploader = TransficUploader()
     uploader.upload_file(args.input)
     uploader.run()
     url = uploader.get_url()
-    #print url
     url = uploader.result_exists(url)
-    download = uploader.download_result(url,args.output)
-if __name__=="__main__":
+    uploader.download_result(url, args.output)
+
+
+if __name__ == "__main__":
     main(sys.argv[1:])
