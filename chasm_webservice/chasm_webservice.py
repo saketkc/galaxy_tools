@@ -28,7 +28,7 @@ import requests
 import argparse
 import time
 from functools import wraps
-import simplejson as json
+import json
 import zipfile
 import tempfile
 import ntpath
