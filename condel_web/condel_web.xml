@@ -16,7 +16,7 @@
     <tests>
         <test>
             <param name="input" value="condel_input.txt"/>
-            <output name="output" file="condel_output.txt"/>
+            <output name="output" file="condel_output.csv"/>
         </test>
     </tests>
     <help>

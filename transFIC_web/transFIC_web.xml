@@ -9,5 +9,11 @@
     <outputs>
         <data name="output" format="tabular"/>
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="condel_input.txt"/>
+            <output name="output" file="transfic_output.csv"/>
+        </test>
+    </tests>
 </tool>
 
