@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="requests" version="2.2.1">
-        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_requests_2_2_1" owner="saketkc" />
+    <package name="beautifulsoup4" version="4.1.0">
+        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_beautifulsoup4_4_1_0" owner="saketkc" />
     </package>
 </tool_dependency>
