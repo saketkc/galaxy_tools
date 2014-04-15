@@ -19,5 +19,32 @@
             <output name="output" file="condel_output.txt"/>
         </test>
     </tests>
+    <help>
+        **What it does**
+
+        This script calls condel web api at  http://bg.upf.edu/condel/
+
+        Condel stands for CONsensus DELeteriousness score of non-synonymous single nucleotide variants (SNVs).
+        The idea behind it is to integrate the output of computational tools aimed at assessing the impact of non synonymous SNVs on protein function.
+        To do this, it computes a weighted average of the scores (WAS) of these tools : SIFT, Polyphen2, MAPP, LogR Pfam E-value
+        (implemented ad hoc following the instructions at Clifford RJ, Edmonson MN, Nguyen C, and Buetow KH (2004)
+        Large-scale analysis of non-synonymous coding region single nucleotide polymorphisms. Bioinformatics 20, 1006-1014) and MutationAssessor
+
+        **How does it work**
+
+        The scores of different methods are weighted using the complementary cumulative distributions produced by the five methods on a
+        dataset of approximately 20000 missense SNPs, both deleterious and neutral. The probability that a predicted deleterious mutation is not a
+        false positive of the method and the probability that a predicted neutral mutation is not a false negative are employed as weights.
+
+        **Citation**
+
+
+        If you use this tool please cite:
+
+
+        Improving the Assessment of the Outcome of Nonsynonymous SNVs with a Consensus Deleteriousness Score, Condel (2011) Abel González-Pérez and Nuria López-Bigas, American Journal of Human Genetics 10.1016/j.ajhg.2011.03.004
+
+
+    </help>
 </tool>
 
