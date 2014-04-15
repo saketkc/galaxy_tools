@@ -2,12 +2,12 @@
 <tool_dependency>
     <package name="beautifulsoup4" version="4.1.0">
         <readme>
-            This Galaxy Tool shed package installs python-requests(https://pypi.python.org/pypi/requests)
+            This Galaxy Tool shed package installs python-bs4(http://www.crummy.com/software/BeautifulSoup/bs4/doc)
             package.
 
-            The corresponding PYTHONPATH is accessible via PYTHONPATH_REQUESTS
+            The corresponding PYTHONPATH is accessible via PYTHONPATH_BEAUTIFULSOUP4
 
-            Developmental version is hosted on Github:  https://github.com/saketkc/galaxy_tools/packages/package_requests_2_2_1/
+            Developmental version is hosted on Github:  https://github.com/saketkc/galaxy_tools/packages/package_beautifulsoup4_4_1_0/
         </readme>
         <install version="1.0">
             <actions>
