@@ -38,6 +38,53 @@
         dataset of approximately 20000 missense SNPs, both deleterious and neutral. The probability that a predicted deleterious mutation is not a
         false positive of the method and the probability that a predicted neutral mutation is not a false negative are employed as weights.
 
+        **Input**
+
+        There are two main formats allowed:
+
+
+        SNVs may be submitted for analysis both in chromosome and protein coordinates.
+
+
+        The chromosome coordinates (hg19) input must follow this format:
+
+
+        [CHROMOSOME] [START] [END] [MUTANT_NUCLEOTIDE]
+
+
+
+        The END column is the same as the START for SNVs.
+        Those four columns must be separated by tabs. Also a fifth column can optionally be added with the Variant name
+
+
+        Ex:
+
+        9   32473058    32473058    A
+
+        7   43918688    43918688    C
+
+        Additionally, the input could be composed by two columns the strand of the SNV and an identifier:
+
+        [PROTEIN_ID][variant]
+
+        Also tab separated. Currently only Uniprot, RefSeq_Peptide and Ensembl identifiers are recognized by the webserver.
+
+        The variant column must contain the following information (in this order ): change_position, reference_aminoacid and changed_aminoacid
+
+        Ex:
+
+        EGFR_HUMAN R521K
+
+        EGFR_HUMAN R98Q
+
+        .. class:: warningmark
+
+        Note
+
+        Please, note that the Variant Effect Predictor assumes that the allele submitted is coded in the forward strand.
+
+        If you are assessing the effect of variants coded in the reverse strand, please introduce the complementary nucleotide instead.
+
         **Citation**
 
 

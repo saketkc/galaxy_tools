@@ -21,5 +21,66 @@
             <output name="output" file="transfic_output.csv"/>
         </test>
     </tests>
+    <help>
+        **What it does**
+
+        This script calls TransFIC web api at  http://bg.upf.edu/transfic/
+
+        TransFIC stands for TRANsformed Functional Impact for Cancer.
+        It is a method to transform Functional Impact Scores taking into account the differences in basal tolerance to germline SNVs of genes that belong to
+        different functional classes. This transformation allows to use the scores provided by well-known tools (e.g. SIFT, Polyphen2, MutationAssessor)
+        to rank the functional impact of cancer somatic mutations. Mutations with greater transFIC are more likely to be cancer drivers.
+
+
+        **How does it work**
+
+
+        TransFIC takes as input the Functional Impact Score of a somatic mutation provided by one of the aforementioned tools.
+        It then compares that score to the distribution of scores of germline SNVs observed in genes with similar functional
+        annotations (for instance genes with the same molecular function as provided by the Gene Ontologies).
+        The score is thus transformed using the Zscore formula.
+        The result is that mutations in genes that are less tolerant to germline SNVs are amplified,
+        while the scores of mutations on relatively tolerant genes are decreased.
+
+        **Input**
+
+        There are two main formats allowed:
+
+
+        SNVs may be submitted for analysis both in chromosome and protein coordinates.
+
+
+        The chromosome coordinates (hg19) input must follow this format:
+
+
+        [CHROMOSOME] [START] [END] [MUTANT_NUCLEOTIDE]
+
+
+
+        The END column is the same as the START for SNVs.
+        Those four columns must be separated by tabs. Also a fifth column can optionally be added with the Variant name
+
+
+        Ex:
+
+        9   32473058    32473058    A
+
+        7   43918688    43918688    C
+
+        Additionally, the input could be composed by two columns the strand of the SNV and an identifier:
+
+        [PROTEIN_ID][variant]
+
+        Also tab separated. Currently only Uniprot, RefSeq_Peptide and Ensembl identifiers are recognized by the webserver.
+
+        The variant column must contain the following information (in this order ): change_position, reference_aminoacid and changed_aminoacid
+
+        **Citation**
+
+        If you use this Galaxy tool in work leading to a scientific publication please cite:
+
+        Gonzalez-Perez A, Deu-Pons J and Lopez-Bigas N. Improving the prediction of the functional impact of cancer mutations by baseline tolerance transformation
+        Genome Medicine 2012. 4:89 doi:10.1186/gm390s
+    </help>
 </tool>
 
