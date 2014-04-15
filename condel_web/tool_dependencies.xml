@@ -6,4 +6,7 @@
     <package name="pycurl" version="7.19.3.1">
         <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_pycurl_7_19_3_1" owner="saketkc" />
     </package>
+    <package name="requests" version="2.2.1">
+        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_requests_2_2_1" owner="saketkc" />
+    </package>
 </tool_dependency>

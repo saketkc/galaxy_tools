@@ -3,8 +3,10 @@
     <requirements>
         <requirement type="package" version="2.2.1">requests</requirement>
         <requirement type="package" version="7.19.3.1">pycurl</requirement>
+        <requirement type="package" version="4.1.0">beautifulsoup4</requirement>
         <requirement type="python-module">requests</requirement>
         <requirement type="python-package">pycurl</requirement>
+        <requirement type="python-package">bs4</requirement>
     </requirements>
     <command interpreter="python">
         condel_web.py --input $input --output $output
