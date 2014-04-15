@@ -3,4 +3,7 @@
     <package name="beautifulsoup4" version="4.1.0">
         <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_beautifulsoup4_4_1_0" owner="saketkc" />
     </package>
+    <package name="pycurl" version="7.19.3.1">
+        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_pycurl_7_19_3_1" owner="saketkc" />
+    </package>
 </tool_dependency>

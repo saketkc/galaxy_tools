@@ -1,5 +1,11 @@
 <tool id="transFIC_web" name="TransFIC">
     <description>TransFIC web service</description>
+    <requirements>
+        <requirement type="package" version="2.2.1">requests</requirement>
+        <requirement type="package" version="7.19.3.1">pycurl</requirement>
+        <requirement type="python-module">requests</requirement>
+        <requirement type="python-package">pycurl</requirement>
+    </requirements>
     <command interpreter="python">
         transFIC_web.py --input $input --output $output
     </command>

@@ -1,0 +1,60 @@
+<tool id="oncodrivefm_tool" name="OncodriveFM">
+    <description>OncodriveFM </description>
+    <tool_dependency>
+        <package name="oncodrivefm">
+            <install version="0.6-dev">
+                <actions>
+                    <action type="setup_virtualenv">distribute</action>
+                    <action type="setup_virtualenv">python-dateutil==2.1</action>
+                    <action type="setup_virtualenv">pytz==2013b</action>
+                    <action type="setup_virtualenv">numpy==1.7.1</action>
+                    <action type="setup_virtualenv">scipy==0.12.0</action>
+                    <action type="setup_virtualenv">pandas==0.12.0</action>
+                    <action type="setup_virtualenv">statsmodels==0.4.3</action>
+                    <action type="setup_virtualenv">https://bitbucket.org/bbglab/oncodrivefm/get/master.tar.gz</action>
+                </actions>
+            </install>
+            <readme>OncodriveFm avalable at https://bitbucket.org/bbglab/oncodrivefm/</readme>
+        </package>
+    </tool_dependency>
+
+    <command interpreter="python">
+        #if $mappingpathcondition.hasmapfile=="yes"
+            oncodrivefm_tool.py -N $samplings -e $estimator --gt $gene_threshold --pt $pathway_threshold -s $slices -m $mapping_path -o1 $output1 -o2 $output2 -i $input
+        #else
+            oncodrivefm_tool.py -N $samplings -e $estimator --gt $gene_threshold --pt $pathway_threshold -s $slices -o1 $output1 -o2 $output2 -i $input
+        #end if
+    </command>
+    <inputs>
+        <param name="input" format="tabular" type="data" label="Input" />
+        <param name="samplings" type="integer" label="Samplings" help="Number of samplings to compute the FM bias pvalue" optional="true" value="10000"/>
+
+        <param name="estimator" type="select" label="Estimator" help="Test estimator for computation" optional="true">
+            <option value="median">Median</option>
+            <option value="mean">Mean</option>
+        </param>
+
+
+        <param name="gene_threshold" type="integer" label="Gene Threshold" help="Minimum number of mutations per gene to compute the FM bias" optional="true" value="2"/>
+        <param name="pathway_threshold" type="integer" label="Pathway Threshold" help="Minimum number of mutations per pathway to compute the FM bias" optional="true" value="10" />
+        <param name="slices" type="text" label="Slices" help="Slices to process separated by commas(slices=SIFT,PPH2,MA)" optional="true" value="SIFT,PPH2,MA"/>
+        <conditional name="mappingpathcondition">
+            <param name="hasmapfile" type="select" label="Have a mapping gene file">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </param>
+            <when value="yes">
+                <param name="mapping_path" type="data" format="tabular" label=" File with mappings between genes and pathways to be analysed"/>
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+
+        <data format="tabular" name="output1"/>
+        <data format="tabular" name="output2" >
+            <filter>mappingpathcondition["hasmapfile"]=="yes"</filter>
+        </data>
+    </outputs>
+
+</tool>
+
