@@ -10,6 +10,8 @@ before_install:
  - sudo pip install -U requests
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - export PATH=$PWD:$PATH
+ - echo $PATH
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
