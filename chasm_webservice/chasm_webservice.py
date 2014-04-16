@@ -24,6 +24,8 @@ THE SOFTWARE.
 
 """
 import sys
+print "PATH", sys.path
+import xlrd
 import requests
 import argparse
 import time
@@ -33,7 +35,6 @@ import zipfile
 import tempfile
 import ntpath
 import shutil
-import xlrd
 import csv
 import os
 sheet_map = {0: 'Variant_Analysis.csv',
