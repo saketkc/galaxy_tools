@@ -6,6 +6,9 @@ before_install:
  - mkdir "$HOME/.python-eggs"
  - chmod 700 "$HOME/.python-eggs" 
  - sudo apt-get install python-pip
+ - sudp apt-get install python-bs4 
+ - sudo apt-get install python-requests
+ - sudo apt-get install python-pycurl
  - sudo pip install requests
  - sudo pip install beautifulsoup4
  - sudo pip install pycurl
