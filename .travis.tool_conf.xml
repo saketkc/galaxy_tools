@@ -4,7 +4,7 @@
     <tool file="data_source/upload.xml"/>
   </section>
   <section name="Driver-Mutation" id="Tools">
-     <tool file="chasm_webservice/chasm_webservice.xml" />
+     <tool file="condel_web/condel_web.xml" />
   </section>
 </toolbox>
 
