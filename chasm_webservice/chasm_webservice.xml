@@ -73,7 +73,7 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="chasm_input.txt"/>
+            <param name="input" value="chasm_input.txt" ftype="txt"/>
             <param name="gene_annotation" value="yes"/>
             <param name="analysis_type" value="driver"/>
             <param name="tissue_type" value="Other"/>
