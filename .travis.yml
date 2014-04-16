@@ -6,6 +6,7 @@ env:
 before_install:
  - sudo apt-get install python-pip
  - sudo apt-get install python-requests
+ - sudo apt-get install python-xlrd
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
