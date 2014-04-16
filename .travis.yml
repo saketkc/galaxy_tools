@@ -1,12 +1,11 @@
 language: python
-python:
- - "2.7"
-install:
- - "pip install -r requirements.txt"
+python: 2.7
 env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
+ - sudo apt-get install python-pip
+ - sudo pip install -r requirements.txt
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
