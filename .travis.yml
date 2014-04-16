@@ -5,8 +5,8 @@ env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
  - sudo apt-get install python-pip
- - pip install python-requests
- - pip install python-xlrd
+ - pip install requests
+ - pip install xlrd
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
