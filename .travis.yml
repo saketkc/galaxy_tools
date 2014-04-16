@@ -29,5 +29,5 @@ install:
  - ./run.sh --stop-daemon || true
 
 script:
- - python ./scripts/functional_tests.py -v `python tool_list.py DriverMutationTools`
+ - python ./scripts/functional_tests.py -v `python tool_list.py Driver-Mutation-Tools`
 
