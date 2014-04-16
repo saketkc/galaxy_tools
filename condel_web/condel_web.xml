@@ -12,15 +12,15 @@
         condel_web.py --input $input --output $output
     </command>
     <inputs>
-        <param name="input" format="text" type="data" label="Input Variants" />
+        <param name="input" format="tabular" type="data" label="Input Variants" />
     </inputs>
     <outputs>
         <data name="output" format="tabular"/>
     </outputs>
     <tests>
         <test>
-            <param name="input" value="condel_input.tsv" ftype="tabular"/>
-            <output name="output" file="condel_output.csv" ftype="tabular"/>
+            <param name="input" value="condel_input.tabular" ftype="tabular"/>
+            <output name="output" file="condel_output.tabular" ftype="tabular"/>
         </test>
     </tests>
     <help>
