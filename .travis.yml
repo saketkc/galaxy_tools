@@ -4,7 +4,6 @@ env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
- - sudo apt-get install python-pip
  - pip install requests
  - pip install xlrd
  - cd ${TRAVIS_BUILD_DIR}
