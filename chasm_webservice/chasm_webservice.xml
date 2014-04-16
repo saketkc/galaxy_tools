@@ -80,7 +80,7 @@
             <output name="gene_analysis_out" file="chasm_output_genes.txt"/>
             <output name="variant_analysis_out" file="chasm_output_variants.txt"/>
             <output name="amino_acid_level_analysis_out" file="chasm_output_aminoacids.txt"/>
-            <output name="error_file" file="chasm_output_error.txt"/>
+            <output name="error_file" file="chasm_output_errorsssss.txt"/>
         </test>
     </tests>
 
