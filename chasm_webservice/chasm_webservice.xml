@@ -15,7 +15,7 @@
                             --error_file $error_file
     </command>
     <inputs>
-        <param format="txt" name="input" type="data" label="Variants File" />
+        <param name="input" type="data" label="Variants File" />
         <param name="analysis_type" type="select" label="Choose analysis type" help="
                                                                         Cancer driver analysis predicts whether\
                                                                         the submitted variants are cancer drivers.\
@@ -73,7 +73,7 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" ftype="txt" value="chasm_input.txt"/>
+            <param name="input" value="chasm_input.txt"/>
             <param name="gene_annotation" value="yes"/>
             <param name="analysis_type" value="driver"/>
             <param name="tissue_type" value="Other"/>
