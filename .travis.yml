@@ -25,7 +25,6 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
- - cp ${TRAVIS_BUILD_DIR}/tool-data/* tool-data/
  - ./run.sh --stop-daemon || true
 
 script:
