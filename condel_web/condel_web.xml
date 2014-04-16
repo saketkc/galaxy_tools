@@ -19,8 +19,8 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="condel_input.tsv"/>
-            <output name="output" file="condel_output.csv"/>
+            <param name="input" value="condel_input.tsv" ftype="tabular"/>
+            <output name="output" file="condel_output.csv" ftype="tabular"/>
         </test>
     </tests>
     <help>
