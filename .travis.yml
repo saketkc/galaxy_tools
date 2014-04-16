@@ -3,19 +3,16 @@ env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
- - sudo apt-get install python-pip
- - sudo apt-get install python-bs4 
- - sudo apt-get install python-requests
- - sudo apt-get install python-pycurl
- - sudo pip install -U requests
- - sudo pip install -U beautifulsoup4
- - sudo pip install -U pycurl
- - export PATH=$PWD:$PATH
- - echo $PATH
+ - mkdir "$HOME/.python-eggs"
+ - chmod 700 "$HOME/.python-eggs" 
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
  - cd galaxy-central-master
+ - sudo apt-get install python-pip
+ - sudo pip install -U requests
+ - sudo pip install -U beautifulsoup4
+ - sudo pip install -U pycurl
 
 install:
  - echo $PYTHONPATH
