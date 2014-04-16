@@ -10,7 +10,7 @@ before_install:
  - sudo apt-get install python-pip
  - sudo pip install -U requests
  - sudo pip install -U xlrd
- - sudo pip install -U bs4
+ - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
 
 install:
