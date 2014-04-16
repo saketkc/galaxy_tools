@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<toolbox>
+  <section name="Get Data" id="getext">
+    <tool file="data_source/upload.xml"/>
+  </section>
+  <section name="DriverMutationTools" id="driver">
+     <tool file="chasm_webservice/chasm_webservice.xml" />
+     <tool file="condel_web/condel_web.xml" />
+     <tool file="transFIC_web/transFIC_web.xml" />
+     <tool file="sift_web/sift_web.xml" />
+     <tool file="mutationassesor_web/mutation_assesor.xml" />
+     <tool file="polyphen2_web/polyphen2_web.xml" />
+  </section>
+</toolbox>
+

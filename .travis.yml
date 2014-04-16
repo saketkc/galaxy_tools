@@ -1,0 +1,33 @@
+language: python
+env:
+ - GALAXY_TEST_DEFAULT_INTERACTOR=twill
+ - GALAXY_TEST_DEFAULT_INTERACTOR=api
+before_install:
+ - mkdir "$HOME/.python-eggs"
+ - chmod 700 "$HOME/.python-eggs" 
+ - sudo apt-get install python-pip
+ - sudo pip install requests
+ - sudo pip install beautifulsoup4
+ - sudo pip install pycurl
+ - cd ${TRAVIS_BUILD_DIR}
+ - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
+ - tar -zxvf master | tail
+ - cd galaxy-central-master
+
+install:
+ - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0117.sqlite
+ - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
+ - rm tool_conf.xml.sample
+ - ln -s ${TRAVIS_BUILD_DIR}/chasm_webservice tools/chasm_webservice
+ - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/condel_web
+ - ln -s ${TRAVIS_BUILD_DIR}/transFIC_web tools/transFIC_web
+ - ln -s ${TRAVIS_BUILD_DIR}/sift_web tools/sift_web
+ - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
+ - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
+ - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
+ - cp ${TRAVIS_BUILD_DIR}/tool-data/* tool-data/
+ - ./run.sh --stop-daemon || true
+
+script:
+ - python ./scripts/functional_tests.py -v `python tool_list.py DriverMutationTools`
+
