@@ -12,6 +12,7 @@ before_install:
  - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - ls test-data
 
 install:
  - echo "$PYTHONPATH"
