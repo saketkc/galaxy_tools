@@ -1,0 +1,24 @@
+<tool id="dummy" name="Compute GC content">
+  <description>for each sequence in a file</description>
+    <command interpreter="python">
+        dummy.py --input $input --output $output
+    </command>
+  <inputs>
+    <param format="tabular" name="input" type="data" label="Source file"/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <tests>
+    <test>
+      <param name="input" value="condel_input.tabular" ftype="tabular"/>
+      <output name="output" file="condel_output.tabular"/>
+    </test>
+  </tests>
+
+  <help>
+This tool computes GC content from a FASTA file.
+  </help>
+
+</tool>
