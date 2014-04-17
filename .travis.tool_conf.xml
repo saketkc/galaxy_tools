@@ -4,7 +4,7 @@
     <tool file="data_source/upload.xml"/>
   </section>
   <section name="Driver-Mutation" id="Tools">
-     <tool file="dummy/dummy.xml" />
+     <tool file="dummy2/dummy2.xml" />
   </section>
 </toolbox>
 
