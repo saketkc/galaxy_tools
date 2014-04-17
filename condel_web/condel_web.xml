@@ -19,7 +19,7 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="condel_input.tabular" ftype="tabular"/>
+            <param name="input" value="condel.tabular" ftype="tabular"/>
             <output name="output" file="condel_output.tabular" ftype="tabular"/>
         </test>
     </tests>
