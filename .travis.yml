@@ -26,6 +26,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/sift_web tools/sift_web
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
+ - ln -s ${TRAVIS_BUILD_DIR}/dummy tools/dummy
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
  - ls test-data
  - ./run.sh --stop-daemon || true
