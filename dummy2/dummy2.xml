@@ -7,7 +7,7 @@
   </command>
   <inputs>
     <param name="num_lines" size="5" type="integer" value="1" label="Randomly select" help="lines"/>
-    <param format="txt" name="input" type="data" label="from"/>
+    <param format="tabular" name="input" type="data" label="from"/>
     <conditional name="seed_source">
       <param name="seed_source_selector" type="select" label="Set a random seed">
         <option value="no_seed" selected="True">Don't set seed</option>
