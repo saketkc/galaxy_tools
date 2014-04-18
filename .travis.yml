@@ -3,6 +3,8 @@ env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
+ - mkdir "$HOME/.python-eggs"
+ - chmod 700 "$HOME/.python-eggs" 
  - cd ${TRAVIS_BUILD_DIR}
  - wget https://codeload.github.com/jmchilton/galaxy-central/tar.gz/master
  - tar -zxvf master | tail
@@ -15,7 +17,6 @@ before_install:
  - ls test-data
 
 install:
- - echo "$PYTHONPATH"
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0117.sqlite
  - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
  - rm tool_conf.xml.sample
