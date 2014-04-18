@@ -28,7 +28,7 @@
 
     <test>
       <param name="num_lines" value="1"/>
-      <param name="input" value="condel_input.tabular"/>
+      <param name="input" value="filter1_test5.tab"/>
       <param name="seed_source_selector" value="set_seed"/>
       <param name="seed" value="asdf"/>
       <output name="out_file1" file="condel_output.tabular"/>
