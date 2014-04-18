@@ -28,7 +28,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - ln -s ${TRAVIS_BUILD_DIR}/dummy2 tools/dummy2
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
- - ls test-data
+ - ls -l test-data/condel_input.tabular
  - ./run.sh --stop-daemon || true
 
 script:
