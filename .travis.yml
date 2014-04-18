@@ -29,6 +29,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/dummy2 tools/dummy2
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
  - ls -l test-data/condel_input.tabular
+ - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - ./run.sh --stop-daemon || true
 
 script:
