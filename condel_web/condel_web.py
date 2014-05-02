@@ -69,9 +69,11 @@ class TransficUploader:
         self.c = pycurl.Curl()
         self.c.setopt(pycurl.URL, __url__)
         self.c.setopt(pycurl.UPLOAD, 1)
-        self.c.setopt(pycurl.PROXY,
-                      os.env['http_proxy'])
-        #'http://saket.kumar:uzfmTjX9839.1314@netmon.iitb.ac.in:80/')
+        try:
+            proxy = os.environ['http_proxy']
+            self.c.setopt(pycurl.PROXY, proxy)
+        except KeyError:
+            pass
         self.c.setopt(pycurl.HTTPHEADER, ['Expect:'])
         self.c.setopt(pycurl.UPLOAD, 1)
         self.c.setopt(pycurl.NOPROGRESS, 1)
