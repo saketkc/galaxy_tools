@@ -1,0 +1,14 @@
+#Gene Level Analysis Report
+#2014-06-07 15:29:23.295849
+#Analysis done at http://www.cravat.us.
+#Input file: dataset_266.dat
+#This report shows analysis results at gene level.
+#The composite p-value (Stouffer's combined p-value) and composite FDR of a gene show how probable it is to get the same p-value distribution for the gene as that obtained from the input variants by chance.
+#Input coordinate was hg19 genomic.
+#Tissue type for CHASM analysis: Other
+#For more information on CRAVAT, visit http://www.cravat.us.
+#
+HUGO symbol	Best driver score from representative transcripts	Composite p value	Composite FDR	Occurrences in study [gene mutated]	Occurrences in COSMIC [gene mutated]	Occurrences in COSMIC by primary sites [gene mutated]
+MTMR3	0.6	0.3364	0.55	1	102	upper_aerodigestive_tract(2);large_intestine(24);haematopoietic_and_lymphoid_tissue(5);endometrium(12);urinary_tract(4);oesophagus(1);liver(3);skin(17);lung(17);ovary(5);prostate(2);kidney(4);breast(6)
+ZNRF3	0.514	0.171	0.55	2	73	upper_aerodigestive_tract(2);large_intestine(19);autonomic_ganglia(1);haematopoietic_and_lymphoid_tissue(2);endometrium(12);urinary_tract(2);lung(16);liver(5);skin(1);oesophagus(3);ovary(2);NS(1);prostate(2);kidney(3);breast(2)
+MKL1	0.728	0.793956248886469	1	2	68	large_intestine(15);stomach(2);central_nervous_system(1);haematopoietic_and_lymphoid_tissue(3);endometrium(13);urinary_tract(1);lung(19);breast(3);skin(1);ovary(5);kidney(4);liver(1)
