@@ -28,7 +28,6 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
- - ls -l test-data/condel_input.tabular
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - ./run.sh --stop-daemon || true
 
