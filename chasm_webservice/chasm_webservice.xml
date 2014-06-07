@@ -77,14 +77,13 @@
     <tests>
         <test>
             <param name="input" value="chasm_input.txt"/>
-            <param name="gene_annotation" value="yes"/>
+            <param name="gene_annotation" value="no"/>
             <param name="analysis_type" value="driver"/>
             <param name="tissue_type" value="Other"/>
-            <output name="gene_analysis_out" file="chasm_output_genes.txt"/>
-            <output name="variant_analysis_out" file="chasm_output_variants.txt"/>
-            <output name="amino_acid_level_analysis_out" file="chasm_output_aminoacids.txt"/>
+            i<output name="gene_analysis_out" file="chasm_output_genes.txt" diff_line="1"/>
+            <output name="variant_analysis_out" file="chasm_output_variants.txt" diff_line="1"/>
             <output name="error_file" file="chasm_output_errors.txt"/>
-            <output name="codon_level_analysis_out" file="chasm_output_codons.txt"/>
+            <output name="codon_level_analysis_out" file="chasm_output_codons.txt" diff_line="2"/>
         </test>
     </tests>
 
