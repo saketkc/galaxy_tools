@@ -1,4 +1,4 @@
-language: python
+language: java
 env:
  - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
@@ -11,11 +11,12 @@ before_install:
  - cd galaxy-central-master
  - sudo apt-get install python-pip
  - sudo pip install -U requests
+ - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - ls test-data
 
 install:
- - echo $PYTHONPATH
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0117.sqlite
  - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
  - rm tool_conf.xml.sample
@@ -27,6 +28,8 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
+ - ls -l test-data/condel_input.tabular
+ - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - ./run.sh --stop-daemon || true
 
 script:
