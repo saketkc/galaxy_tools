@@ -12,7 +12,7 @@
         transFIC_web.py --input $input --output $output
     </command>
     <inputs>
-        <param name="input" format="text" type="data" label="Inout Variants"/>
+        <param name="input" type="data" label="Inout Variants"/>
     </inputs>
     <outputs>
         <data name="output" format="tabular"/>

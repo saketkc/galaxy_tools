@@ -150,11 +150,13 @@ class CHASMWeb:
         else:
             request = requests.post(
                 __URL__, data=stripped_data, files=dict(foo='bar'))
+        print request.text
         job_id = json.loads(request.text)['jobid']
         return job_id
 
     @retry(requests.exceptions.HTTPError)
     def zip_exists(self, job_id):
+        print job_id
         url = 'http://www.cravat.us/results/%s/%s.zip' % (job_id, job_id)
         zip_download_request = requests.request('GET', url)
         if zip_download_request.status_code == 404:
@@ -243,6 +245,9 @@ def main(params):
     parser.add_argument('--amino_acid_level_analysis_out',
                         dest='amino_acid_level_analysis_out',
                         type=str, required=True,)
+    parser.add_argument('--codon_level_analysis_out',
+                        dest='codon_level_analysis_out',
+                        type=str, required=True,)
     parser.add_argument('--error_file', dest='error_file_out',
                         type=str, required=True)
     parser.add_argument('--snv_box_out', dest='snv_box_out',
@@ -266,7 +271,8 @@ def main(params):
                 'Variant_Analysis.Result.tsv': args.variant_analysis_out,
                 'Gene_Level_Analysis.Result.tsv': args.gene_analysis_out,
                 'SnvGet Feature Description.xls': args.snv_features_out,
-                'error.txt': args.error_file_out
+                'error.txt': args.error_file_out,
+                'Codon_Level_Analysis.Result.tsv': args.codon_level_analysis_out,
                 }
     url = chasm_web.zip_exists(job_id)
     download = chasm_web.download_zip(url, job_id)

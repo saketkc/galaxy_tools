@@ -12,7 +12,9 @@
                             --gene_analysis_out $gene_analysis_out
                             --variant_analysis_out $variant_analysis_out
                             --amino_acid_level_analysis_out $amino_acid_level_analysis_out
+                            --codon_level_analysis_out $codon_level_analysis_out
                             --error_file $error_file
+
     </command>
     <inputs>
         <param format="txt" name="input" type="data" label="Variants File" />
@@ -70,6 +72,7 @@
         <data format="tabular" name="variant_analysis_out" label="${tool.name} on ${on_string}: variant" />
         <data format="tabular" name="amino_acid_level_analysis_out" label="${tool.name} on ${on_string}: aminoacid" />
         <data format="tabular" name="error_file" label="${tool.name} on ${on_string}: error" />
+        <data format="tabular" name="codon_level_analysis_out" label="${tool.name} on ${on_string}: Codon level" />
     </outputs>
     <tests>
         <test>
@@ -80,7 +83,8 @@
             <output name="gene_analysis_out" file="chasm_output_genes.txt"/>
             <output name="variant_analysis_out" file="chasm_output_variants.txt"/>
             <output name="amino_acid_level_analysis_out" file="chasm_output_aminoacids.txt"/>
-            <output name="error_file" file="chasm_output_errorsssss.txt"/>
+            <output name="error_file" file="chasm_output_errors.txt"/>
+            <output name="codon_level_analysis_out" file="chasm_output_codons.txt"/>
         </test>
     </tests>
 
