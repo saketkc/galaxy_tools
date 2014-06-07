@@ -19,7 +19,7 @@ def stop_err(msg, err=1):
     sys.exit(err)
 
 
-def retry(ExceptionToCheck, tries=14, delay=3, backoff=2, logger=None):
+def retry(ExceptionToCheck, tries=12000000, delay=3, backoff=2, logger=None):
     """Retry calling the decorated function using an exponential backoff.
 
     http://www.saltycrane.com/blog/2009/11/trying-out-retry-decorator-python/
