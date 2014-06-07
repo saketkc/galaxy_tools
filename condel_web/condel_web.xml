@@ -20,7 +20,7 @@
     <tests>
         <test>
             <param name="input" value="condel_input.tsv"/>
-            <output name="output" file="condel_output.csv"/>
+            <output name="output" file="condel_output.tabular"/>
         </test>
     </tests>
     <help>
