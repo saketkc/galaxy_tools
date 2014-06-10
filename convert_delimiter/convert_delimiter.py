@@ -36,6 +36,7 @@ def main():
         'Sc': ';'
     }
     from_ch = char_dict[from_char] + '+'    #making an RE to match 1 or more occurences.
+    to_char = char_dict[to_char]
     skipped = 0
 
     for line in fin:

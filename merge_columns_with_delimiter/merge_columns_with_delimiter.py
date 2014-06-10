@@ -10,28 +10,45 @@ def __main__():
         outfile = open ( sys.argv[2], 'w')
     except:
         stop_err( 'Cannot open or create a file\n' )
-        
-    if len( sys.argv ) < 4:
+
+    if len( sys.argv ) < 5:
         stop_err( 'No columns to merge' )
     else:
-        cols = sys.argv[3:]        
+        delimiter = sys.argv[3]
+        cols = sys.argv[4:]
 
     skipped_lines = 0
 
+    char_dict = {
+        'T': '\t',
+        's': '\s',
+        'Dt': '\.',
+        'Sl': '\\',
+        'C': ',',
+        'D': '-',
+        'U': '_',
+        'P': '\|',
+        'Co': ':',
+        'Sc': ';'
+    }
     for line in infile:
         line = line.rstrip( '\r\n' )
         if line and not line.startswith( '#' ):
             fields = line.split( '\t' )
             line += '\t'
-            for col in cols:
+            for i, col in enumerate(cols):
                 try:
-                    line += fields[ int( col ) -1 ]
+                    if i!=len(cols)-1:
+                        line += fields[ int( col ) -1 ] + char_dict[delimiter]
+                    else:
+                        line += fields[ int( col ) -1 ]
+
                 except:
                     skipped_lines += 1
-                    
+
             print >>outfile, line
-            
+
     if skipped_lines > 0:
         print 'Skipped %d invalid lines' % skipped_lines
-            
+
 if __name__ == "__main__" : __main__()

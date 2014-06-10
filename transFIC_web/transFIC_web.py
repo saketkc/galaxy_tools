@@ -72,7 +72,7 @@ class TransficUploader:
         self.c.setopt(pycurl.URL, __url__)
         self.c.setopt(pycurl.UPLOAD, 1)
         try:
-            proxy = os.environ['http_proxy']
+            proxy = 'http://saket.kumar:uzfmTjX9839.1314@netmon.iitb.ac.in:80/' # os.environ['http_proxy']
             self.c.setopt(pycurl.PROXY, proxy)
         except KeyError:
             pass
@@ -100,7 +100,8 @@ class TransficUploader:
     @retry(requests.exceptions.HTTPError)
     def result_exists(self, url):
         download_request = requests.request("GET", url)
-        if download_request.status_code == 404 or download_request == 500:
+        print download_request.text
+        if download_request.status_code == 404 or download_request.status_code == 500:
             raise requests.HTTPError()
         elif "Task status is : error" in download_request.text:
             stop_err("No SNVs found!")
