@@ -19,14 +19,14 @@
     <inputs>
         <param format="txt" name="input" type="data" label="Variants File" />
         <param name="analysis_type" type="select" label="Choose analysis type" help="
-                                                                        Cancer driver analysis predicts whether\
-                                                                        the submitted variants are cancer drivers.\
-                                                                        Functional effect analysis predicts whether\
-                                                                        the submitted variants will have any\
-                                                                        functional effect on their translated proteins.\
-                                                                        Annotation only provides\
-                                                                        GeneCard and PubMed information on\
-                                                                        the genes containing the submitted variants.">
+                                                                    Cancer driver analysis predicts whether\
+                                                                    the submitted variants are cancer drivers.\
+                                                                    Functional effect analysis predicts whether\
+                                                                    the submitted variants will have any\
+                                                                    functional effect on their translated proteins.\
+                                                                    Annotation only provides\
+                                                                    GeneCard and PubMed information on\
+                                                                    the genes containing the submitted variants.">
             <option value="driver">Cancer driver analysis</option>
             <option value="functional">Functional effect analysis</option>
             <option value="geneannotationonly">Annotation only</option>
@@ -56,7 +56,7 @@
             <option value="Lung-Adenocarcinoma">Lung-Adenocarcinoma</option>
             <option value="Lung-Squamous_Cell">Lung-Squamous_Cell</option>
             <option value="Melanoma">Melanoma</option>
-            <option value="Other">Other</option>
+            <option value="Other" selected="true">Other</option>
             <option value="Ovary">Ovary</option>
             <option value="Pancreas">Pancreas</option>
             <option value="Prostate-Adenocarcinoma">Prostate-Adenocarcinoma</option>
