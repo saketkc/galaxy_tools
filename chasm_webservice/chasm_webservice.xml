@@ -80,8 +80,8 @@
             <param name="gene_annotation" value="no"/>
             <param name="analysis_type" value="driver"/>
             <param name="tissue_type" value="Other"/>
-            <output name="gene_analysis_out" file="chasm_output_genes.tabular" lines_diff="4" ftype="tabular"/>
             <output name="variant_analysis_out" file="chasm_output_variants.tabular" lines_diff="4"/>
+            <output name="gene_analysis_out" file="chasm_output_genes.tabular" lines_diff="4" ftype="tabular"/>
             <output name="error_file" file="chasm_output_errors.tabular" lines_diff="4"/>
             <output name="codon_level_analysis_out" file="chasm_output_codons.tabular" lines_diff="4"/>
         </test>
