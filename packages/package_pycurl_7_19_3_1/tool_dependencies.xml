@@ -13,7 +13,7 @@
             <actions>
                 <action type="download_by_url">http://curl.haxx.se/download/curl-7.36.0.tar.gz</action>
                 <action type="shell_command">mkdir install-destination</action>
-                <action type="shell_command">./configure --with-ssl --prefix=/home/saket/Desktop/curl-7.36.0/install-destination</action>
+                <action type="shell_command">./configure --with-ssl --prefix=$INSTALL_DIR/install-destination</action>
                 <action type="shell_command">make all</action>
                 <action type="shell_command">make install</action>
                 <action type="set_environment">
