@@ -20,6 +20,8 @@
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/install-destination</environment_variable>
                     <environment_variable name="CURL" action="set_to">$INSTALL_DIR/install-destination/bin/curl-config</environment_variable>
                 </action>
+                <action type="shell_command">echo $INSTALL_DIR</action>
+                <action type="shell_command">echo $CURL</action>
             </actions>
 
 

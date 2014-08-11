@@ -1,0 +1,34 @@
+<tool id="chasm_webservice" name="CHASM Webservice" version="1.0.0" hidden="false">
+    <requirements>
+        <requirement type="package" version="2.2.1">requests</requirement>
+        <requirement type="python-module">requests</requirement>
+    </requirements>
+    <description>fathmm: Functional Analysis through Hidden Markov Models </description>
+    <command interpreter="python">
+
+    </command>
+    <inputs>
+    </inputs>
+    <outputs>
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>
+
+    <help>
+        **What it does**
+
+        fathmm: Functional Analysis through Hidden Markov Models
+
+        A tool for predicting the functional consequences of both coding variants,
+        i.e. non-synonymous single nucleotide variants (nsSNVs), and non-coding variants
+
+        **Citation**
+
+        If  you use this tool please cite:
+
+        Shihab HA, Gough J, Cooper DN, Day INM, Gaunt, TR. (2013). Predicting the Functional Consequences of Cancer-Associated Amino Acid Substitutions. Bioinformatics 29:1504-1510.
+
+    </help>
+</tool>
