@@ -20,12 +20,14 @@
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/install-destination</environment_variable>
                     <environment_variable name="CURL" action="set_to">$INSTALL_DIR/install-destination/bin/curl-config</environment_variable>
                 </action>
-                <action type="shell_command">echo $INSTALL_DIR</action>
-                <action type="shell_command">echo $CURL</action>
             </actions>
 
 
             <actions>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/install-destination</environment_variable>
+                    <environment_variable name="CURL" action="set_to">$INSTALL_DIR/install-destination/bin/curl-config</environment_variable>
+                </action>
                 <action type="download_by_url">https://pypi.python.org/packages/source/p/pycurl/pycurl-7.19.3.1.tar.gz</action>
                 <action type="make_directory">$INSTALL_DIR/lib/python</action>
                 <action type="shell_command">
