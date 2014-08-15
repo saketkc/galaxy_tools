@@ -18,7 +18,7 @@ def main_web(args):
     assert os.path.exists(args.input)
     with open(args.input) as f:
         contents = f.read().strip()
-    threshold = 0.75
+    threshold = -0.75
     if (args.threshold):
         threshold = args.threshold
     data = {"weighted": __type__,

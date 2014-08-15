@@ -1,34 +1,63 @@
-<tool id="chasm_webservice" name="CHASM Webservice" version="1.0.0" hidden="false">
+<tool id="fathmm_web" name="FATHMM">
+    <description>fathmm web service</description>
     <requirements>
         <requirement type="package" version="2.2.1">requests</requirement>
         <requirement type="python-module">requests</requirement>
     </requirements>
-    <description>fathmm: Functional Analysis through Hidden Markov Models </description>
-    <command interpreter="python">
-
+    <command interpreter="python">mutation_assesor.py --input $input --output $output
     </command>
     <inputs>
+        <param name="input" format="txt" type="data" label="Input variants" />
     </inputs>
     <outputs>
+        <data name="output" format="tab"/>
     </outputs>
     <tests>
         <test>
+            <param name="input" value="fathmm_input.txt"/>
+            <output name="output" file="fathmm_output.tab"/>
         </test>
     </tests>
-
     <help>
-        **What it does**
 
-        fathmm: Functional Analysis through Hidden Markov Models
 
-        A tool for predicting the functional consequences of both coding variants,
-        i.e. non-synonymous single nucleotide variants (nsSNVs), and non-coding variants
+    **What it does**
 
-        **Citation**
 
-        If  you use this tool please cite:
+        This script calls FATHMM(http://supfam3.cs.bris.ac.uk/FATHMM/about.html) Web API to fetch
+        predict functional impact of mutations.
 
-        Shihab HA, Gough J, Cooper DN, Day INM, Gaunt, TR. (2013). Predicting the Functional Consequences of Cancer-Associated Amino Acid Substitutions. Bioinformatics 29:1504-1510.
+        Input is a plain text file:
+
+        1.  &lt;protein&gt;  &lt;substitution&gt;
+
+        2.  dbSNP rs identifiers
+
+
+        Where &lt;protein&gt;  is the protein identifier and
+        &lt;substitution&gt; is the amino acid substitution in the conventional one letter format.
+        Multiple substitutions can be entered on a single line and should be separated by a comma.
+        SwissProt/TrEMBL, RefSeq and Ensembl protein identifiers are accepted:
+
+        P43026 L441P
+        ENSP00000325527 N548I,E1073K,C2307S
+
+
+
+    **Citations**
+
+        If you use this tool in Galaxy, please cite :
+
+        Shihab HA, Gough J, Cooper DN, Stenson PD, Barker GLA, Edwards KJ, Day INM, Gaunt, TR. (2013).
+        Predicting the Functional, Molecular and PhenotypicConsequences of Amino Acid Substitutions using
+        Hidden Markov Models. Hum. Mutat., 34:57-65
+
+        Shihab HA, Gough J, Cooper DN, Day INM, Gaunt, TR. (2013). Predicting the Functional Consequences
+        of Cancer-Associated Amino Acid Substitutions. Bioinformatics 29:1504-1510.
+
+        Shihab HA, Gough J, Mort M, Cooper DN, Day INM, Gaunt, TR. (2014).
+        Ranking Non-Synonymous Single Nucleotide Polymorphisms based on Disease Concepts. In Press
 
     </help>
 </tool>
+
