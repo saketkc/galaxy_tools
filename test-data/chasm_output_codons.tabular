@@ -1,13 +1,14 @@
 #Amino Acid Level Analysis Report
-#2014-07-15 03:23:43.460539
+#2014-08-28 22:54:22.487446
+#CRAVAT version: 3.1
 #Analysis done at http://www.cravat.us.
-#Input file: dataset_346.dat
+#Input file: dataset_1.dat
 #This report shows analysis results at amino acid level.
 #Input coordinate was hg19 genomic.
 #For more information on CRAVAT, visit http://www.cravat.us.
 #
-Transcript	Amino acid position	Sequence Ontology	Reference amino acid(s)	Alternate amino acid(s)	HUGO symbol	Other transcripts	Occurrences in study [amino acid change]	Transcript in COSMIC	Protein sequence change in COSMIC	Occurrences in COSMIC [amino acid change]	Occurrences in COSMIC by primary sites [amino acid change]
+Transcript	Amino acid position	Sequence Ontology	Reference amino acid(s)	Protein sequence change	HUGO symbol	Other transcripts	Occurrences in study [amino acid change]	Transcript in COSMIC	Protein sequence change in COSMIC	Occurrences in COSMIC [amino acid change]	Occurrences in COSMIC by primary sites [amino acid change]
 NM_021090.3	1198	MS	N	I	MTMR3	NM_153051.2:aAc>aTc:N1161I, NM_153050.2:aAc>aTc:N1170I, ENST00000323630:aAc>aTc:N1062I, ENST00000351488:aAc>aTc:N1161I, ENST00000333027:aAc>aTc:N1170I, ENST00000406629:aAc>aTc:N1170I, ENST00000401950:aAc>aTc:N1198I	1			0	
 NM_001206998.1	637	MS	H	R	ZNRF3	NM_032173.3:cAc>cGc:H537R, ENST00000406323:cAc>cGc:H537R, ENST00000332811:cAc>cGc:H537R, ENST00000402174:cAc>cGc:H537R, ENST00000544604:cAc>cGc:H637R	2			0	
-NM_020831.3	648	MS	S	G	MKL1	ENST00000396617:Agc>Ggc:S648G, ENST00000402042:Agc>Ggc:S598G, ENST00000407029:Agc>Ggc:S648G, ENST00000355630:Agc>Ggc:S648G	1			0	
+NM_020831.3	648	MS	S	G	MKL1	ENST00000396617:Agc>Ggc:S648G, ENST00000402042:Agc>Ggc:S598G, ENST00000407029:Agc>Ggc:S648G, ENST00000355630:Agc>Ggc:S648G	1	ENST00000355630	p.S648G (stomach 1)	1	stomach(1)
 NM_020831.3	396	MS	A	T	MKL1	ENST00000396617:Gcc>Acc:A396T, ENST00000402042:Gcc>Acc:A346T, ENST00000407029:Gcc>Acc:A396T, ENST00000355630:Gcc>Acc:A396T	1			0	
