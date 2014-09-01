@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 import requests
 import argparse
-import os
 import sys
-import csv
 from functools import wraps
-import tempfile
-import shutil
 import time
 from bs4 import BeautifulSoup
 
-__url__ = 'http://provean.jcvi.org/genome_prg.php'
+__url__ = 'http://provean.jcvi.org/genome_prg_2.php'
 
 
 def stop_err(msg, err=1):
@@ -75,16 +71,9 @@ class SIFTWeb:
 
     def upload(self, inputpath):
         payload = {'table': 'human37_66'}
-        tmp_dir = tempfile.mkdtemp()
-        path = os.path.join(tmp_dir, 'temp_file')
-        in_txt = csv.reader(open(inputpath, 'rb'))
-        with open(path, 'wb') as fp:
-            out_csv = csv.writer(fp, delimiter=',')
-            out_csv.writerows(in_txt)
-
-        request = requests.post(
-            __url__, data=payload, files={'CHR_file': open(path)})
-        shutil.rmtree(tmp_dir)
+        in_txt = open(inputpath, 'rb').read()
+        payload['CHR'] = in_txt
+        request = requests.post( __url__, data=payload)#, files={'CHR_file': open(path)})
         return request.text
 
     @retry(requests.exceptions.HTTPError)
