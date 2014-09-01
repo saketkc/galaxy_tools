@@ -1,0 +1,111 @@
+<tool id="inchlib_clust" name="INCHlib" version="1.0.0" hidden="false">
+    <description>Performs data clustering for input to InCHlib.js</description>
+    <command interpreter="python">
+        inchlib_clust.py $input -o $output
+    </command>
+    <inputs>
+        <param format="csv" name="input" type="data" label="Input File" />
+        <param name="row_distance" type="select" label="Row Distance Method" help="Set the distance to use for clustering rows">
+            <option value="braycurtis">braycurtis</option>
+            <option value="canberra">canberra</option>
+            <option value="chebyshev">chebyshev</option>
+            <option value="cityblock">cityblock</option>
+            <option value="correlation">correlation</option>
+            <option value="cosine">cosine</option>
+            <option value="euclidean" selected="true">euclidean</option>
+            <option value="mahalanobis">mahalanobis</option>
+            <option value="minkowski">minkowski</option>
+            <option value="seuclidean">seuclidean</option>
+            <option value="sqeuclidean">sqeuclidean</option>
+
+            <option value="dice">dice</option>
+            <option value="hamming">hamming</option>
+            <option value="jaccard">jaccard</option>
+            <option value="kulsinski">kulsinski</option>
+            <option value="matching">matching</option>
+            <option value="rogerstanimoto">rogerstanimoto</option>
+            <option value="russellrao">russellrao</option>
+            <option value="sokalmichener">sokalmichener</option>
+            <option value="sokalsneath">sokalsneath</option>
+            <option value="yule">yule</option>
+        </param>
+        <param name="row_linkage" type="select" label="Row Linkage Method" help="Set the linkage to use for clustering rows">
+                <option value="single">single</option>
+                <option value="complete">complete</option>
+                <option value="average">average</option>
+                <option value="centroid">centroid</option>
+                <option value="ward">ward</option>
+                <option value="median">median</option>
+                <option value="weighted">weighted</option>
+
+                <option value="ward" selected="true">ward</option>
+                <option value="centroid">centroid</option>
+        </param>
+        <param name="column_distance" type="select" label="Column Distance Method" help="Set the distance to use for clustering columns">
+            <option value="braycurtis">braycurtis</option>
+            <option value="canberra">canberra</option>
+            <option value="chebyshev">chebyshev</option>
+            <option value="cityblock">cityblock</option>
+            <option value="correlation">correlation</option>
+            <option value="cosine">cosine</option>
+            <option value="euclidean" selected="true">euclidean</option>
+            <option value="mahalanobis">mahalanobis</option>
+            <option value="minkowski">minkowski</option>
+            <option value="seuclidean">seuclidean</option>
+            <option value="sqeuclidean">sqeuclidean</option>
+
+            <option value="dice">dice</option>
+            <option value="hamming">hamming</option>
+            <option value="jaccard">jaccard</option>
+            <option value="kulsinski">kulsinski</option>
+            <option value="matching">matching</option>
+            <option value="rogerstanimoto">rogerstanimoto</option>
+            <option value="russellrao">russellrao</option>
+            <option value="sokalmichener">sokalmichener</option>
+            <option value="sokalsneath">sokalsneath</option>
+            <option value="yule">yule</option>
+        </param>
+        <param name="column_linkage" type="select" label="Column Linkage" help="Set the linkage to use for clustering columns">
+                <option value="single">single</option>
+                <option value="complete">complete</option>
+                <option value="average">average</option>
+                <option value="centroid">centroid</option>
+                <option value="ward">ward</option>
+                <option value="median">median</option>
+                <option value="weighted">weighted</option>
+
+                <option value="ward" selected="true">ward</option>
+                <option value="centroid">centroid</option>
+        </param>
+
+        <param name="axis" type="select" label="Clustering Axix">
+            <option value="row" selected="true">row</option>
+            <option value="both">both</option>
+        </param>
+
+        <param name="datatype" type="select" label="Type Of Data">
+            <option value="numeric" selected="true">numeric</option>
+            <option value="binary">binary</option>
+        </param>
+
+        <param name="data_delimiter" type="text" label="Data Delimiter" help=",;\t">
+        </param>
+
+
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" label="${tool.name} on ${on_string}: output" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input" value="inchlib_input.csv"/>
+        </test>
+    </tests>
+
+    <help>
+        **What it does**
+
+
+
+    </help>
+</tool>
