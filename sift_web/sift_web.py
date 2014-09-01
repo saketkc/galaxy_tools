@@ -77,7 +77,7 @@ class SIFTWeb:
         payload = {'table': 'human37_66'}
         tmp_dir = tempfile.mkdtemp()
         path = os.path.join(tmp_dir, 'temp_file')
-        in_txt = csv.reader(open(inputpath, 'rb'), delimiter='\t')
+        in_txt = csv.reader(open(inputpath, 'rb'))
         with open(path, 'wb') as fp:
             out_csv = csv.writer(fp, delimiter=',')
             out_csv.writerows(in_txt)
