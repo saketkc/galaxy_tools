@@ -1,4 +1,4 @@
 #  InCHlib on Galaxy
 
-[!icon](./galaxy_Biojs.png?raw=true “Screenshot”)
+![icon](./galaxy_Biojs.png?raw=true “Screenshot”)
 
