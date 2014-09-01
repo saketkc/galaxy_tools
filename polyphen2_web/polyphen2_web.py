@@ -13,8 +13,8 @@ result_url = 'http://genetics.bwh.harvard.edu'
 
 refresh_interval = 30
 TIMEOUT = 60 * 60
-TIME_DELAY = 7
-MAX_TRIES = 30
+TIME_DELAY = 17
+MAX_TRIES = 300
 
 # Genome assembly version used for chromosome
 # coordinates of the SNPs in user input

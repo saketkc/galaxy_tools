@@ -21,7 +21,8 @@
       <option value="Dt">Dots</option>
       <option value="C">Commas</option>
       <option value="D">Dashes</option>
-      <option value="Sl">Slashes</option>
+      <option value="Sl">Left Slashes</option>
+      <option value="Sr">Right Slashes</option>
       <option value="U">Underscores</option>
       <option value="P">Pipes</option>
       <option value="Co">Colons</option>
