@@ -17,7 +17,7 @@
     <param name="delimiter" type="select" label="Delimiter">
       <option value="s">Whitespaces</option>
       <option value="T">Tabs</option>
-      <!--<option value="Sp">Spaces</option>-->
+      <option value="Ep">EmptyString</option>
       <option value="Dt">Dots</option>
       <option value="C">Commas</option>
       <option value="D">Dashes</option>

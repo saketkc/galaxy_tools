@@ -29,7 +29,8 @@ def __main__():
         'U': '_',
         'P': '\|',
         'Co': ':',
-        'Sc': ';'
+        'Sc': ';',
+        'Ep': ''
     }
     for line in infile:
         line = line.rstrip( '\r\n' )
