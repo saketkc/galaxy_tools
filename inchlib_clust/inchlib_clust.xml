@@ -9,13 +9,13 @@
                         --axis $axis
                         --datatype $datatype
                         --data_delimiter $data_delimiter
-                    #if $data_header.values == "yes"
+                    #if $data_header.data_header_present == "yes"
                         --data_header
                     #end if
                     #if $metadata_option.metadata_present == "yes"
                         --metadata $metadata
                         --metadata_delimiter $metadata_delimiter
-                        #if $metadata_header.values == "yes"
+                        #if $metadata_header.metadata_header_present == "yes"
                             --metadata_header
                         #end if
                         #if $metadata_compress_option.should_compress_metadata == "yes"
@@ -25,7 +25,7 @@
                     #if $data_compress_option.should_compress_data == "yes"
                         --data_compressed_value $data_compressed_value
                     #end if
-                    #if $should_normalize=="yes"
+                    #if $should_normalize == "yes"
                         --normalize
                     #end if
     </command>
@@ -108,7 +108,7 @@
                 <option value="centroid">centroid</option>
         </param>
 
-        <param name="axis" type="select" label="Clustering Axix">
+        <param name="axis" type="select" label="Clustering Axis">
             <option value="row" selected="true">row</option>
             <option value="both">both</option>
         </param>
@@ -124,50 +124,54 @@
             <option value=";">semicolon</option>
         </param>
 
-        <param name="data_header" type="select" label="First row of file is header">
-            <option name="yes">Yes</option>
-            <option name="no" selected="true">No</option>
-        </param>
+        <conditional name="data_header">
+            <param name="data_header_present" type="select" label="First row of file is header">
+                <option value="yes">Yes</option>
+                <option value="no" selected="true">No</option>
+            </param>
+        </conditional>
 
-        <conditional  name="data_compress_option">
-            <param name="should_compress_data" type="select" label="Compress Rows?">
+        <conditional name="data_compress_option">
+            <param name="should_compress_data" type="select" label="Compress Rows">
                 <option value="yes">Yes</option>
                 <option value="no" selected="true">No</option>
             </param>
             <when value="yes">
-                <param name="compressed_value" type="select">
-                    <option name="median" selected="true">median</option>
-                    <option name="mean">mean</option>
+                <param name="data_compressed_value" type="select">
+                    <option value="median" selected="true">median</option>
+                    <option value="mean">mean</option>
                 </param>
             </when>
         </conditional>
 
-        <param name="normalize" type="select" label="Normalise">
+        <param name="should_normalize" type="select" label="Normalise">
                 <option value="yes">Yes</option>
                 <option value="no" selected="true">No</option>
         </param>
 
         <conditional name="metadata_option">
-            <param name="metadata_present" type="select" label="Protein Input">
+            <param name="metadata_present" type="select" label="Metadata Input">
                 <option value="yes">Yes</option>
                 <option value="no" selected="true">No</option>
             </param>
             <when value="yes">
                 <param name="metadata" type="data" format="text" label="Metadata File"/>
-                <param name="metadata_header" type="select" label="Metadata Header Present?">
-                    <option value="yes">Yes</option>
-                    <option value="no" selected="true">No</option>
-                </param>
-                <conditional  name="metadata_compress_option">
+                <conditional name="metadata_header">
+                    <param name="metadata_header_present" type="select" label="Metadata Header Present?">
+                        <option value="yes">Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                </conditional>
+                <conditional name="metadata_compress_option">
                     <param name="should_compress_metadata" type="select" label="Compress Metadata Rows?">
                         <option value="yes">Yes</option>
                         <option value="no" selected="true">No</option>
                     </param>
                     <when value="yes">
-                        <param name="compressed_value" type="select">
-                            <option name="median" selected="true">median</option>
-                            <option name="mean">mean</option>
-                            <option name="frequency">frequency</option>
+                        <param name="metadata_compressed_value" type="select">
+                            <option value="median" selected="true">median</option>
+                            <option value="mean">mean</option>
+                            <option value="frequency">frequency</option>
                         </param>
                     </when>
                 </conditional>
@@ -176,7 +180,7 @@
     </inputs>
 
     <outputs>
-        <data format="tabular" name="output" label="${tool.name} on ${on_string}: output" />
+        <data format="json" name="output" label="${tool.name} on ${on_string}: output" />
     </outputs>
 
     <tests>
@@ -188,6 +192,7 @@
     <help>
         **What it does**
 
+            Performs data clustering and prepares input data for InCHlib.
 
 
     </help>
