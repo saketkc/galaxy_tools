@@ -4,7 +4,8 @@ import requests
 import os
 import argparse
 import re
-
+import csv
+import StringIO
 __url__ = 'http://mutationassessor.org/'
 
 
@@ -37,8 +38,9 @@ def main_web(args):
                  Server returned %s .
                  Output: %s
                  """ % (request.status_code, response))
-    with open(args.output, 'wb') as fp:
-        fp.write(response)
+    r = StringIO.StringIO(response)
+    reader = csv.reader(r, delimiter=",")
+    csv.writer(open(args.output, "wb"), delimiter='\t').writerows(reader)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Process input output paths")
