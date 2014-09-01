@@ -30,7 +30,7 @@
                     #end if
     </command>
     <inputs>
-        <param format="csv" name="input" type="data" label="Input File" />
+        <param format="text" name="input" type="data" label="Input File" />
 
         <param name="row_distance" type="select" label="Row Distance Method" help="Set the distance to use for clustering rows">
             <option value="braycurtis">braycurtis</option>
