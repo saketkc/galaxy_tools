@@ -1,0 +1,56 @@
+<tool id="mutationassesor_web" name="MutationAssesor">
+    <description>MutationAssesor web service</description>
+    <requirements>
+        <requirement type="package" version="2.2.1">requests</requirement>
+        <requirement type="python-module">requests</requirement>
+    </requirements>
+    <command interpreter="python">mutation_assesor.py --input $input --output $output
+        #if $options.protein == "yes"
+            --protein
+        #else
+            $options.hg19
+        #end if
+    </command>
+    <inputs>
+        <conditional name="sift_options">
+            <param name="is_sift_present" type="select" label="Input Sift File">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </param>
+            <when value="yes">
+                <param name="sift_input" type="data" label="Sift Input" />
+                <param name="sift_threshold" type="float" label="Sift  Threshold" value="0.05"/>
+            </when>
+        </conditional>
+        <conditional name="polyphen_options">
+            <param name="is_polyphen_present" type="select" label="Input Polyphen File">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </param>
+            <when value="yes">
+                <param name="polyphen_input" type="data" label="Polyphen Input" />
+                <param name="polyphen_threshold" type="float" label="Polyphen Threshold" value="0.432"/>
+            </when>
+        </conditional>
+        <conditional name="ma_options">
+            <param name="is_ma_present" type="select" label="Input MA File">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </param>
+            <when value="yes">
+                <param name="ma_input" type="data" label="MA Input" />
+                <param name="ma_threshold" type="float" label="MA  Threshold" value="-2.50"/>
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        <data name="output" format="csv"/>
+    </outputs>
+    <help>
+
+
+    **What it does**
+
+    </help>
+</tool>
+

@@ -1,0 +1,157 @@
+{
+    "metadata": {
+        "nodes": {
+            "0": [
+                "class 1"
+            ], 
+            "1": [
+                "class 1"
+            ], 
+            "2": [
+                "class 2"
+            ], 
+            "3": [
+                "class 2"
+            ], 
+            "4": [
+                "class 3"
+            ]
+        }, 
+        "feature_names": [
+            "class"
+        ]
+    }, 
+    "data": {
+        "nodes": {
+            "0": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "1"
+                ], 
+                "features": [
+                    1.0, 
+                    1.0, 
+                    0.0
+                ], 
+                "parent": 5
+            }, 
+            "1": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "2"
+                ], 
+                "features": [
+                    1.0, 
+                    1.0, 
+                    0.0
+                ], 
+                "parent": 5
+            }, 
+            "2": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "3"
+                ], 
+                "features": [
+                    1.0, 
+                    1.0, 
+                    0.0
+                ], 
+                "parent": 6
+            }, 
+            "3": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "4"
+                ], 
+                "features": [
+                    0.0, 
+                    0.0, 
+                    0.0
+                ], 
+                "parent": 8
+            }, 
+            "4": {
+                "count": 1, 
+                "distance": 0, 
+                "objects": [
+                    "5"
+                ], 
+                "features": [
+                    1.0, 
+                    1.0, 
+                    0.0
+                ], 
+                "parent": 7
+            }, 
+            "5": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": 0, 
+                "parent": 6, 
+                "right_child": 1
+            }, 
+            "6": {
+                "count": 3, 
+                "distance": 0.0, 
+                "left_child": 2, 
+                "parent": 7, 
+                "right_child": 5
+            }, 
+            "7": {
+                "count": 4, 
+                "distance": 0.0, 
+                "left_child": 4, 
+                "parent": 8, 
+                "right_child": 6
+            }, 
+            "8": {
+                "count": 5, 
+                "distance": 1.789, 
+                "left_child": 3, 
+                "right_child": 7
+            }
+        }, 
+        "feature_names": [
+            "MA", 
+            "Sift", 
+            "Provean"
+        ]
+    }, 
+    "column_dendrogram": {
+        "nodes": {
+            "0": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": 4
+            }, 
+            "1": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": 3
+            }, 
+            "2": {
+                "count": 1, 
+                "distance": 0, 
+                "parent": 3
+            }, 
+            "3": {
+                "count": 2, 
+                "distance": 0.0, 
+                "left_child": 1, 
+                "parent": 4, 
+                "right_child": 2
+            }, 
+            "4": {
+                "count": 3, 
+                "distance": 2.309, 
+                "left_child": 0, 
+                "right_child": 3
+            }
+        }
+    }
+}
