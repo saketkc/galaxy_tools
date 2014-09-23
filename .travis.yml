@@ -14,9 +14,11 @@ before_install:
  - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - sudo apt-get install mercurial
 
 install:
- - patch < galaxy.patch
+ - hg init
+ - hg import galaxy.patch
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
  - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
  - rm config/tool_conf.xml.sample
