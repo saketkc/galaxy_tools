@@ -1,6 +1,5 @@
 language: java
 env:
- - GALAXY_TEST_DEFAULT_INTERACTOR=twill
  - GALAXY_TEST_DEFAULT_INTERACTOR=api
 before_install:
  - mkdir "$HOME/.python-eggs"
@@ -14,16 +13,8 @@ before_install:
  - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
- - sudo apt-get install mercurial
- - ls config/
 
 install:
- - echo -e "[ui]\nusername = Your Name <your@mail.com>" >> ~/.hgrc
- - hg init
- - hg add .
- - hg commit -m "Init"
- - hg import  -f --no-commit ${TRAVIS_BUILD_DIR}/galaxy.patch
- - hg up
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
  - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
