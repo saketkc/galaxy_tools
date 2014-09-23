@@ -15,6 +15,7 @@ before_install:
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
  - sudo apt-get install mercurial
+ - ls config/
 
 install:
  - echo -e "[ui]\nusername = Your Name <your@mail.com>" >> ~/.hgrc
@@ -22,6 +23,7 @@ install:
  - hg add .
  - hg commit -m "Init"
  - hg import --no-commit ${TRAVIS_BUILD_DIR}/galaxy.patch
+ - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
  - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
  - rm config/tool_conf.xml.sample
@@ -33,7 +35,6 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
- - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - ./run.sh --stop-daemon || true
 
 script:
