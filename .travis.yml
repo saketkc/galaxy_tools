@@ -17,6 +17,7 @@ before_install:
  - sudo apt-get install mercurial
 
 install:
+ - echo -e "[ui]\nusername = Your Name <your@mail.com>" >> ~/.hgrc
  - hg init
  - hg add .
  - hg commit -m "Init"
