@@ -13,6 +13,7 @@ before_install:
  - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - ls -1 config/
 
 install:
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
