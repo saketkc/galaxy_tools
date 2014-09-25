@@ -19,7 +19,7 @@ install:
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
  - export GALAXY_TEST_TOOL_CONF=${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml
- - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml configtool_conf.xml.sample
+ - echo $GALAXY_TEST_TOOL_CONF
  - ln -s ${TRAVIS_BUILD_DIR}/chasm_webservice tools/chasm_webservice
  - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/condel_web
  - ln -s ${TRAVIS_BUILD_DIR}/convert_delimiter tools/convert_delimiter
