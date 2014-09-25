@@ -18,15 +18,14 @@ before_install:
 install:
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
- - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml
- - rm config/tool_conf.xml.sample
- - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml tool_conf.xml.sample
+ - export GALAXY_TEST_TOOL_CONF=${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml
+ - ln -s ${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml configtool_conf.xml.sample
  - ln -s ${TRAVIS_BUILD_DIR}/chasm_webservice tools/chasm_webservice
  - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/condel_web
- - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/convert_delimiter
- - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/driver_to_inchlib
- - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/inchlib_clust
- - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/merge_columns_with_delimiter
+ - ln -s ${TRAVIS_BUILD_DIR}/convert_delimiter tools/convert_delimiter
+ - ln -s ${TRAVIS_BUILD_DIR}/driver_to_inchlib tools/driver_to_inchlib
+ - ln -s ${TRAVIS_BUILD_DIR}/inchlib_clust tools/inchlib_clust
+ - ln -s ${TRAVIS_BUILD_DIR}/merge_columns_with_delimiter tools/merge_columns_with_delimiter
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - ln -s ${TRAVIS_BUILD_DIR}/sift_web tools/sift_web
