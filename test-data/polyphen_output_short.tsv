@@ -1,0 +1,20 @@
+#o_acc               	 o_pos	o_aa1	o_aa2	rsid      	acc       	   pos	aa1	aa2	        prediction	 pph2_prob	  pph2_FPR	  pph2_TPR
+Q92889              	   706	    I	    T	rs1800069 	Q92889    	   706	  I	  T	 probably damaging	         1	   0.00026	   0.00018
+Q92889              	   875	    E	    G	rs1800124 	Q92889    	   875	  E	  G	 possibly damaging	     0.937	    0.0566	     0.801
+XRCC1_HUMAN         	   399	    R	    Q	rs25487   	P18887    	   399	  R	  Q	 probably damaging	     0.979	    0.0411	     0.755
+NP_005792           	    59	    L	    P	rs3390    	P41567    	    59	  L	  P	 possibly damaging	     0.895	    0.0631	      0.82
+rs1799931           	     ?	    ?	    ?	rs1799931 	P11245    	   286	  G	  E	            benign	     0.317	     0.112	     0.903
+Q7RTX0              	   191	    R	    H	         ?	Q7RTX0    	   191	  R	  H	 probably damaging	     0.998	    0.0112	     0.273	# chr1:1267483|GA|uc010nyk.1+|TAS1R3|NP_689414
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AC|uc001adh.3-|SDF4|NP_057260
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AT|uc001adh.3-|SDF4|NP_057260
+Q9BRK5-6            	   190	    D	    E	         ?	Q9BRK5-6  	   190	  D	  E	 probably damaging	     0.998	    0.0112	     0.273	# chr1:1158631|AC|uc001adi.3-|SDF4|NP_057631
+Q9BRK5-6            	   190	    D	    E	         ?	Q9BRK5-6  	   190	  D	  E	 probably damaging	     0.998	    0.0112	     0.273	# chr1:1158631|AT|uc001adi.3-|SDF4|NP_057631
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AC|uc001adj.1-|SDF4|
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AT|uc001adj.1-|SDF4|
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AC|uc009vjv.2-|SDF4|NP_057260
+Q9BRK5              	   190	    D	    E	         ?	Q9BRK5    	   190	  D	  E	 possibly damaging	     0.454	    0.0996	     0.889	# chr1:1158631|AT|uc009vjv.2-|SDF4|NP_057260
+## Sources:
+##   Predictions: PolyPhen-2 v2.2.2r398
+##   Sequences:   UniProtKB/UniRef100 Release 2011_12 (14-Dec-2011)
+##   Structures:  PDB/DSSP Snapshot 03-Jan-2012 (78304 Structures)
+##   Genes:       UCSC MultiZ46Way GRCh37/hg19 (08-Oct-2009)
