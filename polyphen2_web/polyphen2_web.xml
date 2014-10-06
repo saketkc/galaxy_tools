@@ -55,6 +55,18 @@
             <output name="short_file" file="polyphen2_short.txt"/>
             <output name="snp_file" file="polyphen2_snp.txt"/>
         </test>
+        <test>
+            <param name="input" value="polyphen_input.txt"/>
+            <param name="ucscdb" value="hg19"/>
+            <param name="model" value="HumDiv"/>
+            <param name="filter" value="All"/>
+            <param name="function" value="All"/>
+            <output name="log_file" file="polyphen_output_log.txt"/>
+            <output name="full_file" file="polyphen_output_full.txt"/>
+            <output name="short_file" file="polyphen_output_short.txt"/>
+            <output name="snp_file" file="polyphen_output_snp.txt"/>
+        </test>
+
     </tests>
     <help>
         **What it does**
