@@ -1,7 +1,9 @@
 <tool id="chasm_webservice" name="CHASM Webservice" version="1.0.0" hidden="false">
     <requirements>
         <requirement type="package" version="2.2.1">requests</requirement>
+        <requirement type="package" version="0.9.3">xlrd</requirement>
         <requirement type="python-module">requests</requirement>
+        <requirement type="python-module">xlrd</requirement>
     </requirements>
     <description>CHASM score using CRAVAT webservice</description>
     <command interpreter="python">

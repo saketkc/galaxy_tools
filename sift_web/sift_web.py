@@ -15,26 +15,7 @@ def stop_err(msg, err=1):
 
 
 def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
-    """Retry calling the decorated function using an exponential backoff.
-
-    http://www.saltycrane.com/blog/2009/11/trying-out-retry-decorator-python/
-    original from: http://wiki.python.org/moin/PythonDecoratorLibrary#Retry
-
-    :param ExceptionToCheck: the exception to check. may be a tuple of
-        exceptions to check
-    :type ExceptionToCheck: Exception or tuple
-    :param tries: number of times to try (not retry) before giving up
-    :type tries: int
-    :param delay: initial delay between retries in seconds
-    :type delay: int
-    :param backoff: backoff multiplier e.g. value of 2 will double the delay
-        each retry
-    :type backoff: int
-    :param logger: logger to use. If None, print
-    :type logger: logging.Logger instance
-    """
     def deco_retry(f):
-
         @wraps(f)
         def f_retry(*args, **kwargs):
             mtries, mdelay = tries, delay
@@ -53,9 +34,7 @@ def retry(ExceptionToCheck, tries=10, delay=3, backoff=2, logger=None):
                     mtries -= 1
                     mdelay *= backoff
             return f(*args, **kwargs)
-
         return f_retry  # true decorator
-
     return deco_retry
 
 
@@ -68,6 +47,7 @@ class SIFTWeb:
         self.url_dict = {'full': self.full_download_url,
                          'condensed': self.condensed_download_url,
                          'summary': self.summary_download_url}
+        self.job_id = None
 
     def upload(self, inputpath):
         payload = {'table': 'human37_66'}
@@ -77,19 +57,19 @@ class SIFTWeb:
         return request.text
 
     @retry(requests.exceptions.HTTPError)
-    def get_full_data(self, job_id, full_output):
+    def get_full_data(self, full_output):
         r = requests.request(
-            'GET', (self.full_download_url) % (job_id, job_id))
+            'GET', (self.full_download_url) % (self.job_id, self.job_id))
         if r.text != 'No file exists':
             with open(full_output, 'wb') as f:
                 f.write(r.text)
         else:
-            return requests.HTTPError()
+            raise(requests.HTTPError())
 
     @retry(requests.exceptions.HTTPError)
-    def get_condensed_data(self, job_id, condensed_output):
+    def get_condensed_data(self, condensed_output):
         r = requests.request(
-            'GET', (self.condensed_download_url) % (job_id, job_id))
+            'GET', (self.condensed_download_url) % (self.job_id, self.job_id))
         if r.text != 'No file exists':
             with open(condensed_output, 'wb') as f:
                 f.write(r.text)
@@ -97,9 +77,9 @@ class SIFTWeb:
             raise(requests.HTTPError())
 
     @retry(requests.exceptions.HTTPError)
-    def get_summary_data(self, job_id, summary_output):
+    def get_summary_data(self, summary_output):
         r = requests.request(
-            'GET', (self.summary_download_url) % (job_id, job_id))
+            'GET', (self.summary_download_url) % (self.job_id, self.job_id))
         if r.text != 'No file exists':
             with open(summary_output, 'wb') as f:
                 f.write(r.text)
@@ -119,9 +99,10 @@ def main(params):
     soup = BeautifulSoup(content)
     p = soup.findAll('p')
     job_id = p[1].string.split(':')[-1].replace(' ', '').replace(').', '')
-    sift_web.get_full_data(job_id, args.output1)
-    sift_web.get_condensed_data(job_id, args.output2)
-    sift_web.get_summary_data(job_id, args.output3)
+    sift_web.job_id = job_id
+    sift_web.get_full_data(args.output1)
+    sift_web.get_condensed_data(args.output2)
+    sift_web.get_summary_data(args.output3)
 
 
 if __name__ == '__main__':
