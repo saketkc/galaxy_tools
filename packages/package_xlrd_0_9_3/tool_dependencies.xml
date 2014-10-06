@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tool_dependency>
+    <package name="xlrd" version="2.2.1">
+        <readme>
+            This Galaxy Tool shed package installs python-xlrd(https://pypi.python.org/pypi/xlrd)
+            package.
+
+            The corresponding PYTHONPATH is accessible via PYTHONPATH_XLRD
+
+            Developmental version is hosted on Github:  https://github.com/saketkc/galaxy_tools/packages/package_xlrd_0_9_3/
+        </readme>
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">https://pypi.python.org/packages/source/x/xlrd/xlrd-0.9.3.tar.gz</action>
+                <action type="make_directory">$INSTALL_DIR/lib/python</action>
+                <action type="shell_command">
+                    export PYTHONPATH=$PYTHONPATH:$INSTALL_DIR/lib/python &amp;&amp;
+                    python setup.py install --install-lib $INSTALL_DIR/lib/python
+                </action>
+                <action type="set_environment">
+                    <environment_variable action="append_to" name="PYTHONPATH">$INSTALL_DIR/lib/python</environment_variable>
+                    <environment_variable action="set_to" name="PYTHONPATH_XLRD">$INSTALL_DIR/lib/python</environment_variable>
+                </action>
+            </actions>
+        </install>
+    </package>
+</tool_dependency>
+
+
+
+
