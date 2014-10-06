@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <tool_dependency>
-    <package name="xlrd" version="2.2.1">
+    <package name="xlrd" version="0.9.3">
         <readme>
             This Galaxy Tool shed package installs python-xlrd(https://pypi.python.org/pypi/xlrd)
             package.
