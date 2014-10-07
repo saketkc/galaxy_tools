@@ -41,6 +41,7 @@
   <tests>
     <test>
       <param name="input1" value="merge_columns_with_delimiter_input.tsv"/>
+      <param name="delimiter" value="D" />
       <param name="col1" value="5" />
       <param name="col2" value="1" />
       <param name="datacol" value="3" />
