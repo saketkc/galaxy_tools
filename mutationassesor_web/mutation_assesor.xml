@@ -37,7 +37,7 @@
             <output name="output" file="ma_nucleotide_output.csv"/>
         </test>
         <test>
-            <param name="input" value="ma_proper_protein.tsv"/>
+            <param name="input" value="ma_proper_protein.csv"/>
             <param name="protein" value="yes"/>
             <output name="output" file="ma_protein_output.csv"/>
         </test>
