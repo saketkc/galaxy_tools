@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<tool_dependency>
+        <package name="blas" version="3.5.0">
+            <repository changeset_revision="ea1a9d1f499d" name="package_blas_3_5_0" owner="saketkc" prior_installation_required="True" toolshed="http://testtoolshed.g2.bx.psu.edu" />
+        </package>
+        <package name="numpy" version="1.7.1">
+            <repository changeset_revision="84125ffacb90" name="package_numpy_1_7" owner="iuc" prior_installation_required="True" toolshed="http://testtoolshed.g2.bx.psu.edu" />
+        </package>
+        <package name="scipy" version="0.12.0">
+            <repository changeset_revision="4b2ef8519550" name="package_scipy_0_12" owner="iuc" prior_installation_required="True" toolshed="http://testtoolshed.g2.bx.psu.edu" />
+        </package>
+        <package name="matplotlib" version="1.2.1">
+            <repository changeset_revision="85b7ddf90888" name="package_matplotlib_1_2" owner="iuc" prior_installation_required="True" toolshed="http://testtoolshed.g2.bx.psu.edu" />
+        </package>
+        <package name="scikit_learn" version="0.14.1">
+            <install version="1.0">
+                <actions>
+                    <action type="download_by_url">https://pypi.python.org/packages/source/s/scikit-learn/scikit-learn-0.14.1.tar.gz</action>
+                    <action type="set_environment_for_install">
+                        <repository changeset_revision="73854db866e7" name="package_lapack_3_4" owner="iuc" toolshed="http://testtoolshed.g2.bx.psu.edu">
+                            <package name="lapack" version="3.4.2" />
+                        </repository>
+                        <package name="blas" version="3.5.0">
+                            <repository changeset_revision="ea1a9d1f499d" name="package_blas_3_5_0" owner="saketkc" toolshed="http://testtoolshed.g2.bx.psu.edu" />
+                        </package>
+                        <repository changeset_revision="84125ffacb90" name="package_numpy_1_7" owner="iuc" toolshed="http://testtoolshed.g2.bx.psu.edu">
+                            <package name="numpy" version="1.7.1" />
+                        </repository>
+                        <repository changeset_revision="4b2ef8519550" name="package_scipy_0_12" owner="iuc" toolshed="http://testtoolshed.g2.bx.psu.edu">
+                            <package name="scipy" version="0.12.0" />
+                        </repository>
+                        <repository changeset_revision="85b7ddf90888" name="package_matplotlib_1_2" owner="iuc" toolshed="http://testtoolshed.g2.bx.psu.edu">
+                            <package name="matplotlib" version="1.2.1" />
+                        </repository>
+                    </action>
+
+                    <action type="make_directory">$INSTALL_DIR/lib/python</action>
+                    <action language="cheetah" type="template_command">
+                    export PYTHONPATH=\$PYTHONPATH:$env.INSTALL_DIR/lib/python &amp;&amp;
+
+                    export PATH=\$PATH:$env.PATH_NUMPY &amp;&amp;
+                    export PYTHONPATH=\$PYTHONPATH:$env.PYTHONPATH_NUMPY:$env.PYTHONPATH_SCIPY:$env.PYTHONPATH_MATPLOTLIB &amp;&amp;
+
+                    python setup.py install --install-lib $env.INSTALL_DIR/lib/python
+                    </action>
+                    <action type="set_environment">
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$INSTALL_DIR/lib/python</environment_variable>
+                        <environment_variable action="prepend_to" name="PATH">$INSTALL_DIR/bin</environment_variable>
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$ENV[PYTHONPATH_NUMPY]</environment_variable>
+                        <environment_variable action="prepend_to" name="PATH">$ENV[PATH_NUMPY]</environment_variable>
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$ENV[PYTHONPATH_SCIPY]</environment_variable>
+                        <environment_variable action="prepend_to" name="PATH">$ENV[PATH_SCIPY]</environment_variable>
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$ENV[PYTHONPATH_MATPLOTLIB]</environment_variable>
+
+                        <environment_variable action="set_to" name="PYTHONPATH_SCIKIT_LEARN">$INSTALL_DIR/lib/python</environment_variable>
+                        </action>
+                </actions>
+            </install>
+            <readme>
+            Compiling scikit-learn requires a C compiler (typically gcc).
+            The PYTHONPATH for scikit-learn can be accessed through PYTHONPATH_SCIKIT_LEARN.
+
+            This tool was originally developed by Bjoern Gruening.
+            </readme>
+        </package>
+</tool_dependency>
+
