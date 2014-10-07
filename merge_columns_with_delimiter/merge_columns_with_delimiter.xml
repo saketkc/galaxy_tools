@@ -57,7 +57,9 @@
 
 **What it does**
 
-This tool merges columns together. Any number of valid columns can be merged in any order.
+This tool merges columns together separating them with the specified delimiter.
+Any number of valid columns can be merged in any order.
+Tool and code inspired from 'merge_columns' tool distributed with Galaxy.
 
 -----
 
@@ -68,10 +70,10 @@ Input dataset (five columns: c1, c2, c3, c4, and c5)::
    1 10   1000  gene1 chr
    2 100  1500  gene2 chr
 
-merging columns "**c5,c1**" will return::
+merging columns "**c5,c1**" with "-"(dash) will return::
 
-   1 10   1000  gene1 chr chr1
-   2 100  1500  gene2 chr chr2
+   1 10   1000  gene1 chr chr-1
+   2 100  1500  gene2 chr chr-2
 
 .. class:: warningmark
 
