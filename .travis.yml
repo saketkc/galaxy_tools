@@ -9,8 +9,9 @@ before_install:
  - tar -zxvf master | tail
  - cd galaxy-central-master
  - sudo apt-get install python-pip
- - sudo pip install -U numpy
- - sudo pip install -U scipy
+   #- sudo pip install -U numpy
+   # - sudo pip install -U scipy
+ - sudo apt-get install -qq python-numpy python-scipy
  - sudo pip install -U matplotlib
  - sudo pip install -U scikit-learn
  - sudo pip install -U fastcluster
