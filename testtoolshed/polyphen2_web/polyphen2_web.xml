@@ -1,0 +1,153 @@
+<tool id="polyphen2_web" name="PolyPhen-2 Webservice">
+    <description>Compute functional impact of SNVs </description>
+    <requirements>
+        <requirement type="package" version="4.1.0">beautifulsoup4</requirement>
+        <requirement type="python-module">bs4</requirement>
+    </requirements>
+    <command interpreter="python">
+        polyphen2_web.py --ucscdb $ucscdb
+                         --model $model
+                         --filter $filter
+                         --function $function
+                         --input $input
+                         --log $log_file
+                         --full $full_file
+                         --short $short_file
+                         --snp $snp_file
+    </command>
+    <inputs>
+        <param format="txt" name="input" type="data" label="Variants File" />
+        <param name="ucscdb" type="select" label="Genome Assembly">
+            <option value="hg19">GRCh37/hg19</option>
+            <option value="hg18">NCBI36/hg18</option>
+        </param>
+        <param name="model" type="select" label="Classifier Model">
+            <option value="HumDiv">HumDiv</option>
+            <option value="HumVar">HumVar</option>
+        </param>
+        <param name="filter" type="select" label="Transcripts">
+            <option value="All">All</option>
+            <option value="Canonical">Canonical</option>
+            <option value="CCDS">CCDS</option>
+        </param>
+        <param name="function" type="select" label="Annotations">
+            <option value="c">Canonical</option>
+            <option value="m">CCDS</option>
+            <option value="All">All</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="log_file" label="${tool.name} on ${on_string}: log" />
+        <data format="tabular" name="full_file" label="${tool.name} on ${on_string}: full"/>
+        <data format="tabular" name="short_file" label="${tool.name} on ${on_string}: short"/>
+        <data format="tabular" name="snp_file" label="${tool.name} on ${on_string}: snp"/>
+    </outputs>
+
+    <tests>
+        <test>
+            <param name="input" value="polyphen2_input.txt"/>
+            <param name="ucscdb" value="hg19"/>
+            <param name="model" value="HumDiv"/>
+            <param name="filter" value="All"/>
+            <param name="function" value="All"/>
+            <output name="log_file" file="polyphen2_log.txt"/>
+            <output name="full_file" file="polyphen2_full.txt"/>
+            <output name="short_file" file="polyphen2_short.txt"/>
+            <output name="snp_file" file="polyphen2_snp.txt"/>
+        </test>
+        <test>
+            <param name="input" value="polyphen_input.txt"/>
+            <param name="ucscdb" value="hg19"/>
+            <param name="model" value="HumDiv"/>
+            <param name="filter" value="All"/>
+            <param name="function" value="All"/>
+            <output name="log_file" file="polyphen_output_log.tsv"/>
+            <output name="full_file" file="polyphen_output_full.tsv"/>
+            <output name="short_file" file="polyphen_output_short.tsv"/>
+            <output name="snp_file" file="polyphen_output_snp.tsv"/>
+        </test>
+
+    </tests>
+    <help>
+        **What it does**
+            This tool interacts with the Web Version of Polyphen2 hosted at  http://genetics.bwh.harvard.edu/pph2/
+
+            PolyPhen-2 (Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions
+            on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations.
+
+            .. class:: infomark
+
+            *Classifier model* used by the probabilistic predictor:
+
+            -HumDiv is preferred for evaluating rare alleles, dense mapping of regions identified by genome-wide association studies,
+            and analysis of natural selection. HumDiv model uses 5% / 10% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+
+
+            -HumVar is better suited for diagnostics of Mendelian diseases which requires distinguishing mutations with drastic effects
+            from all the remaining human variation, including abundant mildly deleterious alleles.
+            HumVar model uses 10% / 20% FPR thresholds for “probably damaging” / “possibly damaging” predictions
+
+            .. class:: infomark
+
+            *Transcripts*  A set of Transcripts on which genomic SNPs  will be mapped:
+
+
+            -*All* includes all UCSC knownGene transcripts (highly redundant)
+
+            -*Canonical* includes UCSC knownCanonical subset
+
+            -*CCDS* further restricts knownCanonical subset to those transcripts which are also annotated as part of NCBI CCDS.
+
+
+            .. class:: infomark
+
+            *Annotations* for the following functional categories of genomic SNPs will be included in the output:
+
+
+            -*All*:  coding-synon, introns, nonsense missense utr-3, utr-5.
+
+
+            -*Coding*: coding-synon, nonsense. missense
+
+
+            -*Missense*: missense.
+
+
+
+            .. class:: warningmark
+
+            Note that PolyPhen-2 predictions are always produced for missense
+
+
+            .. class:: infomark
+
+
+            Input format:
+
+
+            chr22:30421786 A/T
+
+            chr22:29446079 A/G
+
+            chr22:40814500 A/G
+
+            chr22:40815256 C/T
+
+
+
+            **Citations**
+
+                If you use this tool please cite:
+
+                Adzhubei IA, Schmidt S, Peshkin L, Ramensky VE, Gerasimova A, Bork P, Kondrashov AS, Sunyaev SR. Nat Methods 7(4):248-249 (2010).
+                "A method and server for predicting damaging missense mutations."
+
+    </help>
+</tool>
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+<tool_dependency>
+    <package name="blas" version="3.5.0">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://www.netlib.org/blas/blas.tgz</action>
+                <action type="shell_command">gfortran -O3 -std=legacy -m64 -fno-second-underscore -fPIC -c *.f</action>
+                <action type="shell_command">ar rv libblas.a *.o</action>
+                <action type="set_environment">
+                    <environment_variable name="BLAS_PATH" action="set_to">$INSTALL_DIR/libblas.a</environment_variable>
+                </action>
+            </actions>
+        </install>
+    </package>
+</tool_dependency>

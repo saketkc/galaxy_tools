@@ -1,0 +1,4 @@
+	Mutation	AA variant	Gene	MSA	PDB	Func. Impact	FI score	Uniprot	Refseq	MSA height	Codon start position	Func. region	Protein bind.site	DNA/RNA bind.site	small.mol bind.site
+1	hg19,13,32912555,G,T	D1355Y	BRCA2	http://getma.org/?cm=msa&ty=f&p=BRCA2_HUMAN&rb=1247&re=1420&var=D1355Y		low	1.24	BRCA2_HUMAN	NP_000050	14	chr13:32912555				
+2	hg19,7,55178574,G,A									0					
+3	hg19,7,55178574,G,A									0					

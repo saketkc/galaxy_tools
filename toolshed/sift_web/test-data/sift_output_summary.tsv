@@ -1,0 +1,13 @@
+#Type	Total	Found_in_dbSNP	Not_found_in_dbSNP	PROVEAN_neutral	PROVEAN_deleterious	PROVEAN_NA	SIFT_tolerated	SIFT_damaging	SIFT_NA
+Protein_coding	12	3	9	5	6	1	3	2	7
+Single_AA_Change	4	2	2	3	1	0	2	2	0
+Synonymous	2	0	2	2	0	0	1	0	1
+Deletion	3	1	2	0	3	0	0	0	3
+Insertion	2	0	2	0	2	0	0	0	2
+Multiple_AA_Change	0	0	0	0	0	0	0	0	0
+Frameshift	1	0	1	0	0	1	0	0	1
+Nonsense	0	0	0	0	0	0	0	0	0
+Unknown	0	0	0	0	0	0	0	0	0
+Input_error	0	0	0	0	0	0	0	0	0
+Non_protein_coding	2	1	1	0	0	2	0	0	2
+Input_format_error	0	0	0	0	0	0	0	0	0

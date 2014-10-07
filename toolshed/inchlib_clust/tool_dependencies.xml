@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="scikit-learn" version="0.15">
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_numpy_1_7" owner="iuc" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_scipy_0_12" owner="iuc" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_scikit_learn_0_15" owner="saket-choudhary" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_fastcluster_1_1_13" owner="saket-choudhary" />
+    </package>
+</tool_dependency>

@@ -1,0 +1,24 @@
+#snp_pos         	str	        gene	  transcript	 ccid	        ccds	cciden	refa	        type	   ntpos	nt1	nt2	flanks	trv	cpg	  jxdon	  jxacc	   exon	  cexon	jxc	dgn	  cdnpos	frame	cdn1	cdn2	aa1	aa2	   aapos	spmap	     spacc	      spname	    refs_acc	    dbrsid	dbobsrvd	   dbavHet	 dbavHetSE	dbRmPaPt	comments
+chr1:1267483    	  +	      TAS1R3	  uc010nyk.1	   59	 CCDS30556.1	 0.999	 G/A	    missense	     758	  G	  A	    CT	  0	  1	   -164	    -80	    3/6	    3/6	  ?	  0	     191	    1	 CGT	 CAT	  R	  H	     191	    1	    Q7RTX0	 TS1R3_HUMAN	   NP_689414	rs141717515	     A/G	   0.00063	  0.017742	   G>G>G
+chr1:1158631    	  -	        SDF4	  uc001adh.3	   49	 CCDS30553.1	     1	 A/C	    missense	    8817	  T	  G	    AG	  1	  0	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAG	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc001adh.3	   49	 CCDS30553.1	     1	 A/G	coding-synon	    8817	  T	  C	    AG	  0	  2	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAC	  D	  D	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	 rs6603781	     T/C	  0.133948	  0.221431	   T>C>C
+chr1:1158631    	  -	        SDF4	  uc001adh.3	   49	 CCDS30553.1	     1	 A/T	    missense	    8817	  T	  A	    AG	  1	  0	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAA	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc001adi.3	    ?	    CCDS12.1	     1	 A/C	    missense	    8817	  T	  G	    AG	  1	  0	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAG	  D	  E	     190	    1	  Q9BRK5-6	 CAB45_HUMAN	   NP_057631	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc001adi.3	    ?	    CCDS12.1	     1	 A/G	coding-synon	    8817	  T	  C	    AG	  0	  2	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAC	  D	  D	     190	    1	  Q9BRK5-6	 CAB45_HUMAN	   NP_057631	 rs6603781	     T/C	  0.133948	  0.221431	   T>C>C
+chr1:1158631    	  -	        SDF4	  uc001adi.3	    ?	    CCDS12.1	     1	 A/T	    missense	    8817	  T	  A	    AG	  1	  0	     +8	   -107	    4/7	    3/6	  ?	  2	     190	    2	 GAT	 GAA	  D	  E	     190	    1	  Q9BRK5-6	 CAB45_HUMAN	   NP_057631	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc001adj.1	    ?	           ?	     ?	 A/C	    missense	     718	  T	  G	    AG	  1	  0	   -580	   -107	    2/2	    2/2	  ?	  2	      68	    2	 GAT	 GAG	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	           ?	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc001adj.1	    ?	           ?	     ?	 A/G	coding-synon	     718	  T	  C	    AG	  0	  2	   -580	   -107	    2/2	    2/2	  ?	  2	      68	    2	 GAT	 GAC	  D	  D	     190	    1	    Q9BRK5	 CAB45_HUMAN	           ?	 rs6603781	     T/C	  0.133948	  0.221431	   T>C>C
+chr1:1158631    	  -	        SDF4	  uc001adj.1	    ?	           ?	     ?	 A/T	    missense	     718	  T	  A	    AG	  1	  0	   -580	   -107	    2/2	    2/2	  ?	  2	      68	    2	 GAT	 GAA	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	           ?	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc009vjv.2	    ?	           ?	     ?	 A/C	    missense	    8817	  T	  G	    AG	  1	  0	     +8	   -107	    3/6	    2/5	  ?	  2	      68	    2	 GAT	 GAG	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	         ?	       ?	         ?	         ?	       ?
+chr1:1158631    	  -	        SDF4	  uc009vjv.2	    ?	           ?	     ?	 A/G	coding-synon	    8817	  T	  C	    AG	  0	  2	     +8	   -107	    3/6	    2/5	  ?	  2	      68	    2	 GAT	 GAC	  D	  D	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	 rs6603781	     T/C	  0.133948	  0.221431	   T>C>C
+chr1:1158631    	  -	        SDF4	  uc009vjv.2	    ?	           ?	     ?	 A/T	    missense	    8817	  T	  A	    AG	  1	  0	     +8	   -107	    3/6	    2/5	  ?	  2	      68	    2	 GAT	 GAA	  D	  E	     190	    1	    Q9BRK5	 CAB45_HUMAN	   NP_057260	         ?	       ?	         ?	         ?	       ?
+## Totals:
+##   lines input               2
+##   lines skipped             0
+##   alleles annotated        13
+##     missense                9
+##     nonsense                0
+##     coding-synon            4
+##     intron                  0
+##     utr-3                   0
+##     utr-5                   0

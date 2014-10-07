@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="requests" version="2.2.1">
+        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_requests_2_2_1" owner="saketkc" />
+        <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_xlrd_0_9_3" owner="saketkc" />
+    </package>
+</tool_dependency>

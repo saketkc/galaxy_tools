@@ -1,0 +1,230 @@
+<tool id="inchlib_clust" name="INCHlib" version="1.0.0" hidden="false">
+    <requirements>
+        <requirement type="package" version="3.5.0">blas</requirement>
+        <requirement type="package" version="1.7">numpy</requirement>
+        <requirement type="package" version="0.12">scipy</requirement>
+        <requirement type="package" version="0.15">scikit-learn</requirement>
+        <requirement type="package" version="1.1.13">fastcluster</requirement>
+        <requirement type="python-module">numpy</requirement>
+        <requirement type="python-module">scipy</requirement>
+        <requirement type="python-module">scikit-learn</requirement>
+        <requirement type="python-module">fastcluster</requirement>
+    </requirements>
+    <description>Performs data clustering for input to InCHlib.js</description>
+    <command interpreter="python">
+        inchlib_clust.py $input -o $output
+                        --row_distance $row_distance
+                        --row_linkage $row_linkage
+                        --column_distance $column_distance
+                        --column_linkage $column_linkage
+                        --axis $axis
+                        --datatype $datatype
+                        --data_delimiter $data_delimiter
+                    #if $data_header.data_header_present == "yes"
+                        --data_header
+                    #end if
+                    #if $metadata_option.metadata_present == "yes"
+                        --metadata $metadata_option.metadata
+                        --metadata_delimiter $metadata_option.metadata_delimiter
+                        #if $metadata_option.metadata_header.metadata_header_present == "yes"
+                            --metadata_header
+                        #end if
+                        #if $metadata_option.metadata_compress_option.should_compress_metadata == "yes"
+                            --metadata_compressed_value $metadata_option.metadata_compressed_value
+                        #end if
+                        #end if
+                    #if $data_compress_option.should_compress_data == "yes"
+                        --data_compressed_value $data_compressed_value
+                    #end if
+                    #if $should_normalize == "yes"
+                        --normalize
+                    #end if
+    </command>
+    <inputs>
+        <param format="text" name="input" type="data" label="Input File" />
+
+        <param name="row_distance" type="select" label="Row Distance Method" help="Set the distance to use for clustering rows">
+            <option value="braycurtis">braycurtis</option>
+            <option value="canberra">canberra</option>
+            <option value="chebyshev">chebyshev</option>
+            <option value="cityblock">cityblock</option>
+            <option value="correlation">correlation</option>
+            <option value="cosine">cosine</option>
+            <option value="euclidean" selected="true">euclidean</option>
+            <option value="mahalanobis">mahalanobis</option>
+            <option value="minkowski">minkowski</option>
+            <option value="seuclidean">seuclidean</option>
+            <option value="sqeuclidean">sqeuclidean</option>
+
+            <option value="dice">dice</option>
+            <option value="hamming">hamming</option>
+            <option value="jaccard">jaccard</option>
+            <option value="kulsinski">kulsinski</option>
+            <option value="matching">matching</option>
+            <option value="rogerstanimoto">rogerstanimoto</option>
+            <option value="russellrao">russellrao</option>
+            <option value="sokalmichener">sokalmichener</option>
+            <option value="sokalsneath">sokalsneath</option>
+            <option value="yule">yule</option>
+        </param>
+
+        <param name="row_linkage" type="select" label="Row Linkage Method" help="Set the linkage to use for clustering rows">
+                <option value="single">single</option>
+                <option value="complete">complete</option>
+                <option value="average">average</option>
+                <option value="centroid">centroid</option>
+                <option value="ward">ward</option>
+                <option value="median">median</option>
+                <option value="weighted">weighted</option>
+
+                <option value="ward" selected="true">ward</option>
+                <option value="centroid">centroid</option>
+        </param>
+
+        <param name="column_distance" type="select" label="Column Distance Method" help="Set the distance to use for clustering columns">
+            <option value="braycurtis">braycurtis</option>
+            <option value="canberra">canberra</option>
+            <option value="chebyshev">chebyshev</option>
+            <option value="cityblock">cityblock</option>
+            <option value="correlation">correlation</option>
+            <option value="cosine">cosine</option>
+            <option value="euclidean" selected="true">euclidean</option>
+            <option value="mahalanobis">mahalanobis</option>
+            <option value="minkowski">minkowski</option>
+            <option value="seuclidean">seuclidean</option>
+            <option value="sqeuclidean">sqeuclidean</option>
+
+            <option value="dice">dice</option>
+            <option value="hamming">hamming</option>
+            <option value="jaccard">jaccard</option>
+            <option value="kulsinski">kulsinski</option>
+            <option value="matching">matching</option>
+            <option value="rogerstanimoto">rogerstanimoto</option>
+            <option value="russellrao">russellrao</option>
+            <option value="sokalmichener">sokalmichener</option>
+            <option value="sokalsneath">sokalsneath</option>
+            <option value="yule">yule</option>
+        </param>
+
+        <param name="column_linkage" type="select" label="Column Linkage" help="Set the linkage to use for clustering columns">
+                <option value="single">single</option>
+                <option value="complete">complete</option>
+                <option value="average">average</option>
+                <option value="centroid">centroid</option>
+                <option value="ward">ward</option>
+                <option value="median">median</option>
+                <option value="weighted">weighted</option>
+
+                <option value="ward" selected="true">ward</option>
+                <option value="centroid">centroid</option>
+        </param>
+
+        <param name="axis" type="select" label="Clustering Axis">
+            <option value="row" selected="true">row</option>
+            <option value="both">both</option>
+        </param>
+
+        <param name="datatype" type="select" label="Type Of Data">
+            <option value="numeric" selected="true">numeric</option>
+            <option value="binary">binary</option>
+        </param>
+
+        <param name="data_delimiter" type="select" label="Data Delimiter">
+            <option value="\t">tab</option>
+            <option value=",">comma</option>
+            <option value=";">semicolon</option>
+        </param>
+
+        <conditional name="data_header">
+            <param name="data_header_present" type="select" label="First row of file is header">
+                <option value="yes">Yes</option>
+                <option value="no" selected="true">No</option>
+            </param>
+        </conditional>
+
+        <conditional name="data_compress_option">
+            <param name="should_compress_data" type="select" label="Compress Rows">
+                <option value="yes">Yes</option>
+                <option value="no" selected="true">No</option>
+            </param>
+            <when value="yes">
+                <param name="data_compressed_value" type="select">
+                    <option value="median" selected="true">median</option>
+                    <option value="mean">mean</option>
+                </param>
+            </when>
+        </conditional>
+
+        <param name="should_normalize" type="select" label="Normalise">
+                <option value="yes">Yes</option>
+                <option value="no" selected="true">No</option>
+        </param>
+
+        <conditional name="metadata_option">
+            <param name="metadata_present" type="select" label="Metadata Input">
+                <option value="yes">Yes</option>
+                <option value="no" selected="true">No</option>
+            </param>
+            <when value="yes">
+                <param name="metadata" type="data" format="text" label="Metadata File"/>
+                <conditional name="metadata_header">
+                    <param name="metadata_header_present" type="select" label="Metadata Header Present?">
+                        <option value="yes">Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                </conditional>
+                <param name="metadata_delimiter" type="select" label="Metadata Delimiter">
+                    <option value="\t">tab</option>
+                    <option value=",">comma</option>
+                    <option value=";">semicolon</option>
+                </param>
+                <conditional name="metadata_compress_option">
+                    <param name="should_compress_metadata" type="select" label="Compress Metadata Rows?">
+                        <option value="yes">Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                    <when value="yes">
+                        <param name="metadata_compressed_value" type="select">
+                            <option value="median" selected="true">median</option>
+                            <option value="mean">mean</option>
+                            <option value="frequency">frequency</option>
+                        </param>
+                    </when>
+                </conditional>
+            </when>
+        </conditional>
+    </inputs>
+
+    <outputs>
+        <data format="json" name="output" label="${tool.name} on ${on_string}: output" />
+    </outputs>
+
+    <tests>
+        <test>
+            <param name="input" value="inchlib_input1.csv"/>
+            <param name="row_distance" value="euclidean"/>
+            <param name="row_linkage" value="ward"/>
+            <param name="column_distance" value="euclidean"/>
+            <param name="column_linkage" value="ward"/>
+            <param name="axis" value="row" />
+            <param name="datatype" value="numeric" />
+            <param name="data_delimiter" value="," />
+            <param name="data_header_present" value="yes" />
+            <param name="should_compress_data" value="no" />
+            <param name="should_normalize" value="no" />
+            <param name="metadata_present" value="yes" />
+            <param name="metadata" value="inchlib_input_metadata.csv" />
+            <param name="metadata_delimiter" value="," />
+            <param name="metadata_header_present" value="yes" />
+            <output name="output" file="inchlib_output.json" ftype="json" />
+        </test>
+    </tests>
+
+    <help>
+        **What it does**
+
+            Performs data clustering and prepares input data for InCHlib.
+
+
+    </help>
+</tool>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<tool_dependency>
+        <package name="numpy" version="1.7.1">
+            <repository changeset_revision="ef12a3a11d5b" name="package_numpy_1_7" owner="iuc" prior_installation_required="True" toolshed="http://toolshed.g2.bx.psu.edu" />
+        </package>
+        <package name="fastcluster" version="1.1.13">
+            <install version="1.0">
+                <actions>
+                    <action type="download_by_url">http://cran.r-project.org/src/contrib/fastcluster_1.1.13.tar.gz</action>
+                    <action type="shell_command">cd src/python</action>
+                    <action type="set_environment_for_install">
+                        <repository changeset_revision="98a7d116c15f" name="package_lapack_3_4" owner="iuc" toolshed="http://toolshed.g2.bx.psu.edu">
+                            <package name="lapack" version="3.4.2" />
+                        </repository>
+                        <repository changeset_revision="ef12a3a11d5b" name="package_numpy_1_7" owner="iuc" toolshed="http://toolshed.g2.bx.psu.edu">
+                            <package name="numpy" version="1.7.1" />
+                        </repository>
+                    </action>
+
+                    <action type="make_directory">$INSTALL_DIR/lib/python</action>
+                    <action language="cheetah" type="template_command">
+                    export PYTHONPATH=\$PYTHONPATH:$env.INSTALL_DIR/lib/python &amp;&amp;
+
+                    export PATH=\$PATH:$env.PATH_NUMPY &amp;&amp;
+                    export PYTHONPATH=\$PYTHONPATH:$env.PYTHONPATH_NUMPY:$env.PYTHONPATH_SCIPY:$env.PYTHONPATH_MATPLOTLIB &amp;&amp;
+
+                    python setup.py install --install-lib $env.INSTALL_DIR/lib/python
+                    </action>
+                    <action type="set_environment">
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$INSTALL_DIR/lib/python</environment_variable>
+                        <environment_variable action="prepend_to" name="PATH">$INSTALL_DIR/bin</environment_variable>
+                        <environment_variable action="prepend_to" name="PYTHONPATH">$ENV[PYTHONPATH_NUMPY]</environment_variable>
+                        <environment_variable action="prepend_to" name="PATH">$ENV[PATH_NUMPY]</environment_variable>
+                        <environment_variable action="set_to" name="PYTHONPATH_FASTCLUSTER_LEARN">$INSTALL_DIR/lib/python</environment_variable>
+                        </action>
+                </actions>
+            </install>
+            <readme>
+                Compiling fastcluster requires a gcc, numpy.
+            </readme>
+        </package>
+</tool_dependency>

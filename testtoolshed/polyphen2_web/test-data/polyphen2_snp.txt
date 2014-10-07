@@ -1,0 +1,28 @@
+#snp_pos         	str	        gene	  transcript	 ccid	        ccds	cciden	refa	        type	   ntpos	nt1	nt2	flanks	trv	cpg	  jxdon	  jxacc	   exon	  cexon	jxc	dgn	  cdnpos	frame	cdn1	cdn2	aa1	aa2	   aapos	spmap	     spacc	      spname	    refs_acc	    dbrsid	dbobsrvd	   dbavHet	 dbavHetSE	dbRmPaPt	comments
+chr22:30421786  	  +	       MTMR3	  uc003agu.3	    ?	 CCDS13871.1	     1	 A/T	    missense	  142629	  A	  T	    AC	  1	  0	  -2313	   -168	  20/20	  18/18	  ?	  0	    1170	    1	 AAC	 ATC	  N	  I	    1170	    1	  Q13615-2	 MTMR3_HUMAN	   NP_694690	rs75623810	     A/T	  0.016564	  0.089485	   A>A>A
+chr22:30421786  	  +	       MTMR3	  uc003agv.3	16552	 CCDS13870.1	     1	 A/T	    missense	  142629	  A	  T	    AC	  1	  0	  -3099	   -168	  20/20	  18/18	  ?	  0	    1198	    1	 AAC	 ATC	  N	  I	    1198	    1	    Q13615	 MTMR3_HUMAN	   NP_066576	rs75623810	     A/T	  0.016564	  0.089485	   A>A>A
+chr22:30421786  	  +	       MTMR3	  uc003agw.3	    ?	 CCDS46682.1	     1	 A/T	    missense	  142629	  A	  T	    AC	  1	  0	  -3099	   -168	  19/19	  17/17	  ?	  0	    1161	    1	 AAC	 ATC	  N	  I	    1161	    1	  Q13615-3	 MTMR3_HUMAN	   NP_694691	rs75623810	     A/T	  0.016564	  0.089485	   A>A>A
+chr22:29446079  	  +	       ZNRF3	  uc003aeg.2	16531	 CCDS42999.1	     1	 A/G	    missense	  166190	  A	  G	    CC	  0	  2	   +858	   -895	    8/9	    7/8	  ?	  0	     537	    1	 CAC	 CGC	  H	  R	     637	    1	    Q9ULT6	 ZNRF3_HUMAN	   NP_115549	rs62641746	     A/G	  0.030762	  0.120144	   A>A>A
+chr22:29446079  	  +	       ZNRF3	  uc003aeh.1	    ?	 CCDS42999.1	 0.982	 A/G	    missense	   63040	  A	  G	    CC	  0	  2	  -1599	   -895	    7/7	    7/7	  ?	  0	     537	    1	 CAC	 CGC	  H	  R	     637	    1	    Q9ULT6	 ZNRF3_HUMAN	   NP_115549	rs62641746	     A/G	  0.030762	  0.120144	   A>A>A
+chr22:40814500  	  -	        MKL1	  uc003ayv.1	    ?	 CCDS14003.1	     1	 T/A	    missense	   44939	  A	  T	    CG	  1	  0	   +123	   -889	   9/12	   9/12	  ?	  0	     648	    0	 AGC	 TGC	  S	  C	     648	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc003ayv.1	    ?	 CCDS14003.1	     1	 T/G	    missense	   44939	  A	  C	    CG	  1	  2	   +123	   -889	   9/12	   9/12	  ?	  0	     648	    0	 AGC	 CGC	  S	  R	     648	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc003ayw.1	16752	 CCDS14003.1	     1	 T/A	    missense	  218191	  A	  T	    CG	  1	  0	   +123	   -889	  12/15	   9/12	  ?	  0	     648	    0	 AGC	 TGC	  S	  C	     648	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc003ayw.1	16752	 CCDS14003.1	     1	 T/G	    missense	  218191	  A	  C	    CG	  1	  2	   +123	   -889	  12/15	   9/12	  ?	  0	     648	    0	 AGC	 CGC	  S	  R	     648	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc010gye.1	    ?	           ?	     ?	 T/A	    missense	  218191	  A	  T	    CG	  1	  0	   +123	   -889	  12/15	   9/12	  ?	  0	     648	    0	 AGC	 TGC	  S	  C	     648	    1	    E7ER32	E7ER32_HUMAN	           ?	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc010gye.1	    ?	           ?	     ?	 T/G	    missense	  218191	  A	  C	    CG	  1	  2	   +123	   -889	  12/15	   9/12	  ?	  0	     648	    0	 AGC	 CGC	  S	  R	     648	    1	    E7ER32	E7ER32_HUMAN	           ?	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc010gyf.1	    ?	           ?	     ?	 T/A	    missense	  218191	  A	  T	    CG	  1	  0	   +123	   -889	  11/14	   8/11	  ?	  0	     598	    0	 AGC	 TGC	  S	  C	     598	    1	    B0QY83	B0QY83_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40814500  	  -	        MKL1	  uc010gyf.1	    ?	           ?	     ?	 T/G	    missense	  218191	  A	  C	    CG	  1	  2	   +123	   -889	  11/14	   8/11	  ?	  0	     598	    0	 AGC	 CGC	  S	  R	     598	    1	    B0QY83	B0QY83_HUMAN	   NP_065882	         ?	       ?	         ?	         ?	       ?
+chr22:40815256  	  -	        MKL1	  uc003ayv.1	    ?	 CCDS14003.1	     1	 C/T	    missense	   44183	  G	  A	    CC	  0	  1	   +879	   -133	   9/12	   9/12	  ?	  0	     396	    0	 GCC	 ACC	  A	  T	     396	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	rs34736200	     G/A	  0.047299	   0.14633	   A>A>A
+chr22:40815256  	  -	        MKL1	  uc003ayw.1	16752	 CCDS14003.1	     1	 C/T	    missense	  217435	  G	  A	    CC	  0	  1	   +879	   -133	  12/15	   9/12	  ?	  0	     396	    0	 GCC	 ACC	  A	  T	     396	    1	    Q969V6	  MKL1_HUMAN	   NP_065882	rs34736200	     G/A	  0.047299	   0.14633	   A>A>A
+chr22:40815256  	  -	        MKL1	  uc010gye.1	    ?	           ?	     ?	 C/T	    missense	  217435	  G	  A	    CC	  0	  1	   +879	   -133	  12/15	   9/12	  ?	  0	     396	    0	 GCC	 ACC	  A	  T	     396	    1	    E7ER32	E7ER32_HUMAN	           ?	rs34736200	     G/A	  0.047299	   0.14633	   A>A>A
+chr22:40815256  	  -	        MKL1	  uc010gyf.1	    ?	           ?	     ?	 C/T	    missense	  217435	  G	  A	    CC	  0	  1	   +879	   -133	  11/14	   8/11	  ?	  0	     346	    0	 GCC	 ACC	  A	  T	     346	    1	    B0QY83	B0QY83_HUMAN	   NP_065882	rs34736200	     G/A	  0.047299	   0.14633	   A>A>A
+## Totals:
+##   lines input               4
+##   lines skipped             0
+##   alleles annotated        17
+##     missense               17
+##     nonsense                0
+##     coding-synon            0
+##     intron                  0
+##     utr-3                   0
+##     utr-5                   0

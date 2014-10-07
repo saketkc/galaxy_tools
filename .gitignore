@@ -36,5 +36,4 @@ nosetests.xml
 .project
 .pydevproject
 
-testtoolshed/
-toolshed/
+*.gz

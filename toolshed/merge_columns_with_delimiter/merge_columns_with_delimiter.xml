@@ -1,0 +1,83 @@
+<tool id="merge_cols_with_delimiter1" name="Merge Columns with Delimiters" version="1.0.1">
+  <description>together</description>
+  <command interpreter="python">
+      merge_columns_with_delimiter.py
+      $input1
+      $out_file1
+      $delimiter
+      $col1
+      $col2
+      #for $col in $columns
+        ${col.datacol}
+      #end for
+
+  </command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Select data" help="Dataset missing? See TIP below."/>
+    <param name="delimiter" type="select" label="Delimiter">
+      <option value="s">Whitespaces</option>
+      <option value="T">Tabs</option>
+      <option value="Ep">EmptyString</option>
+      <option value="Dt">Dots</option>
+      <option value="C">Commas</option>
+      <option value="D">Dashes</option>
+      <option value="Sl">Left Slashes</option>
+      <option value="Sr">Right Slashes</option>
+      <option value="U">Underscores</option>
+      <option value="P">Pipes</option>
+      <option value="Co">Colons</option>
+      <option value="Sc">Semicolons</option>
+    </param>
+    <param name="col1" label="Merge column" type="data_column" data_ref="input1" />
+    <param name="col2" label="with column" type="data_column" data_ref="input1" help="Need to add more columns? Use controls below."/>
+
+    <repeat name="columns" title="Columns">
+      <param name="datacol" label="Add column" type="data_column" data_ref="input1" />
+    </repeat>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="out_file1" />
+  </outputs>
+  <tests>
+    <test>
+      <param name="input1" value="merge_columns_with_delimiter_input.tsv"/>
+      <param name="delimiter" value="D" />
+      <param name="col1" value="5" />
+      <param name="col2" value="1" />
+      <param name="datacol" value="3" />
+      <output name="out_file1" file="merge_columns_with_delimiter_output.tsv"/>
+    </test>
+  </tests>
+<help>
+
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+**What it does**
+
+This tool merges columns together separating them with the specified delimiter.
+Any number of valid columns can be merged in any order.
+Tool and code inspired from 'merge_columns' tool distributed with Galaxy.
+
+-----
+
+**Example**
+
+Input dataset (five columns: c1, c2, c3, c4, and c5)::
+
+   1 10   1000  gene1 chr
+   2 100  1500  gene2 chr
+
+merging columns "**c5,c1**" with "-"(dash) will return::
+
+   1 10   1000  gene1 chr chr-1
+   2 100  1500  gene2 chr chr-2
+
+.. class:: warningmark
+
+Note that all original columns are preserved and the result of merge is added as the rightmost column.
+  </help>
+</tool>

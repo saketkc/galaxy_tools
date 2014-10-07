@@ -1,0 +1,8 @@
+Package definitions for Galaxy Toolshed
+========================================
+
+Currently hosted packages:
+* python-requests[2.2.1]
+* python-requests[2.0]
+
+

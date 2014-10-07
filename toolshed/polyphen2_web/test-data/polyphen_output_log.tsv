@@ -1,0 +1,36 @@
+===========================
+Stage 1/7: Validating input
+===========================
+No errors
+
+===============================
+Stage 2/7: Mapping genomic SNPs
+===============================
+No errors
+
+============================
+Stage 3/7: Collecting output
+============================
+No errors
+
+===============================================
+Stage 4/7: Building MSA and annotating proteins
+===============================================
+(XRCC1_HUMAN:399:R/Q)    WARNING: find_gene: Swapped codons (CAG>CGG) in uc002owt.2 nucleotide sequence at position: 1195
+(XRCC1_HUMAN:399:R/Q)    WARNING: Replaced reference AA residue (Q) with (R) in uc002owt.2 protein sequence at position: 399
+Total errors/warnings: 2
+
+============================
+Stage 5/7: Collecting output
+============================
+No errors
+
+=====================
+Stage 6/7: Predicting
+=====================
+No errors
+
+=============================
+Stage 7/7: Generating reports
+=============================
+No errors
