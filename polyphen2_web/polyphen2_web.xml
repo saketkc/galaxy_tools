@@ -61,10 +61,10 @@
             <param name="model" value="HumDiv"/>
             <param name="filter" value="All"/>
             <param name="function" value="All"/>
-            <output name="log_file" file="polyphen_output_log.txt"/>
-            <output name="full_file" file="polyphen_output_full.txt"/>
-            <output name="short_file" file="polyphen_output_short.txt"/>
-            <output name="snp_file" file="polyphen_output_snp.txt"/>
+            <output name="log_file" file="polyphen_output_log.tsv"/>
+            <output name="full_file" file="polyphen_output_full.tsv"/>
+            <output name="short_file" file="polyphen_output_short.tsv"/>
+            <output name="snp_file" file="polyphen_output_snp.tsv"/>
         </test>
 
     </tests>
