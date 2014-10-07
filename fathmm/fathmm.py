@@ -41,7 +41,7 @@ def main_web(args):
     print url
     response = requests.get(url)
     with open(args.output, 'wb') as fp:
-        fp.write(response)
+        fp.write(response.text)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Process input output paths")

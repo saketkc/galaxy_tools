@@ -8,6 +8,7 @@
      <tool file="sift_web/sift_web.xml" />
      <tool file="mutationassesor_web/mutation_assesor.xml" />
      <tool file="polyphen2_web/polyphen2_web.xml" />
+     <tool file="fathmm/fathmm.xml" />
      <tool file="replace_delimiter/replace_delimiter.xml" />
      <tool file="merge_columns_with_delimiter/merge_columns_with_delimiter.xml" />
   </section>
