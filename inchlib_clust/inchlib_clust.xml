@@ -13,13 +13,13 @@
                         --data_header
                     #end if
                     #if $metadata_option.metadata_present == "yes"
-                        --metadata $metadata
-                        --metadata_delimiter $metadata_delimiter
-                        #if $metadata_header.metadata_header_present == "yes"
+                        --metadata $metadata_option.metadata
+                        --metadata_delimiter $metadata_option.metadata_delimiter
+                        #if $metadata_option.metadata_header.metadata_header_present == "yes"
                             --metadata_header
                         #end if
-                        #if $metadata_compress_option.should_compress_metadata == "yes"
-                            --metadata_compressed_value $metadata_compressed_value
+                        #if $metadata_option.metadata_compress_option.should_compress_metadata == "yes"
+                            --metadata_compressed_value $metadata_option.metadata_compressed_value
                         #end if
                         #end if
                     #if $data_compress_option.should_compress_data == "yes"
@@ -162,6 +162,11 @@
                         <option value="no" selected="true">No</option>
                     </param>
                 </conditional>
+                <param name="metadata_delimiter" type="select" label="Metadata Delimiter">
+                    <option value="\t">tab</option>
+                    <option value=",">comma</option>
+                    <option value=";">semicolon</option>
+                </param>
                 <conditional name="metadata_compress_option">
                     <param name="should_compress_metadata" type="select" label="Compress Metadata Rows?">
                         <option value="yes">Yes</option>
@@ -185,7 +190,22 @@
 
     <tests>
         <test>
-            <param name="input" value="inchlib_input.csv"/>
+            <param name="input" value="inchlib_input1.csv"/>
+            <param name="row_distance" value="euclidean"/>
+            <param name="row_linkage" value="ward"/>
+            <param name="column_distance" value="euclidean"/>
+            <param name="column_linkage" value="ward"/>
+            <param name="axis" value="row" />
+            <param name="datatype" value="numeric" />
+            <param name="data_delimiter" value="," />
+            <param name="data_header_present" value="yes" />
+            <param name="should_compress_data" value="no" />
+            <param name="should_normalize" value="no" />
+            <param name="metadata_present" value="yes" />
+            <param name="metadata" value="inchlib_input_metadata.csv" />
+            <param name="metadata_delimiter" value="," />
+            <param name="metadata_header_present" value="yes" />
+            <output name="output" file="inchlib_output.json" />
         </test>
     </tests>
 

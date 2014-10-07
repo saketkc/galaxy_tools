@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="requests" version="2.2.1">
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_numpy_1_8" owner="qfab" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_scipy_0_12" owner="iuc" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_scikit_learn_0_15" owner="saketkc" />
+        <repository toolshed="http://toolshed.g2.bx.psu.edu" name="package_fastcluster_1_1_13" owner="saketkc" />
+    </package>
+</tool_dependency>

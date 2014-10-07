@@ -38,7 +38,6 @@ def main_web(args):
         url = __download_url__ + url + ".tab"
     except IndexError:
         stop_err("Unable to parse result id")
-    print url
     response = requests.get(url)
     with open(args.output, 'wb') as fp:
         fp.write(response.text)
