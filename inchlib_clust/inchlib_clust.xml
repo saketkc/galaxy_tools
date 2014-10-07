@@ -205,7 +205,7 @@
             <param name="metadata" value="inchlib_input_metadata.csv" />
             <param name="metadata_delimiter" value="," />
             <param name="metadata_header_present" value="yes" />
-            <output name="output" file="inchlib_output.json" />
+            <output name="output" file="inchlib_output.json" ftype="json" />
         </test>
     </tests>
 

@@ -31,6 +31,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/replace_delimiter tools/replace_delimiter
  - ln -s ${TRAVIS_BUILD_DIR}/driver_to_inchlib tools/driver_to_inchlib
  - ln -s ${TRAVIS_BUILD_DIR}/inchlib_clust tools/inchlib_clust
+ - ln -s ${TRAVIS_BUILD_DIR}/fathmm tools/fathmm
  - ln -s ${TRAVIS_BUILD_DIR}/merge_columns_with_delimiter tools/merge_columns_with_delimiter
  - ln -s ${TRAVIS_BUILD_DIR}/mutationassesor_web tools/mutationassesor_web
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
