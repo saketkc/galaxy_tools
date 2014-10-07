@@ -15,7 +15,7 @@
     <tests>
         <test>
             <param name="input" value="fathmm_input.txt"/>
-            <output name="output" file="fathmm_output.tab"/>
+            <output name="output" file="fathmm_output.tab" lines_diff="2"/>
         </test>
     </tests>
     <help>
