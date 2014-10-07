@@ -20,7 +20,7 @@ def main_web(args):
         contents = f.read().strip()
     threshold = -0.75
     if (args.threshold):
-        threshold = args.threshold
+        threshold = float(args.threshold)
     data = {"weighted": __type__,
             "batch": contents,
             "threshold": threshold

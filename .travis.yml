@@ -28,7 +28,7 @@ install:
  - echo $GALAXY_TEST_TOOL_CONF
  - ln -s ${TRAVIS_BUILD_DIR}/chasm_webservice tools/chasm_webservice
  - ln -s ${TRAVIS_BUILD_DIR}/condel_web tools/condel_web
- - ln -s ${TRAVIS_BUILD_DIR}/convert_delimiter tools/convert_delimiter
+ - ln -s ${TRAVIS_BUILD_DIR}/replace_delimiter tools/replace_delimiter
  - ln -s ${TRAVIS_BUILD_DIR}/driver_to_inchlib tools/driver_to_inchlib
  - ln -s ${TRAVIS_BUILD_DIR}/inchlib_clust tools/inchlib_clust
  - ln -s ${TRAVIS_BUILD_DIR}/merge_columns_with_delimiter tools/merge_columns_with_delimiter

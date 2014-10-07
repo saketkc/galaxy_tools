@@ -4,17 +4,19 @@
         <requirement type="package" version="2.2.1">requests</requirement>
         <requirement type="python-module">requests</requirement>
     </requirements>
-    <command interpreter="python">fathmm.py --input $input --output $output
+    <command interpreter="python">fathmm.py --input $input --output $output --threshold $threshold
     </command>
     <inputs>
         <param name="input" format="txt" type="data" label="Input variants" />
+        <param name="threshold" type="float" label="Threshold cutoff" value="-0.75" help="Predictions with scores less than this indicate that the mutation is potentially associated with cancer" />
     </inputs>
     <outputs>
-        <data name="output" format="tab"/>
+        <data name="output" format="tabular"/>
     </outputs>
     <tests>
         <test>
             <param name="input" value="fathmm_input.txt"/>
+            <param name="threshold" value="-0.75" />
             <output name="output" file="fathmm_output.tab" lines_diff="2"/>
         </test>
     </tests>

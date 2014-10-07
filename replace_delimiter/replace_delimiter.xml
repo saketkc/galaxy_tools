@@ -32,7 +32,7 @@
   <tests>
     <test>
       <param name="convert_from" value="P"/>
-      <param name="input" value="replace_deimiter_input.tsv" ftype="tabular"/>
+      <param name="input" value="replace_delimiter_input.tsv" ftype="tabular"/>
       <param name="convert_to" value="C"/>
       <output name="out_file1" file="replace_delimiter_output.csv"/>
     </test>
