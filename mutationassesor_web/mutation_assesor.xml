@@ -42,7 +42,7 @@
             <output name="output" file="ma_protein_output.csv"/>
         </test>
         <test>
-            <param name="input" value="mutationassessor_input.tsv"/>
+            <param name="input" value="mutationassessor_input.txt"/>
             <param name="protein" value="yes"/>
             <output name="output" file="mutationassessor_output.tsv"/>
         </test>
