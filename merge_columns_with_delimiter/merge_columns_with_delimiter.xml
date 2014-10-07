@@ -40,11 +40,11 @@
   </outputs>
   <tests>
     <test>
-      <param name="input1" value="1.bed"/>
-      <param name="col1" value="4" />
+      <param name="input1" value="merge_columns_with_delimiter_input.tsv"/>
+      <param name="col1" value="5" />
       <param name="col2" value="1" />
-      <param name="datacol" value="6" />
-      <output name="out_file1" file="mergeCols.dat"/>
+      <param name="datacol" value="3" />
+      <output name="out_file1" file="merge_columns_with_delimiter_output.tsv"/>
     </test>
   </tests>
 <help>
