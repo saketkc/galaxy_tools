@@ -2,6 +2,30 @@
 """
 Script to interact with Ensemble Variant Effect Predictor(VEP)
 webservice
+
+
+The MIT License (MIT)
+
+Copyright (c) 2014  Saket Choudhary<saketkc@gmail.com, skchoudh@usc.edu>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 """
 import argparse
 import requests
@@ -40,7 +64,8 @@ class VEPRestClient:
             try:
                 response = request.json()[0]
             except:
-                print request.json()
+                #TODO Better error handling
+                pass
             variants = response['transcript_consequences']
             for variant in variants:
                 if 'protein_id' not in variant.keys() or 'protein_start' not in variant.keys():
@@ -50,6 +75,7 @@ class VEPRestClient:
                         protein_variants[variant['protein_id']] = []
                     position = variant['protein_start']
                     try:
+                        #TODO Better error handling
                         amino_acid_original, amino_acid_substituted = variant['amino_acids'].split("/")
                         substitution = amino_acid_original + str(position) + amino_acid_substituted
                         if not  "X" in substitution:
@@ -57,7 +83,8 @@ class VEPRestClient:
                     except:
                         pass
         for key, value in protein_variants.iteritems():
-            print key, (",").join(value)
+            if len(value)>0:
+                print key, (",").join(value)
 
 
 
