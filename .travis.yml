@@ -20,6 +20,7 @@ before_install:
  - sudo pip install -U xlrd
  - sudo pip install -U beautifulsoup4
  - sudo pip install -U pycurl
+ - sudp pip install -U pyvcf
 
 install:
  - export GALAXY_TEST_VERBOSE_ERRORS=True 

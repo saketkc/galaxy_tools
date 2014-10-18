@@ -1,0 +1,53 @@
+<tool id="vep_rest" name="VEP Rest">
+    <description>VEP Web Service</description>
+    <requirements>
+        <requirement type="package" version="2.2.1">requests</requirement>
+        <requirement type="python-module">requests</requirement>
+    </requirements>
+    <command interpreter="python">
+        vep_rest.py --input_file $input --output_file $output
+    </command>
+    <inputs>
+        <param name="input" format="vcf" type="data" label="Input variants" />
+    </inputs>
+    <outputs>
+        <data name="output" format="txt"/>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input" value="vep_input.vcf"/>
+            <output name="output" file="vep_output.txt"/>
+        </test>
+    </tests>
+    <help>
+
+
+    **What it does**
+
+        This script calls VEP Rest webserice for GRCh37(http://grch37.rest.ensembl.org/) to fetch
+        consequences of  variations in the proteins ONLY. Variations in transcripts are IGNORED.
+
+        Input is a VCF file.[http://samtools.github.io/hts-specs/VCFv4.2.pdf]
+
+        Output is a text file with each line beginning with Protein identifier followed by comma separated substituions.
+        Example:
+
+        ENSP00000393181, S52C,G66W,P77S,R85K,V92M,L107I
+        ENSP00000471152, G45R,R42T,A40T,G19E,L11F,T3M
+        ENSP00000411579, S52C,G66W,P77S,R85K,V92M,L107I,E124A,E137K,R153H,R156P,E170K,S171L,P172R
+        ENSP00000349216, R9K,V16M,L31I,E48A,E61K,R77H,R80P,E94K,S95L,P96R
+        ENSP00000342313, S52C,G66W,P77S,R85K,V92M,L107I,E124A,E137K,R153H,R156P,E170K,S171L,P172R
+
+
+    **Citations**
+
+        If you use this tool in Galaxy, please cite :
+            McLaren W, Pritchard B, Rios D, Chen Y, Flicek P, Cunningham F.
+            Deriving the consequences of genomic variants with the Ensembl API and SNP Effect Predictor.
+            Bioinformatics 26(16):2069-70(2010)
+            doi:10.1093/bioinformatics/btq330
+
+
+    </help>
+</tool>
+

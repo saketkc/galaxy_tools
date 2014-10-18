@@ -35,22 +35,22 @@ import vcf
 
 URL = 'http://grch37.rest.ensembl.org/vep/human/region/{}:{}-{}/{}?content-type=application/json&protein=1'
 
-
-
 class VEPRestClient:
 
-
-    def __init__(self, input_file):
-        self.pending_urls = {}
+    def __init__(self, input_file, output_file):
+        self.pending_urls = []
         vcf_reader = vcf.Reader(open(input_file, 'r'))
+        self.output_file = output_file
         for record in vcf_reader:
             url = URL.format(record.CHROM, record.POS, record.POS, ("").join([str(x) for x in record.ALT]))
             key = "{}:{}-{}-{}".format(record.CHROM, record.POS, record.POS, ("").join([str(x) for x in record.ALT]))
-            self.pending_urls[key] = url
+            self.pending_urls.append((key, url))
 
     def submit(self):
         protein_variants = {}
-        for key, url in self.pending_urls.iteritems():
+        for record in self.pending_urls:
+            vcf_key = record[0]
+            url = record[1]
             request = requests.get(url)
             time_delay = None
             try:
@@ -58,35 +58,54 @@ class VEPRestClient:
                 time_delay = retry_delay
             except KeyError:
                 pass
+            response = None
             if time_delay:
                 time.sleep(time_delay)
                 request = requests.get(url)
             try:
                 response = request.json()[0]
-            except:
+            except Exception as e:
                 #TODO Better error handling
-                pass
+                print e
+            if not response:
+                continue
             variants = response['transcript_consequences']
+            consequence = ""
             for variant in variants:
-                if 'protein_id' not in variant.keys() or 'protein_start' not in variant.keys():
-                    continue
-                if variant['protein_id'].startswith('ENSP'):
-                    if variant['protein_id'] not in protein_variants.keys():
-                        protein_variants[variant['protein_id']] = []
-                    position = variant['protein_start']
-                    try:
-                        #TODO Better error handling
-                        amino_acid_original, amino_acid_substituted = variant['amino_acids'].split("/")
-                        substitution = amino_acid_original + str(position) + amino_acid_substituted
-                        if not  "X" in substitution:
-                            protein_variants[variant['protein_id']].append(substitution)
-                    except:
-                        pass
+                consequence  = ""
+                protein_id = None
+                protein_start = None
+                try:
+                    protein_id  = variant['protein_id']
+                except KeyError:
+                    pass
+                try:
+                    protein_start = variant['protein_start']
+                except KeyError:
+                    pass
+                if protein_id:
+                    if protein_id.startswith('ENSP'):
+                        if variant['protein_id'] not in protein_variants.keys():
+                            protein_variants[protein_id] = []
+                            consequence += protein_id
+                        if protein_start:
+                            try:
+                                #TODO Better error handling
+                                amino_acid_original, amino_acid_substituted = variant['amino_acids'].split("/")
+                                substitution = amino_acid_original + str(protein_start) + amino_acid_substituted
+                                if "X" not  in substitution:
+                                    protein_variants[variant['protein_id']].append(substitution)
+                                    consequence += "  ," + substitution
+                            except:
+                                pass
+
+        output = ""
         for key, value in protein_variants.iteritems():
             if len(value)>0:
-                print key, (",").join(value)
+                output += "{}   {}\n".format(key, (",").join(value))
 
-
+        with open(self.output_file, 'wb') as f:
+            f.write(output)
 
 
 
@@ -94,7 +113,8 @@ class VEPRestClient:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_file", type=str, required=True, help="Input file location")
+    parser.add_argument("--output_file", type=str, required=True, help="Output file location")
     args = parser.parse_args(sys.argv[1:])
-    vep = VEPRestClient(args.input_file)
+    vep = VEPRestClient(args.input_file, args.output_file)
     vep.submit()
 
