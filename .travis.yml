@@ -23,6 +23,7 @@ before_install:
  - sudp pip install -U pyvcf
 
 install:
+ - export GALAXY_TEST_UPLOAD_ASYNC=false
  - export GALAXY_TEST_VERBOSE_ERRORS=True 
  - export GALAXY_TEST_DB_TEMPLATE=https://github.com/jmchilton/galaxy-downloads/raw/master/db_gx_rev_0120.sqlite
  - export GALAXY_TEST_TOOL_CONF=${TRAVIS_BUILD_DIR}/.travis.tool_conf.xml
@@ -38,6 +39,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/polyphen2_web tools/polyphen2_web
  - ln -s ${TRAVIS_BUILD_DIR}/sift_web tools/sift_web
  - ln -s ${TRAVIS_BUILD_DIR}/transFIC_web tools/transFIC_web
+ - ln -s ${TRAVIS_BUILD_DIR}/vep_rest tools/vep_rest
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
  - ./run.sh --stop-daemon || true
 
