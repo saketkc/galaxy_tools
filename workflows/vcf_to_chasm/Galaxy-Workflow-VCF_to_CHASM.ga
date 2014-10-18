@@ -1,0 +1,106 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "VCF to CHASM", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 273, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Select first", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 597, 
+                "top": 141
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Show beginning1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"__rerun_remap_job_id__\": null, \"lineNum\": \"\\\"50\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "name": "CHASM Webservice", 
+            "outputs": [
+                {
+                    "name": "gene_analysis_out", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "variant_analysis_out", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "amino_acid_level_analysis_out", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "error_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "codon_level_analysis_out", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 713.5, 
+                "top": 560
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "chasm_webservice", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"gene_annotation\": \"\\\"no\\\"\", \"tissue_type\": \"\\\"Other\\\"\", \"analysis_type\": \"\\\"driver\\\"\", \"input\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }, 
+    "uuid": "571bfd8d-7d3a-4b0a-9e03-606e741eb524"
+}
