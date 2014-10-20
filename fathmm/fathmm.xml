@@ -61,5 +61,12 @@
         Ranking Non-Synonymous Single Nucleotide Polymorphisms based on Disease Concepts. In Press
 
     </help>
+    <citations>
+        <citation type="doi">10.1002/humu.22225</citation>
+        <citation type="doi">10.1093/bioinformatics/btt182</citation>
+        <citation type="doi">10.1186/1479-7364-8-11</citation>
+        <!-- This tool. -->
+        <citation type="doi">10.1101/010538</citation>
+    </citations>
 </tool>
 
