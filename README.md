@@ -5,7 +5,6 @@ Galaxy Tools
 
 Tools developed for http://usegalaxy.org
 
-If you use these tools, pleace cite:
+If you use these tools, please cite:
+Choudhary, S. K., & Noronha, S. B. (2014). GalDrive: Pipeline for comparative identification of driver mutations using the Galaxy framework. doi:10.1101/010538
 
-Choudhary, S. K., & Noronha, S. B. (2014). GalDrive: Pipeline for comparative identification of driver mutations using the Galaxy framework. bioRxiv.
-http://biorxiv.org/content/early/2014/10/19/010538.abstract
