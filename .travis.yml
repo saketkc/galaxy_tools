@@ -43,6 +43,7 @@ install:
  - ln -s ${TRAVIS_BUILD_DIR}/vep_rest tools/vep_rest
  - cp ${TRAVIS_BUILD_DIR}/test-data/* test-data/
  - ./run.sh --stop-daemon || true
+ - python scripts/fetch_eggs.py
 
 script:
  - python ./scripts/functional_tests.py -v `python tool_list.py Driver-Mutation-Tools`
