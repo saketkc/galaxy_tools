@@ -25,5 +25,13 @@
             <output name="output3" file="sift_output_summary.tsv"/>
         </test>
     </tests>
+    <citations>
+        <citation type="doi">10.1038/nprot.2009.86</citation>
+        <citation type="doi">10.1101/gr.176601</citation>
+        <citation type="doi">10.1101/gr.212802</citation>
+        <!-- TODO: Build BibTex for PMID 16824020 -->
+        <!-- This tool in biorxiv. -->
+        <citation type="doi">10.1101/010538</citation>
+    </citations>
 </tool>
 

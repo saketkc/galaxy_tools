@@ -291,4 +291,10 @@
         Douville C, Carter H, Kim R, Niknafs N, Diekhans M, Stenson PD, Cooper DN, Ryan M, Karchin R (2013). CRAVAT: Cancer-Related Analysis of VAriants Toolkit Bioinformatics, 29(5):647-648.
 
     </help>
+    <citations>
+        <!-- CRAVAT -->
+        <citation type="doi">10.1093/bioinformatics/btt017</citation>
+        <!-- This tool. -->
+        <citation type="doi">10.1101/010538</citation>
+    </citations>
 </tool>
