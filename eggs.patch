@@ -4,7 +4,7 @@
              else:
                  raise EggNotFetchable( self )
          except pkg_resources.VersionConflict, e:
-+            print "EEEEEE", e
++            print "EEEEEE", e, "ARGS:", e.args
              if e.args[1].key != e.args[0].key:
                  log.error( "One of Galaxy's managed eggs depends on something which is missing, this is almost certainly a bug in the egg distribution." )
                  log.error( 'Dependency "%s" requires "%s"' % ( e.args[0].project_name, str( e.args[1] ) ) )
