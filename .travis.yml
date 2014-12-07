@@ -11,7 +11,6 @@ before_install:
  - sudo apt-get install -y python-virtualenv
  - virtualenv venv
  - source venv/bin/activate
-   
 
 install:
  - export GALAXY_TEST_UPLOAD_ASYNC=false
